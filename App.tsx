@@ -100,7 +100,7 @@ const Sidebar = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolea
       )}
 
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col justify-between items-center py-12 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col-reverse justify-between items-center py-12 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
         <div className="h-32 w-px bg-primary dark:bg-white/20"></div>
         <nav className="flex flex-col gap-12 items-center flex-grow justify-center">
           {links.slice().reverse().map((link) => {
