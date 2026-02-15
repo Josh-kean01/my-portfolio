@@ -1,28 +1,13 @@
 import React, { useState, useEffect } from 'react';
-import { HashRouter, Routes, Route, useLocation, Link, NavLink } from 'react-router-dom';
-import { Menu, X, Moon, Sun, Share2, ArrowRight, Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Routes, Route, useLocation, Link, NavLink, BrowserRouter } from 'react-router-dom';
+import { Menu, X, Moon, Sun, ArrowRight, Github, Linkedin, Mail, Twitter } from 'lucide-react';
 import About from './pages/About';
 import Skills from './pages/Skills';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import Writing from './pages/Writing';
 import Contact from './pages/Contact';
-
-// --- Shared Components ---
-
-const SocialLinks = () => (
-  <div className="flex gap-4">
-    <a href="#" className="p-2 rounded-full border border-gray-200 dark:border-gray-800 hover:border-black dark:hover:border-white transition-colors">
-      <Github size={18} />
-    </a>
-    <a href="#" className="p-2 rounded-full border border-gray-200 dark:border-gray-800 hover:border-black dark:hover:border-white transition-colors">
-      <Linkedin size={18} />
-    </a>
-    <a href="#" className="p-2 rounded-full border border-gray-200 dark:border-gray-800 hover:border-black dark:hover:border-white transition-colors">
-      <Twitter size={18} />
-    </a>
-  </div>
-);
+import ShareMenuFab from './components/ShareMenuFab';
 
 const ThemeToggle = () => {
   const [isDark, setIsDark] = useState(false);
@@ -41,9 +26,9 @@ const ThemeToggle = () => {
   };
 
   return (
-    <button 
+    <button
       onClick={toggleTheme}
-      className="fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-surface-dark shadow-lg hover:scale-105 transition-transform border border-border-light dark:border-border-dark text-primary dark:text-white"
+      className="lg:fixed top-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-surface-dark shadow-lg hover:scale-105 transition-transform border border-border-light dark:border-border-dark text-primary dark:text-white"
       aria-label="Toggle Theme"
     >
       {isDark ? <Sun size={20} /> : <Moon size={20} />}
@@ -51,14 +36,6 @@ const ThemeToggle = () => {
   );
 };
 
-const ShareButton = () => (
-  <button 
-    className="fixed bottom-6 right-6 z-50 p-3 rounded-full bg-white dark:bg-surface-dark shadow-lg hover:scale-105 transition-transform border border-border-light dark:border-border-dark text-primary dark:text-white"
-    aria-label="Share"
-  >
-    <Share2 size={20} />
-  </button>
-);
 
 const Sidebar = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolean, setMobileMenuOpen: (v: boolean) => void }) => {
   const location = useLocation();
@@ -74,8 +51,8 @@ const Sidebar = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolea
   return (
     <>
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 w-full z-40 p-6 flex justify-between items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
-        <span className="font-display font-bold text-xl tracking-tight">PE.</span>
+      <div className="lg:hidden lg:fixed sticky top-0 left-0 w-full z-40 p-6 flex justify-between items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
+        <span className="font-display font-bold text-xl tracking-tight">JA.</span>
         <button onClick={() => setMobileMenuOpen(!mobileMenuOpen)} className="p-2 text-primary dark:text-white">
           {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
@@ -86,15 +63,23 @@ const Sidebar = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolea
         <div className="lg:hidden fixed inset-0 z-30 bg-background-light dark:bg-background-dark pt-24 px-6">
           <nav className="flex flex-col gap-8 text-2xl font-display font-bold">
             {links.map((link) => (
-              <Link 
-                key={link.name} 
-                to={link.path} 
+              <Link
+                key={link.name}
+                to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`transition-colors ${location.pathname === link.path ? 'text-primary dark:text-white' : 'text-gray-400'}`}
               >
                 {link.name}
               </Link>
             ))}
+            <div className="lg:hidden mt-auto pt-6 border-t border-border-light dark:border-border-dark">
+              <div className="flex items-center justify-between">
+                <span className="text-xs uppercase tracking-widest text-gray-500">
+                  Theme
+                </span>
+                <ThemeToggle />
+              </div>
+            </div>
           </nav>
         </div>
       )}
@@ -104,9 +89,9 @@ const Sidebar = ({ mobileMenuOpen, setMobileMenuOpen }: { mobileMenuOpen: boolea
         <div className="h-32 w-px bg-primary dark:bg-white/20"></div>
         <nav className="flex flex-col-reverse gap-12 items-center flex-grow justify-center">
           {links.slice().reverse().map((link) => {
-             const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
-             return (
-              <Link 
+            const isActive = location.pathname === link.path || (link.path !== '/' && location.pathname.startsWith(link.path));
+            return (
+              <Link
                 key={link.name}
                 to={link.path}
                 className={`vertical-text text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 relative group
@@ -139,13 +124,16 @@ const App = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <HashRouter>
+    <BrowserRouter>
       <ScrollToTop />
       <div className="min-h-screen flex flex-col lg:flex-row">
         <Sidebar mobileMenuOpen={mobileMenuOpen} setMobileMenuOpen={setMobileMenuOpen} />
-        <ThemeToggle />
-        <ShareButton />
-        
+        {/* Floating theme toggle: ONLY md+ */}
+        <div className="hidden lg:fixed lg:top-6 lg:right-6 lg:z-50 lg:block">
+          <ThemeToggle />
+        </div>
+        <ShareMenuFab />
+
         <main className="flex-1 lg:ml-24 w-full">
           <Routes>
             <Route path="/" element={<About />} />
@@ -157,7 +145,7 @@ const App = () => {
           </Routes>
         </main>
       </div>
-    </HashRouter>
+    </BrowserRouter>
   );
 };
 

@@ -11,7 +11,7 @@ const About = () => {
           <div className="space-y-2">
             <h2 className="text-4xl lg:text-5xl text-gray-400 font-display font-light">Hello, I'm</h2>
             <h1 className="text-5xl lg:text-7xl font-display font-bold text-primary dark:text-white tracking-tight">
-              Precious Egwuenu
+              Joshua Adekunle
             </h1>
           </div>
           <div className="max-w-xl text-lg lg:text-xl leading-relaxed text-gray-600 dark:text-gray-300 font-light">
@@ -19,28 +19,28 @@ const About = () => {
               I am a <strong className="font-semibold text-primary dark:text-white">frontend developer</strong> with a strong background in creating visually appealing and <strong className="font-semibold text-primary dark:text-white">user-friendly web experiences.</strong>
             </p>
             <p className="mt-4">
-               I am motivated to find a role where I can challenge myself <strong className="font-semibold text-primary dark:text-white">and provide value to website users.</strong> I am excited to bring my knowledge and experience to a team.
+              I am motivated to find a role where I can challenge myself <strong className="font-semibold text-primary dark:text-white">and provide value to website users.</strong> I am excited to bring my knowledge and experience to a team.
             </p>
           </div>
           <div className="pt-4">
             <div className="relative inline-block group cursor-pointer">
               <div className="absolute top-1.5 left-1.5 w-full h-full border border-primary dark:border-white transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-              <a href="/resume.pdf" target="_blank" className="relative block bg-primary text-white dark:bg-white dark:text-primary px-10 py-4 text-sm uppercase tracking-widest font-bold border border-transparent hover:shadow-xl transition-all duration-300">
+              <a href="../adekunle-joshua-resume.pdf" target="_blank" className="relative block bg-primary text-white dark:bg-white dark:text-primary px-10 py-4 text-sm uppercase tracking-widest font-bold border border-transparent hover:shadow-xl transition-all duration-300">
                 View Resumé
               </a>
             </div>
           </div>
         </div>
-        
+
         {/* Abstract visual or Image could go here, currently keeping it clean as per layout */}
         <div className="hidden lg:flex items-center justify-center relative">
-            <div className="w-full h-full max-h-[600px] bg-gray-200 dark:bg-gray-800 rounded-sm overflow-hidden relative">
-                <img 
-                    src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop" 
-                    alt="Abstract Minimalist Design" 
-                    className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
-                />
-            </div>
+          <div className="w-full h-full max-h-[600px] bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden relative">
+            <img
+              src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop"
+              alt="Abstract Minimalist Design"
+              className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
+            />
+          </div>
         </div>
       </div>
 
@@ -75,7 +75,7 @@ const About = () => {
               ))}
             </ul>
           </div>
-          
+
           <div>
             <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-4">Tools I Use</h3>
             <div className="flex flex-wrap gap-2">
@@ -94,15 +94,15 @@ const About = () => {
         <div className="flex items-center justify-between mb-8">
           <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold">Certifications</h3>
           <div className="flex gap-2">
-            <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500">
+            <button title="Previous certification" className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500">
               <ArrowRight className="rotate-180" size={20} />
             </button>
-            <button className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-primary dark:text-white">
+            <button title="Next certification" className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-primary dark:text-white">
               <ArrowRight size={20} />
             </button>
           </div>
         </div>
-        
+
         <div className="flex overflow-x-auto gap-6 pb-8 no-scrollbar snap-x">
           {[
             { org: "Google", title: "UX Design Professional", date: "Issued Oct 2022", color: "text-yellow-500" },
