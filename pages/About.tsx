@@ -1,6 +1,5 @@
 import React from 'react';
 import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from 'lucide-react';
-import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -12,6 +11,7 @@ const About = () => {
             <h2 className="text-4xl lg:text-5xl text-gray-400 font-display font-light">Hello, I'm</h2>
             <h1 className="text-5xl lg:text-7xl font-display font-bold text-primary dark:text-white tracking-tight">
               Joshua Adekunle
+            
             </h1>
           </div>
           <div className="max-w-xl text-lg lg:text-xl leading-relaxed text-gray-600 dark:text-gray-300 font-light">
