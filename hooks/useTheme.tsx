@@ -3,29 +3,27 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 export function useTheme() {
-    const [theme, setTheme] = useState<Theme>("light");
+    // Read initial theme from the class that was set in <head>
+    const [theme, setTheme] = useState<Theme>(() =>
+        document.documentElement.classList.contains("dark") ? "dark" : "light"
+    );
 
-    // Initialize ONCE
-    useEffect(() => {
-        const saved = localStorage.getItem("theme") as Theme | null;
-
-        if (saved === "light" || saved === "dark") {
-            setTheme(saved);
-            return;
-        }
-
-        // No saved choice -> use system preference as default
-        const prefersDark = window.matchMedia?.("(prefers-color-scheme: dark)").matches;
-        setTheme(prefersDark ? "dark" : "light");
-    }, []);
-
-    // Apply to <html> + persist whenever theme changes
+    // Keep <html> and theme-color in sync whenever theme changes
     useEffect(() => {
         document.documentElement.classList.toggle("dark", theme === "dark");
-        localStorage.setItem("theme", theme);
+
+        const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
+        if (meta) meta.content = theme === "dark" ? "#0c0a09" : "#F4F4F4";
     }, [theme]);
 
-    const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
+    // Persist ONLY when user explicitly toggles
+    const toggleTheme = () => {
+        setTheme((prev) => {
+            const next: Theme = prev === "dark" ? "light" : "dark";
+            localStorage.setItem("theme", next);
+            return next;
+        });
+    };
 
     return { theme, isDark: theme === "dark", toggleTheme, setTheme };
 }
