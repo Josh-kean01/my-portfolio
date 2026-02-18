@@ -13,7 +13,7 @@ export function useTheme() {
         document.documentElement.classList.toggle("dark", theme === "dark");
 
         const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-        if (meta) meta.content = theme === "dark" ? "#0c0a09" : "#F4F4F4";
+        if (meta) meta.content = theme === "dark" ? "#0c0a09" : "#eeeeee";
     }, [theme]);
 
     // Persist ONLY when user explicitly toggles
