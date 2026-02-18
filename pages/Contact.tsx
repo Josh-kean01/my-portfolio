@@ -20,7 +20,7 @@ const Contact = () => {
               If you have a project that needs some creative touch, I'd love to hear about it.
             </p>
             <div className="pt-4">
-               <p className="mb-1"><span className="font-bold text-primary dark:text-white">Email:</span> hello@precious.design</p>
+               <p className="mb-1"><span className="font-bold text-primary dark:text-white">Email:</span>thejosh.webdev@gmail.com</p>
                <p><span className="font-bold text-primary dark:text-white">Location:</span> Lagos, Nigeria (GMT+1)</p>
             </div>
           </div>
