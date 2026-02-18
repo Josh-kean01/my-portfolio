@@ -7,9 +7,9 @@ import About from "./pages/About";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
 import ProjectDetail from "./pages/ProjectDetail";
-import Writing from "./pages/Writing"; // rename this file/page to Blog later if you want
 import Contact from "./pages/Contact";
 import ShareMenuFab from "./components/ShareMenuFab";
+import Blog from "./pages/Blog";
 
 const ThemeToggle = ({
   isDark,
@@ -50,7 +50,7 @@ const Sidebar = ({
     { name: "About", path: "/" },
     { name: "Skills", path: "/skills" },
     { name: "Projects", path: "/projects" },
-    { name: "Blog", path: "/writing" }, // ✅ match your Routes below
+    { name: "Blog", path: "/blog" }, // ✅ match your Routes below
     { name: "Contact", path: "/contact" },
   ];
 
@@ -171,7 +171,7 @@ const AppShell = () => {
           <Route path="/skills" element={<Skills />} />
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
-          <Route path="/writing" element={<Writing />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

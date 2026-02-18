@@ -34,7 +34,7 @@ const Contact = () => {
               <Linkedin size={20} className="text-gray-700 dark:text-gray-300 group-hover:text-blue-600 dark:group-hover:text-blue-500" />
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">LinkedIn</span>
             </a>
-            <a href="mailto:hello@precious.design" className="group flex items-center gap-2 px-5 py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-full hover:border-primary dark:hover:border-white transition-all shadow-sm">
+            <a href="mailto:thejosh.webdev@gmail.com" className="group flex items-center gap-2 px-5 py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-full hover:border-primary dark:hover:border-white transition-all shadow-sm">
               <Mail size={20} className="text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white" />
               <span className="text-sm font-medium text-gray-700 dark:text-gray-300">Email</span>
             </a>

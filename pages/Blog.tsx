@@ -28,13 +28,13 @@ const articles = [
   }
 ];
 
-const Writing = () => {
+const Blog = () => {
   return (
     <div className="px-6 py-24 md:px-12 lg:px-20 max-w-5xl mx-auto animate-fade-in-up">
       <header className="mb-20">
         <span className="text-xs font-bold uppercase tracking-widest text-gray-400 mb-4 block">Words & Thoughts</span>
         <h1 className="text-5xl lg:text-7xl font-display font-bold text-primary dark:text-white mb-6">
-          Writing
+          Blog
         </h1>
         <p className="text-xl text-gray-500 dark:text-gray-400 font-light max-w-2xl">
           Insights on frontend development, design systems, and creating user-friendly web experiences.
@@ -72,10 +72,10 @@ const Writing = () => {
       </div>
 
       <footer className="mt-24 pt-12 border-t border-border-light dark:border-border-dark text-center text-gray-400 text-sm">
-        © 2023 Precious Egwuenu. All rights reserved.
+        © 2023 Joshua Adekunle. All rights reserved.
       </footer>
     </div>
   );
 };
 
-export default Writing;
+export default Blog;
