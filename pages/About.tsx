@@ -8,13 +8,13 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
         <div className="flex flex-col justify-center space-y-8">
           <div className="space-y-2">
-            <h2 className="text-4xl lg:text-5xl text-gray-400 font-display font-light">Hello, I'm</h2>
-            <h1 className="text-5xl lg:text-7xl font-display font-bold text-primary dark:text-white tracking-tight">
+            <h2 className="text-3xl lg:text-2xl xl:text-5xl text-gray-400 font-display font-light">Hello, I'm</h2>
+            <h1 className="text-4xl lg:text-6xl xl:text-7xl font-display font-bold text-primary dark:text-white tracking-tight">
               Joshua Adekunle
             
             </h1>
           </div>
-          <div className="max-w-xl text-lg lg:text-xl leading-relaxed text-gray-600 dark:text-gray-300 font-light">
+          <div className="max-w-xl text-base lg:text-lg xl:text:xl leading-relaxed text-gray-600 dark:text-gray-300 font-light">
             <p>
               I am a <strong className="font-semibold text-primary dark:text-white">frontend developer</strong> with a strong background in creating visually appealing and <strong className="font-semibold text-primary dark:text-white">user-friendly web experiences.</strong>
             </p>

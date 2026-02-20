@@ -101,10 +101,10 @@ const Sidebar = ({
       )}
 
       {/* Desktop Sidebar */}
-      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col justify-between items-center py-12 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
-        <div className="xl:h-24 h-32 w-px bg-primary dark:bg-white/20 py-5"></div>
+      <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col justify-between items-center py-6 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
+        <div className="xl:h-24 h-32 w-px bg-primary dark:bg-white/20 my-2"></div>
 
-        <nav className="flex flex-col-reverse gap-12 items-center flex-grow justify-center">
+        <nav className="flex flex-col-reverse gap-9 items-center flex-grow justify-center">
           {links
             .slice()
             .reverse()
@@ -117,7 +117,7 @@ const Sidebar = ({
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`vertical-text text-[0.7rem] font-bold xl:tracking-[0] tracking-[0.1em] uppercase transition-all duration-300 relative group
+                  className={`vertical-text text-[0.7rem] font-bold tracking-[0.1em] uppercase transition-all duration-300 relative group
                     ${isActive
                       ? "text-primary dark:text-white"
                       : "text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -133,7 +133,7 @@ const Sidebar = ({
             })}
         </nav>
 
-        <div className="xl:h-24 h-32 w-px bg-primary dark:bg-white/20 py-5"></div>
+        <div className="xl:h-24 h-32 w-px bg-primary dark:bg-white/20 my-2"></div>
       </aside>
     </>
   );
