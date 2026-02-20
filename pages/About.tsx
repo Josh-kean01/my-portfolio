@@ -3,9 +3,9 @@ import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from 'lucide-r
 
 const About = () => {
   return (
-    <div className="px-6 py-24 md:px-12 lg:px-10 xl:px:20 max-w-7xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-24 md:px-12 lg:px-20 max-w-7xl mx-auto animate-fade-in-up">
       {/* Hero Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-24">
         <div className="flex flex-col justify-center space-y-8">
           <div className="space-y-2">
             <h2 className="text-4xl lg:text-5xl text-gray-400 font-display font-light">Hello, I'm</h2>
@@ -33,7 +33,7 @@ const About = () => {
         </div>
 
         {/* Abstract visual or Image could go here, currently keeping it clean as per layout */}
-        <div className="hidden lg:flex items-center justify-center relative">
+        <div className="hidden md:flex items-center justify-center relative">
           <div className="w-full h-full max-h-[600px] bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden relative">
             <img
               src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop"

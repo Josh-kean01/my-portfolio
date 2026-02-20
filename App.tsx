@@ -165,7 +165,7 @@ const AppShell = () => {
 
       <ShareMenuFab />
 
-      <main className="flex-1 lg:ml-24 w-full">
+      <main className="flex-1 lg:ml-24 w-full lg:w-[calc(100%-6rem)]">
         <Routes>
           <Route path="/" element={<About />} />
           <Route path="/skills" element={<Skills />} />
