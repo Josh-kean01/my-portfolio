@@ -3,7 +3,7 @@ import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from 'lucide-r
 
 const About = () => {
   return (
-    <div className="px-6 py-24 md:px-12 lg:px-20 max-w-7xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-24 md:px-12 lg:px-10 xl:px:20 max-w-7xl mx-auto animate-fade-in-up">
       {/* Hero Section */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24">
         <div className="flex flex-col justify-center space-y-8">
