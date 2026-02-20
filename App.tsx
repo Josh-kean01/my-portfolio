@@ -72,13 +72,13 @@ const Sidebar = ({
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-30 bg-background-light dark:bg-background-dark pt-24 px-6 h-full">
-          <nav className="flex flex-col gap-8 text-2xl font-display font-bold ">
+          <nav className="flex flex-col gap-8 text-2xl font-display font-bold">
             {links.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`transition-colors ${location.pathname === link.path
+                className={`transition-colors text-sm ${location.pathname === link.path
                   ? "text-primary dark:text-white"
                   : "text-gray-400"
                   }`}
@@ -102,7 +102,7 @@ const Sidebar = ({
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col justify-between items-center py-12 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
-        <div className="h-32 w-px bg-primary dark:bg-white/20"></div>
+        <div className="xl:h-24 h-32 w-px bg-primary dark:bg-white/20 py-5"></div>
 
         <nav className="flex flex-col-reverse gap-12 items-center flex-grow justify-center">
           {links
@@ -117,7 +117,7 @@ const Sidebar = ({
                 <Link
                   key={link.name}
                   to={link.path}
-                  className={`vertical-text text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 relative group
+                  className={`vertical-text text-[0.7rem] font-bold xl:tracking-[0] tracking-[0.1em] uppercase transition-all duration-300 relative group
                     ${isActive
                       ? "text-primary dark:text-white"
                       : "text-gray-400 hover:text-gray-800 dark:hover:text-gray-200"
@@ -133,7 +133,7 @@ const Sidebar = ({
             })}
         </nav>
 
-        <div className="h-32 w-px bg-primary dark:bg-white/20"></div>
+        <div className="xl:h-24 h-32 w-px bg-primary dark:bg-white/20 py-5"></div>
       </aside>
     </>
   );
