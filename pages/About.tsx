@@ -43,12 +43,7 @@ const About = () => {
           <div className="pt-3">
             <div className="relative inline-block group cursor-pointer">
               <div className="absolute top-1.5 left-1.5 w-full h-full border border-primary dark:border-white transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-              <a
-                href="../adekunle-joshua-resume.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="relative block bg-primary text-white dark:bg-white dark:text-primary px-8 xl:px-9 2xl:px-10 py-3.5 text-xs xl:text-xs 2xl:text-sm uppercase tracking-widest font-bold border border-transparent hover:shadow-xl transition-all duration-300"
-              >
+              <a href="../adekunle-joshua-resume.pdf" target="_blank" className="relative block bg-primary text-white dark:bg-white dark:text-primary px-10 py-4 text-sm uppercase tracking-widest font-bold border border-transparent hover:shadow-xl transition-all duration-300">
                 View Resumé
               </a>
             </div>

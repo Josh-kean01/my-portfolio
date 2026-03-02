@@ -1,29 +1,15 @@
+// src/pages/ProjectDetail.tsx
 import React from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
+import { getProjectById } from "../data/projects";
 
 const ProjectDetail = () => {
   const { id } = useParams();
+  const project = getProjectById(id);
 
-  // In a real app, fetch data based on ID. Using static data for demo matching the snippet.
-  const project = {
-    title: "Fintech Dashboard Reimagined",
-    role: "Lead Product Designer",
-    timeframe: "Q3 2023 — 6 Weeks",
-    client: "Nova Bank",
-    overview:
-      "Nova Bank approached us with a challenge: their legacy dashboard was cluttering user experience with redundant data points, leading to a 40% drop-off in engagement. I led the redesign of the web platform, focusing on simplifying the information architecture and introducing a modular component system that scales.",
-    problem:
-      "Users struggled to find key transaction details within seconds. The previous design relied heavily on tables with poor contrast and lacked mobile responsiveness.",
-    solution:
-      'We introduced a "cards-first" layout, prioritizing the most accessed features: Account Summary, Recent Transactions, and Quick Transfer. By utilizing a monochrome-first approach with strategic accent colors for actions, we improved readability and accessibility scores by 35%.',
-    stack: ["Figma", "React", "Tailwind CSS", "Framer Motion", "Linear"],
-    images: [
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuBCJa93uTfnzm-DrtAS0TzL5TGQNoI2zylgx0RL9LD87eCwkvHe7_t6d0_ooDGxwgKqZWhFAQ9rK1fZ07WJMAXWr16wEN6J4GloHf5gMUm3BaTnru6KIVb-7SWJGdgUbkSAdZM_xAH8zGTH_SynPLjRAnmDBM-jPrGh4AvMjNyFyYFmvLA4R1zfSbxrdkO7AoMyGgVaVyK9BlDS1i4t5SLJOS2FTwp-HXR2IVRYITr_7vwBNBed8ObcYu_eeTYgESgBqu12wpRgNjk",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuA5boBCPuQ2D-pVUGG7z_LwqnACQP7ol9iTNlukcWzm6GM369WAsFntpddmQKSuhIHfAL0nGWOi2vUc1lPErytVkOs5D6OVeqYd00IuLUOBl60GD6wIVMNnl5u-F7Je3_UZsZ-4gT0IlVbDpzWsRcsFMwqaMiSz0EMXLOa1zzRDl6mGqwVf-X-626TWAanxfoMFbbx8AaO5GfvdEho6yFdUOVRYwi5fUe7V-odmOp2Y4pB7OOCBquNKAFsNzOHb8lbMXhpOywbhnmk",
-      "https://lh3.googleusercontent.com/aida-public/AB6AXuDqSUc_qi64s2_u7a1BH0GORzE9im_uL6vsC-qti7lkwMFRivHC8bRrmepSmHTnxnifeMMndW5efKV9ISqGPhKag3qOkAW1LMsFuPorHopkktC11xmd_v-PNjSFEN98XcVo96u4hzr2yNBwXIQ7SXZ4Xi0PN-hVtRNa_Kd1B7yzwtPznGrZoVWINRo7SSyXEF71dR_yldHm_-ik5f1W_ubTEqw-Q6-sPsHcB2OAD3WK6LbRMk_oI8Ilhfi8lVElI-zOhW1Tq_ghuT4",
-    ],
-  };
+  // If someone hits a bad URL, send them back to Projects (or render a 404).
+  if (!project) return <Navigate to="/projects" replace />;
 
   return (
     <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto animate-fade-in-up">
@@ -39,7 +25,6 @@ const ProjectDetail = () => {
       </Link>
 
       <header className="mb-12 xl:mb-14 2xl:mb-20">
-        {/* Smaller at xl (1366-ish), keep big at 2xl (1920) */}
         <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-bold mb-6 2xl:mb-8 leading-tight text-primary dark:text-white">
           {project.title}
         </h1>
@@ -121,13 +106,17 @@ const ProjectDetail = () => {
               ))}
             </div>
 
-            <a
-              href="#"
-              className="mt-10 2xl:mt-12 inline-flex items-center gap-2 text-primary dark:text-white border-b border-primary dark:border-white pb-1 font-bold hover:opacity-70 transition-opacity text-xs 2xl:text-sm"
-            >
-              Visit Live Site <ExternalLink size={14} className="2xl:hidden" />
-              <ExternalLink size={16} className="hidden 2xl:block" />
-            </a>
+            {project.liveUrl && (
+              <a
+                href={project.liveUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-10 2xl:mt-12 inline-flex items-center gap-2 text-primary dark:text-white border-b border-primary dark:border-white pb-1 font-bold hover:opacity-70 transition-opacity text-xs 2xl:text-sm"
+              >
+                Visit Live Site <ExternalLink size={14} className="2xl:hidden" />
+                <ExternalLink size={16} className="hidden 2xl:block" />
+              </a>
+            )}
           </div>
         </div>
       </div>
@@ -138,7 +127,7 @@ const ProjectDetail = () => {
             Project Gallery
           </h2>
           <span className="text-xs 2xl:text-sm text-gray-400 font-mono hidden sm:inline-block">
-            01 — 03
+            01 — {String(project.images.length).padStart(2, "0")}
           </span>
         </div>
 
@@ -150,7 +139,7 @@ const ProjectDetail = () => {
             >
               <img
                 src={img}
-                alt={`Gallery ${i}`}
+                alt={`${project.title} — Gallery ${i + 1}`}
                 className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
