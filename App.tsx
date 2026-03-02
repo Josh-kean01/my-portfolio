@@ -71,13 +71,13 @@ const Sidebar = ({
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-30 bg-background-light dark:bg-background-dark pt-20 px-5 h-full">
-          <nav className="flex flex-col gap-6 font-display font-bold">
+          <nav className="flex flex-col gap-6 font-display font-bold py-4">
             {links.map((link) => (
               <Link
                 key={link.name}
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
-                className={`transition-colors text-base ${location.pathname === link.path
+                className={`transition-colors text-xl ${location.pathname === link.path
                     ? "text-primary dark:text-white"
                     : "text-gray-400"
                   }`}
