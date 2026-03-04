@@ -58,6 +58,7 @@ const Sidebar = ({
     <>
       {/* Mobile Header */}
       <div className="lg:hidden sticky top-0 left-0 w-full z-40 px-5 py-4 flex justify-between items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
+        <Noise />
         <span className="font-display font-bold text-lg tracking-tight">JA.</span>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -72,6 +73,7 @@ const Sidebar = ({
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <div className="lg:hidden fixed inset-0 z-30 bg-background-light dark:bg-background-dark pt-20 px-5 h-full">
+          <Noise />
           <nav className="flex flex-col gap-6 font-display font-bold py-4">
             {links.map((link) => (
               <Link
@@ -102,6 +104,9 @@ const Sidebar = ({
 
       {/* Desktop Sidebar */}
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col justify-between items-center py-4 xl:py-5 2xl:py-6 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
+        <div className="absolute inset-0 z-0">
+          <Noise />
+        </div>  
         <div className="h-20 xl:h-24 2xl:h-32 w-px bg-primary dark:bg-white/20 my-2"></div>
 
         <nav className="flex flex-col-reverse gap-6 xl:gap-7 2xl:gap-9 items-center flex-grow justify-center">
