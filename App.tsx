@@ -10,6 +10,7 @@ import ProjectDetail from "./pages/ProjectDetail";
 import Contact from "./pages/Contact";
 import ShareMenuFab from "./components/ShareMenuFab";
 import Blog from "./pages/Blog";
+import Noise from "./components/Noise";
 
 const ThemeToggle = ({
   isDark,
@@ -78,8 +79,8 @@ const Sidebar = ({
                 to={link.path}
                 onClick={() => setMobileMenuOpen(false)}
                 className={`transition-colors text-xl ${location.pathname === link.path
-                    ? "text-primary dark:text-white"
-                    : "text-gray-400"
+                  ? "text-primary dark:text-white"
+                  : "text-gray-400"
                   }`}
               >
                 {link.name}
@@ -150,6 +151,17 @@ const AppShell = () => {
 
   return (
     <div className="min-h-screen flex flex-col lg:flex-row">
+      {/* Global Noise background: fixed to viewport */}
+      <div className="fixed inset-0 pointer-events-none z-0">
+        <Noise
+          patternSize={50}
+          patternScaleX={1.2}
+          patternScaleY={2}
+          patternRefreshInterval={2}
+          patternAlpha={12}
+        />
+      </div>
+
       <Sidebar
         mobileMenuOpen={mobileMenuOpen}
         setMobileMenuOpen={setMobileMenuOpen}

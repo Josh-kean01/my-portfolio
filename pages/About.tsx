@@ -1,5 +1,7 @@
 import React from "react";
 import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from "lucide-react";
+import ShinyText from "../components/ShinyText";
+import TiltedCard from "../components/TiltedCard";
 
 const About = () => {
   return (
@@ -14,7 +16,18 @@ const About = () => {
 
             {/* Smaller at xl (1366-ish), keep big at 2xl (1920) */}
             <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-display font-bold text-primary dark:text-white tracking-tight">
-              Joshua Adekunle
+              <ShinyText
+                text="Joshua Adekunle"
+                speed={2}
+                delay={0}
+                color="#b5b5b5"
+                shineColor="#ffffff"
+                spread={120}
+                direction="left"
+                yoyo={false}
+                pauseOnHover={false}
+                disabled={false}
+              />
             </h1>
           </div>
 
@@ -52,11 +65,26 @@ const About = () => {
 
         {/* Visual */}
         <div className="hidden md:flex items-center justify-center relative">
-          <div className="w-full h-full max-h-[520px] 2xl:max-h-[600px] bg-gray-200 dark:bg-gray-800 rounded-xl overflow-hidden relative">
-            <img
-              src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop"
-              alt="Abstract Minimalist Design"
+          <div className="w-full h-full max-h-[520px] min-h-[520px] 2xl:max-h-[600px] bg-gray-100 dark:bg-gray-900 rounded-xl overflow-hidden relative">
+            <TiltedCard
+              imageSrc="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop"
+              altText="Website design and development"
+              captionText="Website design and development"
+              containerHeight="100%"
+              containerWidth="100%"
+              imageHeight="100%"
+              imageWidth="100%"
+              rotateAmplitude={12}
+              scaleOnHover={1.05}
+              showMobileWarning={false}
               className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
+              showTooltip
+              displayOverlayContent
+              overlayContent={
+                <p className="tilted-card-demo-text">
+
+                </p>
+              }
             />
           </div>
         </div>
