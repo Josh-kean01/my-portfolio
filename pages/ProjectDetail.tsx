@@ -3,6 +3,7 @@ import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getProjectById } from "../data/projects";
+import CircularGallery from "../components/CircularGallery";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -131,19 +132,20 @@ const ProjectDetail = () => {
           </span>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 2xl:gap-6">
-          {project.images.map((img, i) => (
-            <div
-              key={i}
-              className="aspect-[4/3] bg-gray-200 dark:bg-surface-dark rounded-lg overflow-hidden group relative"
-            >
-              <img
-                src={img}
-                alt={`${project.title} — Gallery ${i + 1}`}
-                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-            </div>
-          ))}
+        <div className="h-[420px] sm:h-[520px] lg:h-[600px] relative rounded-xl overflow-hidden bg-gray-200 dark:bg-surface-dark">
+          <CircularGallery
+            items={project.images.map((image, i) => ({
+              image,
+              text: `${project.title} ${i + 1}`,
+            }))}
+            bend={0}
+            borderRadius={0.045}
+            scrollSpeed={2.2}
+            scrollEase={0.12}
+            showTitles={false}
+            cardGap={0.35}
+            font='bold 22px "Space Grotesk", sans-serif'
+          />
         </div>
       </section>
 
