@@ -25,6 +25,41 @@ export type Project = {
 
 export const projectsData: Project[] = [
   {
+    id: "airtime-tracker-ui",
+    title: "Airtime Usage Tracker",
+    year: "2026",
+    category: "UI Design",
+    description:
+      "A mobile UI/UX concept for tracking airtime spending—weekly/monthly insights, network breakdown, budgeting alerts, export tools, and complete light/dark themes with key states.",
+    tags: ["UI/UX", "Mobile Design", "Design System", "Figma"],
+    image: "/assets/projects/airtime-tracker/cover.png",
+
+    role: "Product Designer (UI/UX)",
+    timeframe: "2 Weeks",
+    client: "Personal / Academic Project",
+    overview:
+      "Students and everyday mobile users often buy airtime frequently but have no clear way to understand their spending patterns. The goal of Airtime Usage Tracker was to design a mobile experience that makes airtime spending visible and actionable: log purchases, group by network provider, visualize trends, export records, and support budgeting with spending alerts. The design follows a clean, modern dashboard aesthetic with comfortable spacing, soft cards, and a clear typography hierarchy, and it includes complete light and dark theme variants across core flows and states.",
+    problem:
+      "Airtime spending is typically fragmented across multiple purchases, providers, and dates. Without a dedicated tracker, users can’t easily answer basic questions like: “How much did I spend this week vs this month?”, “Which network drains my money most?”, or “Am I close to my monthly limit?” Existing approaches (notes apps, bank statements, or mental estimates) fail because they don’t categorize by provider, don’t show trends, and don’t provide a frictionless logging flow. In addition, many finance-style trackers feel too complex or table-heavy for quick mobile usage—users need clarity in seconds, not more data.",
+    solution:
+      "I designed a cards-first dashboard that surfaces the most important answers immediately: weekly and monthly spend summaries, a spending trend visualization, and a quick view of recent transactions. Logging airtime is treated as a high-frequency action, so the Add Airtime flow is a minimal form with strong validation states (e.g., amount required). For analysis, the Summary screen delivers a clear total spend headline, provider comparisons (highest/lowest), and a network breakdown visualization, plus a spending limit control that supports budgeting behavior. The History experience prioritizes speed: provider filter chips, a readable transaction list, a friendly empty state to guide first-time users, and a confirm-delete modal to prevent accidental loss of records. The result is a complete UI system that supports daily usage, edge cases, and dark mode consistency.",
+    stack: ["Figma", "Design Tokens", "UI Kit", "iOS/Android Patterns"],
+    images: [
+      "/assets/projects/airtime-tracker/01-splash-light.jpg",
+      "/assets/projects/airtime-tracker/02-splash-dark.jpg",
+      "/assets/projects/airtime-tracker/03-home-light.jpg",
+      "/assets/projects/airtime-tracker/04-home-dark.jpg",
+      "/assets/projects/airtime-tracker/05-add-airtime-light.jpg",
+      "/assets/projects/airtime-tracker/06-add-airtime-dark.jpg",
+      "/assets/projects/airtime-tracker/07-history-delete-modal-light.jpg",
+      "/assets/projects/airtime-tracker/08-history-delete-modal-dark.jpg",
+      "/assets/projects/airtime-tracker/09-summary-light.jpg",
+      "/assets/projects/airtime-tracker/10-summary-dark.jpg"
+    ],
+    liveUrl: "#",
+    repoUrl: "#",
+  },
+  {
     id: "fintech-dashboard",
     title: "Fintech Dashboard",
     year: "2023",
@@ -166,7 +201,6 @@ export const projectsData: Project[] = [
     liveUrl: "#",
     repoUrl: "#",
   },
-
   {
     id: "sonic-stream",
     title: "Sonic Stream",
@@ -194,6 +228,7 @@ export const projectsData: Project[] = [
     liveUrl: "#",
     repoUrl: "#",
   },
+
 ];
 
 // Helper for detail lookup

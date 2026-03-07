@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route, useLocation, Link, BrowserRouter } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
-import { useTheme } from "./hooks/useTheme";
+import { useTheme } from "@/hooks/useTheme";
 
-import About from "./pages/About";
-import Skills from "./pages/Skills";
-import Projects from "./pages/Projects";
-import ProjectDetail from "./pages/ProjectDetail";
-import Contact from "./pages/Contact";
-import ShareMenuFab from "./components/ShareMenuFab";
-import Blog from "./pages/Blog";
-import Noise from "./components/Noise";
+import About from "@/pages/About";
+import Skills from "@/pages/Skills";
+import Projects from "@/pages/Projects";
+import ProjectDetail from "@/pages/ProjectDetail";
+import Contact from "@/pages/Contact";
+import ShareMenuFab from "@/components/ShareMenuFab";
+import Blog from "@/pages/Blog";
+import Noise from "@/components/Noise";
 
 const ThemeToggle = ({
   isDark,
@@ -106,7 +106,7 @@ const Sidebar = ({
       <aside className="hidden lg:flex fixed left-0 top-0 bottom-0 w-24 flex-col justify-between items-center py-4 xl:py-5 2xl:py-6 border-r border-border-light dark:border-border-dark z-40 bg-background-light dark:bg-background-dark">
         <div className="absolute inset-0 z-0">
           <Noise />
-        </div>  
+        </div>
         <div className="h-20 xl:h-24 2xl:h-32 w-px bg-primary dark:bg-white/20 my-2"></div>
 
         <nav className="flex flex-col-reverse gap-6 xl:gap-7 2xl:gap-9 items-center flex-grow justify-center">
