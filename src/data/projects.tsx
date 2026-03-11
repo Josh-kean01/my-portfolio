@@ -25,6 +25,43 @@ export type Project = {
 
 export const projectsData: Project[] = [
   {
+    id: "j-pope-fashion-store",
+    title: "J-Pope Fashion Store",
+    year: "2026",
+    category: "Web",
+    description:
+      "A luxury fashion e-commerce experience blending editorial storytelling, refined product browsing, and premium shopping interactions across desktop and mobile.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion"],
+    image: "/assets/projects/j-pope-fashion-store/cover.png",
+
+    role: "Frontend Developer & UI Engineer",
+    timeframe: "Q1 2026 — 4 Weeks",
+    client: "J-Pope",
+    overview:
+      "J-Pope Fashion Store is a premium fashion commerce project built to express a minimalist luxury brand through a fully immersive digital experience. The goal was not just to create a storefront, but to design and implement a world around the brand — one that feels editorial, deliberate, and elevated. The site combines cinematic landing moments, collection storytelling, polished product presentation, and practical commerce flows into a cohesive experience. From the manifesto-driven homepage to the lookbook-style collections, account space, cart drawer, mobile menu, and search surfaces, every section was designed to feel intentional and brand-led while still supporting real shopping behavior.",
+    problem:
+      "Most fashion e-commerce websites fall into one of two extremes: they either feel visually generic and lose the soul of the brand, or they lean too heavily into aesthetics and become difficult to browse, shop, and navigate. For J-Pope, the challenge was to create a site that preserved a premium editorial identity while still functioning like a modern store. The experience needed to support multiple user journeys — first-time visitors discovering the brand, returning users browsing curated collections, customers searching and filtering products, mobile shoppers navigating compact interfaces, and buyers managing wishlist, cart, and account states. The core problem was how to balance atmosphere and usability without sacrificing either.",
+    solution:
+      "I approached the project as a hybrid of brand storytelling and e-commerce system design. On the presentation side, I built a refined visual language centered on soft neutral palettes, spacious layouts, serif-led luxury typography, carefully framed imagery, and quiet motion that supports rather than distracts. On the commerce side, I designed and implemented clear product archives, category chips and filters, wishlist interactions, account organization, a slide-out shopping bag, and responsive mobile navigation patterns. The homepage was structured to establish identity first, then lead users into featured collections and trending products. Collection and shop pages were designed to feel curated instead of crowded, while overlays such as search, cart, and mobile menu were styled to feel native to the brand rather than bolted on. The result is a fashion storefront that feels premium and editorial but still supports practical shopping flows across desktop and mobile.",
+    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion", "Responsive UI Design"],
+    images: [
+      "/assets/projects/j-pope-fashion-store/preloader-mobile.png",
+      "/assets/projects/j-pope-fashion-store/home-desktop.jpeg",
+      "/assets/projects/j-pope-fashion-store/home-mobile.png",
+      "/assets/projects/j-pope-fashion-store/shop-desktop.jpeg",
+      "/assets/projects/j-pope-fashion-store/cart-drawer-desktop.png",
+      "/assets/projects/j-pope-fashion-store/cart-mobile.png",
+      "/assets/projects/j-pope-fashion-store/account-desktop.jpeg",
+      "/assets/projects/j-pope-fashion-store/collections-mobile.jpeg",
+      "/assets/projects/j-pope-fashion-store/search-overlay-mobile.png",
+      "/assets/projects/j-pope-fashion-store/shop-mobile.png",
+      "/assets/projects/j-pope-fashion-store/mobile-menu.png",
+      "/assets/projects/j-pope-fashion-store/trending-mobile.png",
+    ],
+    liveUrl: "https://j-pope-fashion-store.vercel.app/",
+    repoUrl: "#",
+  },
+  {
     id: "airtime-tracker-ui",
     title: "Airtime Usage Tracker",
     year: "2026",
