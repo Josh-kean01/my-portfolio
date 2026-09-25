@@ -43,7 +43,7 @@ export const projectsData: Project[] = [
       "Most fashion e-commerce websites fall into one of two extremes: they either feel visually generic and lose the soul of the brand, or they lean too heavily into aesthetics and become difficult to browse, shop, and navigate. For J-Pope, the challenge was to create a site that preserved a premium editorial identity while still functioning like a modern store. The experience needed to support multiple user journeys — first-time visitors discovering the brand, returning users browsing curated collections, customers searching and filtering products, mobile shoppers navigating compact interfaces, and buyers managing wishlist, cart, and account states. The core problem was how to balance atmosphere and usability without sacrificing either.",
     solution:
       "I approached the project as a hybrid of brand storytelling and e-commerce system design. On the presentation side, I built a refined visual language centered on soft neutral palettes, spacious layouts, serif-led luxury typography, carefully framed imagery, and quiet motion that supports rather than distracts. On the commerce side, I designed and implemented clear product archives, category chips and filters, wishlist interactions, account organization, a slide-out shopping bag, and responsive mobile navigation patterns. The homepage was structured to establish identity first, then lead users into featured collections and trending products. Collection and shop pages were designed to feel curated instead of crowded, while overlays such as search, cart, and mobile menu were styled to feel native to the brand rather than bolted on. The result is a fashion storefront that feels premium and editorial but still supports practical shopping flows across desktop and mobile.",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Framer Motion", "Responsive UI Design"],
+    stack: ["React", "Tailwind CSS", "TypeScript", "Framer Motion", "Vite", "Responsive UI Design",],
     images: [
       "/assets/projects/j-pope-fashion-store/preloader-mobile.png",
       "/assets/projects/j-pope-fashion-store/home-desktop.jpeg",
@@ -59,7 +59,7 @@ export const projectsData: Project[] = [
       "/assets/projects/j-pope-fashion-store/trending-mobile.png",
     ],
     liveUrl: "https://j-pope-fashion-store.vercel.app/",
-    repoUrl: "#",
+    repoUrl: "https://github.com/Josh-kean01/j-pope-fashion-store.git",
   },
   {
     id: "airtime-tracker-ui",
