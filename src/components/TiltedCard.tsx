@@ -1,5 +1,6 @@
 import type { SpringOptions } from 'motion/react';
-import { useRef, useState, React } from 'react';
+import type * as React from 'react';
+import { useRef, useState } from 'react';
 import { motion, useMotionValue, useSpring } from 'motion/react';
 import './TiltedCard.css';
 

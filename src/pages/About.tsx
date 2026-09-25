@@ -5,7 +5,7 @@ import TiltedCard from "../components/TiltedCard";
 
 const About = () => {
   return (
-    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto">
       {/* Hero Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 xl:gap-10 2xl:gap-16 mb-16 xl:mb-16 2xl:mb-24">
         <div className="flex flex-col justify-center space-y-6 xl:space-y-7 2xl:space-y-8">

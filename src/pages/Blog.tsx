@@ -34,7 +34,7 @@ const articles = [
 
 const Blog = () => {
   return (
-    <div className="px-6 py-14 md:px-12 lg:px-16 xl:py-14 2xl:py-24 max-w-5xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-14 md:px-12 lg:px-16 xl:py-14 2xl:py-24 max-w-5xl mx-auto">
       <header className="mb-10 xl:mb-10 2xl:mb-20">
         <span className="text-[10px] 2xl:text-xs font-bold uppercase tracking-widest text-gray-400 mb-3 2xl:mb-4 block">
           Words & Thoughts

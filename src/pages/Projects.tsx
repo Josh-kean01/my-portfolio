@@ -35,7 +35,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto">
       <header className="mb-10 xl:mb-12 2xl:mb-16">
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-display font-bold mb-4 2xl:mb-6 tracking-tight text-primary dark:text-white">
           Selected Projects

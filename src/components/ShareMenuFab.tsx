@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion } from "framer-motion";
+import { AnimatePresence, motion, type Variants } from "framer-motion";
 import { Share2, Github, Linkedin, Twitter, Mail } from "lucide-react";
 
-const panelVariants = {
+const panelVariants: Variants = {
     hidden: { opacity: 0, y: 12, scale: 0.98 },
     show: {
         opacity: 1,
@@ -13,7 +13,7 @@ const panelVariants = {
     exit: { opacity: 0, y: 10, scale: 0.98, transition: { duration: 0.16, ease: "easeInOut" } },
 };
 
-const itemVariants = {
+const itemVariants: Variants = {
     hidden: { opacity: 0, y: 6 },
     show: { opacity: 1, y: 0, transition: { duration: 0.18, ease: "easeOut" } },
 };

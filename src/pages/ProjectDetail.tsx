@@ -13,7 +13,7 @@ const ProjectDetail = () => {
   if (!project) return <Navigate to="/projects" replace />;
 
   return (
-    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto">
       <Link
         to="/projects"
         className="inline-flex items-center gap-2 text-gray-500 hover:text-primary dark:hover:text-white mb-8 2xl:mb-12 transition-colors"

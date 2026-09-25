@@ -20,7 +20,7 @@ const SkillCard = ({ icon: Icon, title, skills }: { icon: any, title: string, sk
 
 const Skills = () => {
   return (
-    <div className="px-6 py-24 md:px-12 lg:px-16 max-w-7xl mx-auto animate-fade-in-up">
+    <div className="px-6 py-24 md:px-12 lg:px-16 max-w-7xl mx-auto">
       <div className="mb-20">
         <h1 className="text-4xl md:text-6xl font-display font-light text-gray-400 mb-6">
           Expertise & <br />

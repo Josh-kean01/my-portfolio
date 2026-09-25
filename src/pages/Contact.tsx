@@ -3,7 +3,7 @@ import { Github, Linkedin, Mail } from "lucide-react";
 
 const Contact = () => {
   return (
-    <div className="px-6 py-14 md:px-12 lg:px-16 xl:py-14 2xl:py-24 min-h-full flex flex-col justify-center animate-fade-in-up">
+    <div className="px-6 py-14 md:px-12 lg:px-16 xl:py-14 2xl:py-24 min-h-full flex flex-col justify-center">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 2xl:gap-16 items-start max-w-7xl mx-auto w-full">
         <div className="lg:col-span-5 space-y-7 2xl:space-y-8">
           <div className="space-y-3 2xl:space-y-4">
