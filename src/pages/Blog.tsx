@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
 import { blogs } from "../data/blogs";
 
+const INITIAL_VISIBLE_COUNT = 3;
+const LOAD_MORE_COUNT = 3;
+
 const Blog = () => {
+  const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+  const visibleBlogs = blogs.slice(0, visibleCount);
+  const hasMoreBlogs = visibleCount < blogs.length;
+
+  const handleLoadMore = () => {
+    setVisibleCount((count) => count + LOAD_MORE_COUNT);
+  };
+
   return (
     <div className="px-6 py-14 md:px-12 lg:px-16 xl:py-14 2xl:py-24 max-w-5xl mx-auto">
       <header className="mb-10 xl:mb-10 2xl:mb-20">
@@ -23,7 +34,7 @@ const Blog = () => {
       </header>
 
       <div className="space-y-8 xl:space-y-9 2xl:space-y-16">
-        {blogs.map((article) => (
+        {visibleBlogs.map((article) => (
           <article
             key={article.slug}
             className="group border-b border-border-light dark:border-border-dark pb-7 xl:pb-8 2xl:pb-12 last:border-0"
@@ -62,11 +73,17 @@ const Blog = () => {
         ))}
       </div>
 
-      <div className="mt-10 2xl:mt-20 text-center">
-        <button className="bg-primary dark:bg-white text-white dark:text-black px-7 2xl:px-8 py-3 font-bold uppercase text-xs 2xl:text-sm tracking-wide hover:opacity-90 transition-opacity">
-          Load More Posts
-        </button>
-      </div>
+      {hasMoreBlogs && (
+        <div className="mt-10 2xl:mt-20 text-center">
+          <button
+            type="button"
+            onClick={handleLoadMore}
+            className="bg-primary dark:bg-white text-white dark:text-black px-7 2xl:px-8 py-3 font-bold uppercase text-xs 2xl:text-sm tracking-wide hover:opacity-90 transition-opacity"
+          >
+            Load More Posts
+          </button>
+        </div>
+      )}
 
       <footer className="mt-14 2xl:mt-24 pt-9 2xl:pt-12 border-t border-border-light dark:border-border-dark text-center text-gray-400 text-xs 2xl:text-sm">
         © 2023 Joshua Adekunle. All rights reserved.

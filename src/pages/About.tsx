@@ -10,14 +10,14 @@ const About = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 xl:gap-10 2xl:gap-16 mb-16 xl:mb-16 2xl:mb-24">
         <div className="flex flex-col justify-center space-y-6 xl:space-y-7 2xl:space-y-8">
           <div className="space-y-2">
-            <h2 className="text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-5xl text-gray-400 font-display font-light">
-              Hello, I'm
+            <h2 className="text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl text-gray-400 font-display font-light">
+              ʜᴇʟʟᴏ, I'ᴍ
             </h2>
 
             {/* Smaller at xl (1366-ish), keep big at 2xl (1920) */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-display font-bold text-primary dark:text-white tracking-tight">
+            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl  font-display font-bold text-primary dark:text-white tracking-tight">
               <ShinyText
-                text="Joshua Adekunle"
+                text="ᴊᴏꜱʜTʜᴇFʀᴏɴᴛᴇɴᴅGᴜʏ"
                 speed={2}
                 delay={0}
                 color="#b5b5b5"
