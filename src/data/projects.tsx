@@ -25,6 +25,104 @@ export type Project = {
 
 export const projectsData: Project[] = [
   {
+    id: "forth-magazine",
+    title: "Forth Magazine",
+    year: "2026",
+    category: "UI Design",
+    description:
+      "A premium editorial literary magazine website designed around long-form reading, curated book recommendations, editorial storytelling, and a restrained magazine-inspired visual system.",
+    tags: [
+      "Figma",
+      "UI/UX Design",
+      "Editorial Design",
+      "Typography",
+      "Responsive Design",
+    ],
+
+    image: "/assets/projects/forth-magazine/cover.png",
+
+    role: "UI/UX Designer & Editorial Designer",
+    timeframe: "2026",
+    client: "Concept Project",
+
+    overview:
+      "Forth Magazine is a literary magazine website concept designed to feel like a respected print publication translated into a digital reading experience. The project combines editorial stories, essays, interviews, reviews, reading guides, and curated book recommendations within a single visual system. A key part of the concept was integrating affiliate-driven book recommendations without allowing the commercial layer to overpower the publication itself. The result is a calm, typography-led interface where hierarchy, spacing, composition, and reading flow take priority.",
+
+    problem:
+      "Forth Magazine needed to balance a serious editorial reading experience with an underlying affiliate-driven business model. The challenge was to introduce book recommendations and commercially relevant content without making the website feel like an ecommerce store, product catalogue, or conventional content blog. The design also needed to support different editorial formats while maintaining a consistent identity across desktop and mobile.",
+
+    solution:
+      "I designed Forth Magazine as a complete editorial interface system in Figma, covering the homepage, article experiences, reading guides, category-style layouts, interviews, editorial content lists, and responsive mobile views. The homepage establishes the publication through a dominant editorial story, an Editor's Choice book column, secondary articles, and a restrained newsletter section. Long-form reading pages use a narrow content column, generous spacing, strong typographic hierarchy, and subtle dividers to create a focused reading experience. Affiliate-focused reading guides use large book-cover treatments, editorial commentary, recommendation blocks, and understated outbound links rather than ecommerce-style product cards. I also created responsive mobile layouts that preserve the editorial hierarchy and reading experience on smaller screens.",
+
+    stack: [
+      "UI/UX Design",
+      "Editorial Design",
+      "Figma",
+      "Figma Components",
+      "Typography",
+      "Responsive Design",
+      "Design Systems",
+      "Prototyping",
+    ],
+
+    images: [
+      "/assets/projects/forth-magazine/homepage-l.png",
+      "/assets/projects/forth-magazine/homepage-s.png",
+      "/assets/projects/forth-magazine/reading-guide-l.png",
+      "/assets/projects/forth-magazine/reading-guide-l2.png",
+      "/assets/projects/forth-magazine/reading-guide-s.png",
+      "/assets/projects/forth-magazine/article-l.png",
+      "/assets/projects/forth-magazine/article-s.png",
+      "/assets/projects/forth-magazine/article-le.png",
+      "/assets/projects/forth-magazine/article-se.png",
+      "/assets/projects/forth-magazine/category.png",
+    ],
+
+    liveUrl: "",
+    repoUrl: "",
+  },
+  {
+    id: "tubeinspect-suite",
+    title: "TubeInspect Suite",
+    year: "2026",
+    category: "Web",
+    description:
+      "A modern YouTube productivity toolkit for extracting metadata, evaluating SEO, downloading thumbnails, creating timestamped clips, and working with video transcripts from one unified interface.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "YouTube APIs"],
+    image: "/assets/projects/tubeinspect-suite/cover.svg",
+
+    role: "Frontend Developer & UI Engineer",
+    timeframe: "Q1 2026 - 5 Weeks",
+    client: "Personal Project",
+    overview:
+      "TubeInspect Suite is a browser-based collection of tools designed for YouTube creators, marketers, researchers, and content teams. The project brings several commonly separated YouTube utilities into one cohesive experience, including metadata extraction, SEO analysis, thumbnail retrieval, timestamped video clipping, transcript viewing, summary generation, and download guidance. The product was designed around a simple workflow: paste a YouTube link, choose a tool, and receive useful results without navigating through multiple websites. Its interface combines a dark creator-focused visual system, responsive layouts, interactive controls, animated feedback, and reusable components across desktop and mobile.",
+    problem:
+      "YouTube creators often rely on several disconnected websites to inspect metadata, retrieve thumbnails, create timestamped links, review transcripts, and evaluate video SEO. Many of these tools feel outdated, contain intrusive advertising, hide useful features behind subscriptions, or require users to configure Google Cloud credentials before they can begin. This fragmented workflow creates unnecessary friction, especially for creators who need quick information from a single video link. The challenge was to combine these utilities into one modern product while keeping the experience fast, approachable, responsive, and consistent across every tool.",
+    solution:
+      "I designed TubeInspect as a unified toolkit with one consistent interaction model across the entire application. Each tool begins with a focused YouTube URL input and produces results inside a purpose-built workspace. The Metadata and SEO Extractor presents titles, descriptions, tags, categories, engagement figures, thumbnail previews, embed code, and an actionable SEO score. The Thumbnail Hub retrieves multiple image resolutions with hover-based copy and save actions. The Video Clipper uses the YouTube IFrame API, custom playback controls, a real seeker, and range markers to generate precise timestamped links and embed code. The Transcript workspace presents searchable caption content, language selection, summaries, statistics, and export-friendly text. I also created a reusable visual system with spotlight cards, gradient accents, animated feedback, loading states, responsive controls, and clear fallback guidance when browser or YouTube restrictions affect a feature.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "YouTube IFrame API",
+      "YouTube Data API",
+      "youtube-transcript-api",
+      "Responsive UI Design",
+    ],
+    images: [
+      "/assets/projects/tubeinspect-suite/homepage.png",
+      "/assets/projects/tubeinspect-suite/homepage-s.png",
+      "/assets/projects/tubeinspect-suite/metadata-l.png",
+      "/assets/projects/tubeinspect-suite/metadata-s.png",
+      "/assets/projects/tubeinspect-suite/thumbnail-l.png",
+      "/assets/projects/tubeinspect-suite/thumbnail-s.png",
+      "/assets/projects/tubeinspect-suite/video-s.png",
+    ],
+    liveUrl: "https://youtubeprotools.vercel.app/",
+    repoUrl: "https://github.com/Josh-kean01/YoutubePro",
+  },
+  {
     id: "j-pope-fashion-store",
     title: "J-Pope Fashion Store",
     year: "2026",
@@ -95,47 +193,6 @@ export const projectsData: Project[] = [
     ],
     liveUrl: "#",
     repoUrl: "#",
-  },
-  {
-    id: "tubeinspect-suite",
-    title: "TubeInspect Suite",
-    year: "2026",
-    category: "Web",
-    description:
-      "A modern YouTube productivity toolkit for extracting metadata, evaluating SEO, downloading thumbnails, creating timestamped clips, and working with video transcripts from one unified interface.",
-    tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "YouTube APIs"],
-    image: "/assets/projects/tubeinspect-suite/cover.svg",
-
-    role: "Frontend Developer & UI Engineer",
-    timeframe: "Q1 2026 - 5 Weeks",
-    client: "Personal Project",
-    overview:
-      "TubeInspect Suite is a browser-based collection of tools designed for YouTube creators, marketers, researchers, and content teams. The project brings several commonly separated YouTube utilities into one cohesive experience, including metadata extraction, SEO analysis, thumbnail retrieval, timestamped video clipping, transcript viewing, summary generation, and download guidance. The product was designed around a simple workflow: paste a YouTube link, choose a tool, and receive useful results without navigating through multiple websites. Its interface combines a dark creator-focused visual system, responsive layouts, interactive controls, animated feedback, and reusable components across desktop and mobile.",
-    problem:
-      "YouTube creators often rely on several disconnected websites to inspect metadata, retrieve thumbnails, create timestamped links, review transcripts, and evaluate video SEO. Many of these tools feel outdated, contain intrusive advertising, hide useful features behind subscriptions, or require users to configure Google Cloud credentials before they can begin. This fragmented workflow creates unnecessary friction, especially for creators who need quick information from a single video link. The challenge was to combine these utilities into one modern product while keeping the experience fast, approachable, responsive, and consistent across every tool.",
-    solution:
-      "I designed TubeInspect as a unified toolkit with one consistent interaction model across the entire application. Each tool begins with a focused YouTube URL input and produces results inside a purpose-built workspace. The Metadata and SEO Extractor presents titles, descriptions, tags, categories, engagement figures, thumbnail previews, embed code, and an actionable SEO score. The Thumbnail Hub retrieves multiple image resolutions with hover-based copy and save actions. The Video Clipper uses the YouTube IFrame API, custom playback controls, a real seeker, and range markers to generate precise timestamped links and embed code. The Transcript workspace presents searchable caption content, language selection, summaries, statistics, and export-friendly text. I also created a reusable visual system with spotlight cards, gradient accents, animated feedback, loading states, responsive controls, and clear fallback guidance when browser or YouTube restrictions affect a feature.",
-    stack: [
-      "React",
-      "TypeScript",
-      "Tailwind CSS",
-      "Vite",
-      "YouTube IFrame API",
-      "YouTube Data API",
-      "youtube-transcript-api",
-      "Responsive UI Design",
-    ],
-    images: [
-      "/assets/projects/tubeinspect-suite/homepage.png",
-      "/assets/projects/tubeinspect-suite/homepage-s.png",
-      "/assets/projects/tubeinspect-suite/metadata-l.png",
-      "/assets/projects/tubeinspect-suite/metadata-s.png",
-      "/assets/projects/tubeinspect-suite/thumbnail-l.png",
-      "/assets/projects/tubeinspect-suite/thumbnail-s.png",
-      "/assets/projects/tubeinspect-suite/video-s.png",
-    ],
-    liveUrl: "https://youtubeprotools.vercel.app/",
-    repoUrl: "https://github.com/Josh-kean01/YoutubePro",
   },
   {
     id: "fintech-dashboard",
