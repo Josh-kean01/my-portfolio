@@ -97,6 +97,47 @@ export const projectsData: Project[] = [
     repoUrl: "#",
   },
   {
+    id: "tubeinspect-suite",
+    title: "TubeInspect Suite",
+    year: "2026",
+    category: "Web",
+    description:
+      "A modern YouTube productivity toolkit for extracting metadata, evaluating SEO, downloading thumbnails, creating timestamped clips, and working with video transcripts from one unified interface.",
+    tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "YouTube APIs"],
+    image: "/assets/projects/tubeinspect-suite/homepage.png",
+
+    role: "Frontend Developer & UI Engineer",
+    timeframe: "Q1 2026 - 5 Weeks",
+    client: "Personal Project",
+    overview:
+      "TubeInspect Suite is a browser-based collection of tools designed for YouTube creators, marketers, researchers, and content teams. The project brings several commonly separated YouTube utilities into one cohesive experience, including metadata extraction, SEO analysis, thumbnail retrieval, timestamped video clipping, transcript viewing, summary generation, and download guidance. The product was designed around a simple workflow: paste a YouTube link, choose a tool, and receive useful results without navigating through multiple websites. Its interface combines a dark creator-focused visual system, responsive layouts, interactive controls, animated feedback, and reusable components across desktop and mobile.",
+    problem:
+      "YouTube creators often rely on several disconnected websites to inspect metadata, retrieve thumbnails, create timestamped links, review transcripts, and evaluate video SEO. Many of these tools feel outdated, contain intrusive advertising, hide useful features behind subscriptions, or require users to configure Google Cloud credentials before they can begin. This fragmented workflow creates unnecessary friction, especially for creators who need quick information from a single video link. The challenge was to combine these utilities into one modern product while keeping the experience fast, approachable, responsive, and consistent across every tool.",
+    solution:
+      "I designed TubeInspect as a unified toolkit with one consistent interaction model across the entire application. Each tool begins with a focused YouTube URL input and produces results inside a purpose-built workspace. The Metadata and SEO Extractor presents titles, descriptions, tags, categories, engagement figures, thumbnail previews, embed code, and an actionable SEO score. The Thumbnail Hub retrieves multiple image resolutions with hover-based copy and save actions. The Video Clipper uses the YouTube IFrame API, custom playback controls, a real seeker, and range markers to generate precise timestamped links and embed code. The Transcript workspace presents searchable caption content, language selection, summaries, statistics, and export-friendly text. I also created a reusable visual system with spotlight cards, gradient accents, animated feedback, loading states, responsive controls, and clear fallback guidance when browser or YouTube restrictions affect a feature.",
+    stack: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Vite",
+      "YouTube IFrame API",
+      "YouTube Data API",
+      "youtube-transcript-api",
+      "Responsive UI Design",
+    ],
+    images: [
+      "/assets/projects/tubeinspect-suite/homepage.png",
+      "/assets/projects/tubeinspect-suite/homepage-s.png",
+      "/assets/projects/tubeinspect-suite/metadata-l.png",
+      "/assets/projects/tubeinspect-suite/metadata-s.png",
+      "/assets/projects/tubeinspect-suite/thumbnail-l.png",
+      "/assets/projects/tubeinspect-suite/thumbnail-s.png",
+      "/assets/projects/tubeinspect-suite/video-s.png",
+    ],
+    liveUrl: "https://youtubeprotools.vercel.app/",
+    repoUrl: "https://github.com/Josh-kean01/YoutubePro",
+  },
+  {
     id: "fintech-dashboard",
     title: "Fintech Dashboard",
     year: "2023",
