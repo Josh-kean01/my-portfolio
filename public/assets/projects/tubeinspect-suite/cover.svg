@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none" role="img" aria-labelledby="title description">
+  <title id="title">TubeInspect project cover</title>
+  <desc id="description">A minimal TubeInspect wordmark above desktop and phone previews of the YouTube toolkit.</desc>
+  <defs>
+    <linearGradient id="paper" x1="70" y1="35" x2="1140" y2="900" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#F8F7F4"/>
+      <stop offset="1" stop-color="#E8E9E7"/>
+    </linearGradient>
+    <linearGradient id="bezel" x1="102" y1="234" x2="921" y2="725" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#404754"/>
+      <stop offset="1" stop-color="#252C37"/>
+    </linearGradient>
+    <linearGradient id="base" x1="80" y1="715" x2="80" y2="765" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C8CBCB"/>
+      <stop offset="1" stop-color="#95999C"/>
+    </linearGradient>
+    <linearGradient id="video" x1="175" y1="458" x2="427" y2="613" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#3D4660"/>
+      <stop offset=".62" stop-color="#232F42"/>
+      <stop offset="1" stop-color="#151B2B"/>
+    </linearGradient>
+    <linearGradient id="phone" x1="831" y1="331" x2="1074" y2="782" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#484B54"/>
+      <stop offset="1" stop-color="#1E222A"/>
+    </linearGradient>
+    <filter id="deviceShadow" x="50" y="210" width="1050" height="620" color-interpolation-filters="sRGB" filterUnits="userSpaceOnUse">
+      <feDropShadow dx="0" dy="25" stdDeviation="21" flood-color="#252B36" flood-opacity=".19"/>
+    </filter>
+    <filter id="grain" x="0" y="0" width="100%" height="100%">
+      <feTurbulence type="fractalNoise" baseFrequency=".75" numOctaves="3" stitchTiles="stitch"/>
+      <feColorMatrix type="saturate" values="0"/>
+    </filter>
+    <clipPath id="screenClip"><rect x="128" y="254" width="788" height="441" rx="9"/></clipPath>
+    <clipPath id="videoClip"><rect x="174" y="475" width="266" height="154" rx="9"/></clipPath>
+    <clipPath id="phoneClip"><rect x="844" y="350" width="214" height="412" rx="27"/></clipPath>
+  </defs>
+
+  <rect width="1200" height="900" fill="url(#paper)"/>
+  <rect width="1200" height="900" filter="url(#grain)" opacity=".04"/>
+
+  <!-- An understated editorial masthead -->
+  <rect x="465" y="101" width="31" height="23" rx="7" fill="#E63946"/>
+  <path d="m478 106 11 6.5-11 6.5v-13Z" fill="white"/>
+  <text x="509" y="120" fill="#242833" font-family="Space Grotesk, Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="2.4">TUBEINSPECT</text>
+  <text x="600" y="165" fill="#717782" text-anchor="middle" font-family="Space Grotesk, Arial, sans-serif" font-size="21" font-weight="400" letter-spacing="-.4">YouTube insights, beautifully simple.</text>
+
+  <!-- Desktop and mobile product previews -->
+  <g filter="url(#deviceShadow)">
+    <!-- Laptop shell -->
+    <rect x="111" y="238" width="821" height="477" rx="20" fill="url(#bezel)"/>
+    <rect x="127" y="254" width="789" height="442" rx="9" fill="#10141D"/>
+    <circle cx="522" cy="246" r="2" fill="#838A95"/>
+
+    <g clip-path="url(#screenClip)">
+      <rect x="128" y="254" width="788" height="441" fill="#10141D"/>
+      <rect x="128" y="254" width="788" height="47" fill="#191E29"/>
+      <rect x="151" y="270" width="22" height="16" rx="5" fill="#E63946"/>
+      <path d="m160 273 8 5-8 5v-10Z" fill="white"/>
+      <text x="184" y="282" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="13" font-weight="700">TubeInspect</text>
+      <circle cx="867" cy="278" r="3" fill="#34D399"/>
+      <text x="765" y="282" fill="#8490A9" font-family="Space Grotesk, Arial, sans-serif" font-size="10">Creator tools</text>
+
+      <text x="156" y="341" fill="#EF6672" font-family="Space Grotesk, Arial, sans-serif" font-size="10" font-weight="700" letter-spacing="2.1">VIDEO ANALYSIS</text>
+      <text x="156" y="369" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="23" font-weight="700">Understand any video.</text>
+      <rect x="156" y="389" width="638" height="42" rx="9" fill="#0B0E16" stroke="#343B48"/>
+      <text x="175" y="415" fill="#747E94" font-family="Space Grotesk, Arial, sans-serif" font-size="11">Paste a YouTube link...</text>
+      <rect x="803" y="389" width="89" height="42" rx="9" fill="#E63946"/>
+      <text x="825" y="415" fill="white" font-family="Space Grotesk, Arial, sans-serif" font-size="11" font-weight="700">Inspect</text>
+
+      <rect x="156" y="458" width="736" height="188" rx="14" fill="#171C27" stroke="#303744"/>
+      <g clip-path="url(#videoClip)">
+        <rect x="174" y="475" width="266" height="154" fill="url(#video)"/>
+        <circle cx="357" cy="509" r="41" fill="#E27F7F" fill-opacity=".24"/>
+        <path d="M174 565c33-27 59-31 92-6 27 20 41-11 74-29 28-15 54 8 100 32v67H174v-64Z" fill="#202A38"/>
+        <path d="M174 592c30-15 51-7 77 3 31 13 52-10 77-15 35-7 68 5 112 23v26H174v-37Z" fill="#141B2A"/>
+        <circle cx="307" cy="552" r="23" fill="#FFFFFF" fill-opacity=".92"/>
+        <path d="m300 539 21 13-21 13v-26Z" fill="#E63946"/>
+      </g>
+      <text x="461" y="502" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">Everything you need to know</text>
+      <text x="461" y="522" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">about a video.</text>
+      <text x="461" y="545" fill="#8D98AF" font-family="Space Grotesk, Arial, sans-serif" font-size="11">By Creator Channel</text>
+      <path d="M461 566h406" stroke="#FFFFFF" stroke-opacity=".09"/>
+      <g font-family="Space Grotesk, Arial, sans-serif">
+        <text x="461" y="590" fill="#8490A9" font-size="9" letter-spacing="1">VIEWS</text>
+        <text x="461" y="613" fill="#F4F5F8" font-size="17" font-weight="700">12.4K</text>
+        <text x="597" y="590" fill="#8490A9" font-size="9" letter-spacing="1">LIKES</text>
+        <text x="597" y="613" fill="#F4F5F8" font-size="17" font-weight="700">842</text>
+        <text x="727" y="590" fill="#8490A9" font-size="9" letter-spacing="1">TAGS</text>
+        <text x="727" y="613" fill="#F4F5F8" font-size="17" font-weight="700">18</text>
+      </g>
+    </g>
+
+    <!-- Laptop base -->
+    <path d="M111 714h821l82 39c3 2 1 9-10 10H40c-11-1-13-8-10-10l81-39Z" fill="url(#base)"/>
+    <path d="M111 714h821l43 20H68l43-20Z" fill="#D8DADB"/>
+    <path d="M468 714h109l-7 12h-95l-7-12Z" fill="#A8ADB0"/>
+
+    <!-- Phone shell -->
+    <rect x="832" y="327" width="239" height="455" rx="40" fill="url(#phone)" stroke="#4D5260" stroke-width="2"/>
+    <rect x="843" y="339" width="217" height="431" rx="30" fill="#090C13"/>
+    <g clip-path="url(#phoneClip)">
+      <rect x="844" y="350" width="214" height="412" fill="#0D111B"/>
+      <rect x="844" y="350" width="214" height="54" fill="#171C27"/>
+      <rect x="865" y="372" width="18" height="14" rx="4" fill="#E63946"/>
+      <path d="m872 375 7 4-7 4v-8Z" fill="white"/>
+      <text x="890" y="383" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="10" font-weight="700">TubeInspect</text>
+
+      <text x="864" y="444" fill="#A78BFA" font-family="Space Grotesk, Arial, sans-serif" font-size="9" font-weight="700" letter-spacing="1.5">TRANSCRIPT</text>
+      <text x="864" y="471" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">The full story,</text>
+      <text x="864" y="492" fill="#F4F5F8" font-family="Space Grotesk, Arial, sans-serif" font-size="16" font-weight="700">in every word.</text>
+
+      <rect x="864" y="517" width="173" height="33" rx="8" fill="#141A26" stroke="#343A49"/>
+      <circle cx="879" cy="533" r="4" stroke="#8691A9" stroke-width="1.2"/>
+      <path d="m882 536 3 3" stroke="#8691A9" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="893" y="537" fill="#65718A" font-family="Space Grotesk, Arial, sans-serif" font-size="9">Search transcript</text>
+
+      <g font-family="Space Grotesk, Arial, sans-serif" font-size="9">
+        <text x="864" y="583" fill="#A78BFA" font-weight="700">00:12</text>
+        <text x="901" y="583" fill="#D8DEEA">Every great idea starts</text>
+        <text x="901" y="596" fill="#D8DEEA">with a question.</text>
+        <path d="M864 610h173" stroke="#FFFFFF" stroke-opacity=".07"/>
+        <text x="864" y="633" fill="#A78BFA" font-weight="700">00:26</text>
+        <text x="901" y="633" fill="#D8DEEA">Look a little closer</text>
+        <text x="901" y="646" fill="#D8DEEA">and find your answer.</text>
+        <path d="M864 660h173" stroke="#FFFFFF" stroke-opacity=".07"/>
+        <text x="864" y="684" fill="#A78BFA" font-weight="700">00:38</text>
+        <text x="901" y="684" fill="#D8DEEA">Bring it all together.</text>
+      </g>
+    </g>
+    <rect x="910" y="343" width="83" height="17" rx="8.5" fill="#07090E"/>
+    <rect x="916" y="749" width="69" height="3" rx="1.5" fill="#B9C0CE" fill-opacity=".6"/>
+  </g>
+</svg>

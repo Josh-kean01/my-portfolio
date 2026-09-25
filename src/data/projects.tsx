@@ -104,7 +104,7 @@ export const projectsData: Project[] = [
     description:
       "A modern YouTube productivity toolkit for extracting metadata, evaluating SEO, downloading thumbnails, creating timestamped clips, and working with video transcripts from one unified interface.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "YouTube APIs"],
-    image: "/assets/projects/tubeinspect-suite/homepage.png",
+    image: "/assets/projects/tubeinspect-suite/cover.svg",
 
     role: "Frontend Developer & UI Engineer",
     timeframe: "Q1 2026 - 5 Weeks",
