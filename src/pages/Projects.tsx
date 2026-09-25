@@ -64,7 +64,7 @@ const Projects = () => {
               onClick={() => setFilter(cat)}
               className={`px-4 2xl:px-5 py-1.5 2xl:py-2 text-xs 2xl:text-sm font-medium transition-all rounded-sm
                 ${filter === cat
-                  ? "bg-primary text-white dark:bg-white dark:text-primary"
+                  ? "bg-primary text-white dark:bg-white dark:text-black"
                   : "text-gray-500 dark:text-gray-400 hover:text-primary dark:hover:text-white"
                 }`}
             >
@@ -79,7 +79,7 @@ const Projects = () => {
             placeholder=" Search projects..."
             value={search}
             onChange={(e) => setSearch(e.target.value)}
-            className="w-full bg-transparent border-b border-gray-300 dark:border-gray-700 py-2 pl-0 pr-8 text-xs 2xl:text-sm focus:ring-0 focus:border-primary dark:focus:border-white transition-colors placeholder-gray-400 text-primary dark:text-white rounded-md"
+            className="w-full bg-transparent border-0 border-b-2 border-gray-200 dark:border-gray-700 py-2 pl-0 pr-8 text-xs 2xl:text-sm focus:ring-0 focus:!border-b-2 focus:!border-primary dark:focus:!border-white focus:outline-none transition-colors placeholder-gray-400 text-primary dark:text-white"
           />
           <Search
             size={16}
@@ -157,7 +157,7 @@ const Projects = () => {
           <button
             type="button"
             onClick={handleLoadMore}
-            className="relative inline-block bg-primary dark:bg-white text-white dark:text-primary font-medium px-8 2xl:px-10 py-3.5 2xl:py-4 transition-transform active:translate-y-1 text-xs 2xl:text-sm"
+            className="relative inline-block bg-primary dark:bg-white text-white dark:text-black font-medium px-8 2xl:px-10 py-3.5 2xl:py-4 transition-transform active:translate-y-1 text-xs 2xl:text-sm"
           >
             Load More Projects
           </button>

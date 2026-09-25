@@ -1,36 +1,7 @@
 import React from "react";
 import { ArrowRight } from "lucide-react";
-
-const articles = [
-  {
-    date: "Oct 24, 2023",
-    title: "Mastering Tailwind CSS Configuration",
-    excerpt:
-      "Tailwind CSS is more than just utility classes. Learn how to leverage the configuration file to build a robust, scalable design system for your projects.",
-    readTime: "5 MIN READ",
-  },
-  {
-    date: "Sep 12, 2023",
-    title: "The Art of Minimalist Web Design",
-    excerpt:
-      "Minimalism isn't just about removing elements; it's about prioritizing content. Explore the principles that make simple interfaces powerful.",
-    readTime: "8 MIN READ",
-  },
-  {
-    date: "Aug 05, 2023",
-    title: "Accessibility First Development",
-    excerpt:
-      "Why accessibility should never be an afterthought. Practical tips for ensuring your frontend code is inclusive for all users.",
-    readTime: "6 MIN READ",
-  },
-  {
-    date: "Jul 19, 2023",
-    title: "Optimizing React Performance",
-    excerpt:
-      "A deep dive into memoization, lazy loading, and other techniques to keep your React applications running smoothly at scale.",
-    readTime: "12 MIN READ",
-  },
-];
+import { Link } from "react-router-dom";
+import { blogs } from "../data/blogs";
 
 const Blog = () => {
   return (
@@ -52,9 +23,9 @@ const Blog = () => {
       </header>
 
       <div className="space-y-8 xl:space-y-9 2xl:space-y-16">
-        {articles.map((article, index) => (
+        {blogs.map((article) => (
           <article
-            key={index}
+            key={article.slug}
             className="group border-b border-border-light dark:border-border-dark pb-7 xl:pb-8 2xl:pb-12 last:border-0"
           >
             <div className="flex flex-col md:flex-row md:items-baseline gap-3 md:gap-8 xl:gap-8 2xl:gap-12 mb-3 2xl:mb-4">
@@ -77,13 +48,13 @@ const Blog = () => {
                     {article.readTime}
                   </span>
 
-                  <a
-                    href="#"
+                  <Link
+                    to={`/blog/${article.slug}`}
                     className="inline-flex items-center gap-2 text-[11px] 2xl:text-sm font-bold uppercase tracking-wide text-primary dark:text-white group-hover:translate-x-1 transition-transform"
                   >
                     Read Article <ArrowRight size={14} className="2xl:hidden" />
                     <ArrowRight size={16} className="hidden 2xl:block" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -92,7 +63,7 @@ const Blog = () => {
       </div>
 
       <div className="mt-10 2xl:mt-20 text-center">
-        <button className="bg-primary dark:bg-white text-white dark:text-primary px-7 2xl:px-8 py-3 font-bold uppercase text-xs 2xl:text-sm tracking-wide hover:opacity-90 transition-opacity">
+        <button className="bg-primary dark:bg-white text-white dark:text-black px-7 2xl:px-8 py-3 font-bold uppercase text-xs 2xl:text-sm tracking-wide hover:opacity-90 transition-opacity">
           Load More Posts
         </button>
       </div>

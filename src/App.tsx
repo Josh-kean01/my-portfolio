@@ -10,6 +10,7 @@ import ProjectDetail from "@/pages/ProjectDetail";
 import Contact from "@/pages/Contact";
 import ShareMenuFab from "@/components/ShareMenuFab";
 import Blog from "@/pages/Blog";
+import BlogDetail from "@/pages/BlogDetail";
 import Noise from "@/components/Noise";
 
 const ThemeToggle = ({
@@ -190,6 +191,7 @@ const AppShell = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/projects/:id" element={<ProjectDetail />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:slug" element={<BlogDetail />} />
           <Route path="/contact" element={<Contact />} />
         </Routes>
       </main>

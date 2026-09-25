@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { Share2, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Share2, Github, Twitter, Mail } from "lucide-react";
 
 const panelVariants: Variants = {
     hidden: { opacity: 0, y: 12, scale: 0.98 },
@@ -49,10 +49,9 @@ export default function ShareMenuFab() {
     }, []);
 
     const links = [
-        { label: "GitHub", href: "https://github.com/your-username", Icon: Github },
-        { label: "LinkedIn", href: "https://linkedin.com/in/your-handle", Icon: Linkedin },
-        { label: "Twitter/X", href: "https://x.com/your-handle", Icon: Twitter },
-        { label: "Email", href: "mailto:you@example.com", Icon: Mail },
+        { label: "GitHub", href: "https://github.com/Josh-kean01/", Icon: Github },
+        { label: "Twitter/X", href: "https://x.com/theJoshUx", Icon: Twitter },
+        { label: "Email", href: "mailto:adekunlej960@gmail.com", Icon: Mail },
     ];
 
     return (
@@ -70,7 +69,7 @@ export default function ShareMenuFab() {
                         variants={panelVariants}
                         className="mb-3 rounded-xlshadow-xl overflow-hidden"
                     >
-                        <div className="grid grid-rows-4 gap-2">
+                        <div className="grid grid-rows-3 gap-2">
                             {links.map(({ label, href, Icon }) => (
                                 <motion.a
                                     key={label}
