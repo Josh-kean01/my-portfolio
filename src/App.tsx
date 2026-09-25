@@ -60,7 +60,9 @@ const Sidebar = ({
       {/* Mobile Header */}
       <div className="lg:hidden sticky top-0 left-0 w-full z-40 px-5 py-4 flex justify-between items-center bg-background-light/90 dark:bg-background-dark/90 backdrop-blur-md border-b border-border-light dark:border-border-dark">
         <Noise />
-        <span className="font-display font-bold text-lg tracking-tight">JA.</span>
+        <Link to="/" aria-label="About" className="font-display font-bold text-lg tracking-tight">
+          JA.
+        </Link>
         <button
           onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           className="p-2 text-primary dark:text-white"
