@@ -2,6 +2,7 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
 import { ExternalLink, Search } from "lucide-react";
+import ActionButton from "../components/ActionButton";
 import { projectsData, Project } from "../data/projects";
 
 const INITIAL_VISIBLE_COUNT = 6;
@@ -154,13 +155,9 @@ const Projects = () => {
       {/* Load More */}
       {filteredProjects.length > 0 && hasMoreProjects && (
         <div className="mt-14 2xl:mt-24 text-center">
-          <button
-            type="button"
-            onClick={handleLoadMore}
-            className="relative inline-block bg-primary dark:bg-white text-white dark:text-black font-medium px-8 2xl:px-10 py-3.5 2xl:py-4 transition-transform active:translate-y-1 text-xs 2xl:text-sm"
-          >
+          <ActionButton type="button" onClick={handleLoadMore}>
             Load More Projects
-          </button>
+          </ActionButton>
         </div>
       )}
     </div>

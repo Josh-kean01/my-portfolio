@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import ActionButton from "../components/ActionButton";
 import { blogs } from "../data/blogs";
 
 const INITIAL_VISIBLE_COUNT = 3;
@@ -75,13 +76,9 @@ const Blog = () => {
 
       {hasMoreBlogs && (
         <div className="mt-10 2xl:mt-20 text-center">
-          <button
-            type="button"
-            onClick={handleLoadMore}
-            className="bg-primary dark:bg-white text-white dark:text-black px-7 2xl:px-8 py-3 font-bold uppercase text-xs 2xl:text-sm tracking-wide hover:opacity-90 transition-opacity"
-          >
+          <ActionButton type="button" onClick={handleLoadMore}>
             Load More Posts
-          </button>
+          </ActionButton>
         </div>
       )}
 

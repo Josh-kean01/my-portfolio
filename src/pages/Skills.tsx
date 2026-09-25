@@ -1,5 +1,6 @@
 import React from 'react';
 import { Code2, Palette, Terminal, Smartphone } from 'lucide-react';
+import ActionButton from '../components/ActionButton';
 
 const SkillCard = ({ icon: Icon, title, skills }: { icon: any, title: string, skills: Array<{ name: string, icon?: string }> }) => (
   <div className="group">
@@ -86,12 +87,9 @@ const Skills = () => {
       </div>
 
       <div className="mt-24 text-center md:text-left">
-        <div className="relative inline-block group cursor-pointer">
-          <div className="absolute top-1.5 left-1.5 w-full h-full border border-primary dark:border-white transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-          <a href="/assets/adekunle-joshua-resume.pdf" download className="relative block bg-primary text-white dark:bg-white dark:text-black px-10 py-4 text-sm uppercase tracking-widest font-bold border border-transparent hover:shadow-xl transition-all duration-300">
-            Download Full Resumé
-          </a>
-        </div>
+        <ActionButton as="a" href="/assets/adekunle-joshua-resume.pdf" download>
+          Download Full Resumé
+        </ActionButton>
       </div>
     </div>
   );

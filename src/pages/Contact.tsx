@@ -1,6 +1,7 @@
 import React from "react";
 import { useForm, ValidationError } from "@formspree/react";
 import { Github, Mail, Twitter } from "lucide-react";
+import ActionButton from "../components/ActionButton";
 
 const Contact = () => {
   const [state, handleSubmit] = useForm("mdekdqoe");
@@ -203,12 +204,9 @@ const Contact = () => {
               )}
 
               <div className="pt-3 2xl:pt-4 flex justify-end">
-                <button type="submit" disabled={state.submitting} className="relative group inline-block disabled:opacity-60 disabled:cursor-wait">
-                  <span className="absolute top-1.5 left-1.5 w-full h-full border border-primary dark:border-white bg-transparent transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1"></span>
-                  <div className="relative bg-primary dark:bg-white text-white dark:text-black px-8 2xl:px-10 py-3.5 2xl:py-4 font-bold tracking-wide uppercase text-xs 2xl:text-sm border border-primary dark:border-white transition-transform duration-200 group-active:translate-x-1 group-active:translate-y-1">
-                    {state.submitting ? "Sending..." : "Send Message"}
-                  </div>
-                </button>
+                <ActionButton type="submit" disabled={state.submitting} className="disabled:opacity-60 disabled:cursor-wait">
+                  {state.submitting ? "Sending..." : "Send Message"}
+                </ActionButton>
               </div>
             </form>
           )}

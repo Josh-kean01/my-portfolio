@@ -1,5 +1,6 @@
 import React from "react";
 import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from "lucide-react";
+import ActionButton from "../components/ActionButton";
 import ShinyText from "../components/ShinyText";
 import TiltedCard from "../components/TiltedCard";
 
@@ -54,12 +55,9 @@ const About = () => {
           </div>
 
           <div className="pt-3">
-            <div className="relative inline-block group cursor-pointer">
-              <div className="absolute top-1.5 left-1.5 w-full h-full border border-primary dark:border-white transition-transform duration-200 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-              <a href="/assets/adekunle-joshua-resume.pdf" download className="relative block bg-primary text-white dark:bg-white dark:text-black px-10 py-4 text-sm uppercase tracking-widest font-bold border border-transparent hover:shadow-xl transition-all duration-300">
-                View Resumé
-              </a>
-            </div>
+            <ActionButton as="a" href="/assets/adekunle-joshua-resume.pdf" download>
+              View Resumé
+            </ActionButton>
           </div>
         </div>
 

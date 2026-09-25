@@ -3,6 +3,7 @@ import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getProjectById } from "../data/projects";
+import ActionButton from "../components/ActionButton";
 import ProjectImageSlider from "@/components/ProjectImageSlider";
 
 const ProjectDetail = () => {
@@ -146,15 +147,9 @@ const ProjectDetail = () => {
           Interested in something similar?
         </h3>
 
-        <div className="relative group cursor-pointer inline-block">
-          <div className="absolute top-2 left-2 w-full h-full border border-primary dark:border-white rounded-sm bg-transparent transition-transform duration-300 group-hover:translate-x-1 group-hover:translate-y-1"></div>
-          <Link
-            to="/contact"
-            className="relative block bg-primary dark:bg-white text-white dark:text-black px-7 2xl:px-8 py-3.5 2xl:py-4 font-display font-medium text-base 2xl:text-lg tracking-wide rounded-sm shadow-xl transition-transform duration-300 active:translate-y-1 active:translate-x-1"
-          >
-            Start a Conversation
-          </Link>
-        </div>
+        <ActionButton as={Link} to="/contact">
+          Start a Conversation
+        </ActionButton>
       </section>
     </div>
   );
