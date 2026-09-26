@@ -25,6 +25,63 @@ export type Project = {
 
 export const projectsData: Project[] = [
   {
+    id: "john-abodunrin",
+    title: "John Abodunrin",
+    year: "2026",
+    category: "Web",
+    description:
+      "A bold editorial portfolio for a YouTube video editor, built around a scrapbook-inspired visual system, retention-focused storytelling, and a multi-service creator offering.",
+    tags: [
+      "React",
+      "TypeScript",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Responsive Design",
+    ],
+
+    image: "/assets/projects/john-abodunrin/cover.svg",
+
+    role: "Frontend Developer & UI Designer",
+    timeframe: "2026",
+    client: "John Abodunrin",
+
+    overview:
+      "John Abodunrin is a portfolio website for a YouTube video editor and digital storyteller who specialises in audience retention, pacing, and narrative structure. The site positions him not as a general freelancer, but as a creator-economy specialist working across documentary, true crime, short form, finance, and AI content. Beyond video editing, it presents two supporting services — thumbnail design and scriptwriting — as part of a complete creator stack. The design language borrows from print collage and editorial zines: torn paper labels, tape strips, film perforations, newsprint texture, and a restrained YouTube-red accent against matte black.",
+
+    problem:
+      "Most video editor portfolios look the same: a dark grid of embedded videos with no argument behind them. John needed a site that proved his understanding of attention before a visitor watched a single frame. It also had to carry three distinct services without burying the main one, present performance metrics credibly rather than as decoration, and avoid the generic template feel that makes premium pricing hard to justify.",
+
+    solution:
+      "I designed and built a six-page React application with a custom scrapbook design system. The homepage opens with a typewriter animation cycling through his three services, then moves through proof metrics, featured work, editing niches, an editor introduction, services, process, tooling, a testimonial carousel, and an FAQ — each section answering a question a prospective client would actually ask. The Work page separates video editing, thumbnail design, and scriptwriting into tabs, with category filtering and hover-to-play video previews. Motion is handled with Framer Motion and Lenis smooth scrolling, tuned to feel edited rather than animated: staggered reveals, paced transitions, and deliberate rhythm. The collage system is built from reusable primitives — paper labels, tape, pins, film strips, dot grids — so the aesthetic stays consistent without becoming visual noise. Layouts were reworked per breakpoint rather than stacked, with dedicated tablet arrangements for the hero, about section, and navigation.",
+
+    stack: [
+      "React",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Framer Motion",
+      "Lenis",
+      "React Router",
+      "Vercel",
+    ],
+
+    images: [
+      "/assets/projects/john-abodunrin/about-l.png",
+      "/assets/projects/john-abodunrin/about-s.png",
+      "/assets/projects/john-abodunrin/contact-l.png",
+      "/assets/projects/john-abodunrin/home-l.png",
+      "/assets/projects/john-abodunrin/home-s.png",
+      "/assets/projects/john-abodunrin/menu.png",
+      "/assets/projects/john-abodunrin/process-l.png",
+      "/assets/projects/john-abodunrin/services-l.png",
+      "/assets/projects/john-abodunrin/services-s.png",
+      "/assets/projects/john-abodunrin/work-l.png",
+    ],
+
+    liveUrl: "https://johnabodunrin.vercel.app/",
+    repoUrl: "https://github.com/Josh-kean01/JOHN",
+  },
+  {
     id: "forth-magazine",
     title: "Forth Magazine",
     year: "2026",
