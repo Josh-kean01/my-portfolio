@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Analytics } from "@vercel/analytics/react";
 import { Routes, Route, useLocation, Link, BrowserRouter } from "react-router-dom";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useTheme } from "@/hooks/useTheme";
@@ -250,6 +251,7 @@ export default function App() {
     <BrowserRouter>
       <ScrollToTop />
       <AppShell />
+      <Analytics />
     </BrowserRouter>
   );
 }
