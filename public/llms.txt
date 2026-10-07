@@ -1,0 +1,23 @@
+# Joshua Adekunle - Website Developer
+
+> Website developer building responsive, user-friendly web experiences, with a focus on frontend development and thoughtful interface design.
+
+## Core Technical Skills
+- Languages: JavaScript, TypeScript, HTML5, CSS3
+- Frameworks and libraries: React, Tailwind CSS, Framer Motion
+- UI and engineering: Responsive web design, UI/UX implementation, accessibility, performance optimization
+- Tools and deployment: Git, GitHub, Vite, Vercel, Formspree
+
+## Selected Projects
+- John Abodunrin: Editorial portfolio for a video editor. https://thejosh.vercel.app/projects/john-abodunrin
+- TubeInspect Suite: YouTube creator productivity toolkit. https://thejosh.vercel.app/projects/tubeinspect-suite
+- J-Pope Fashion Store: Editorial fashion e-commerce experience. https://thejosh.vercel.app/projects/j-pope-fashion-store
+- Forth Magazine: Literary magazine UI/UX design concept. https://thejosh.vercel.app/projects/forth-magazine
+- Airtime Usage Tracker: Mobile airtime spending tracker UI/UX concept. https://thejosh.vercel.app/projects/airtime-tracker-ui
+
+## Contact and Profiles
+- Website: https://thejosh.vercel.app/
+- Email: mailto:adekunlej960@gmail.com
+- GitHub: https://github.com/Josh-kean01/
+- X: https://x.com/theJoshUx
+- Location: Lagos, Nigeria

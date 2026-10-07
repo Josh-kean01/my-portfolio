@@ -12,6 +12,49 @@ import ShareMenuFab from "@/components/ShareMenuFab";
 import Blog from "@/pages/Blog";
 import BlogDetail from "@/pages/BlogDetail";
 import Noise from "@/components/Noise";
+import { getPageMetadata } from "@/seo/metadata";
+
+const setMetaContent = (attribute: "name" | "property", key: string, content: string) => {
+  let meta = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
+
+  if (!meta) {
+    meta = document.createElement("meta");
+    meta.setAttribute(attribute, key);
+    document.head.appendChild(meta);
+  }
+
+  meta.content = content;
+};
+
+const RouteMetadata = () => {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const metadata = getPageMetadata(pathname);
+    document.title = metadata.title;
+    setMetaContent("name", "description", metadata.description);
+    setMetaContent("property", "og:type", metadata.openGraphType);
+    setMetaContent("property", "og:url", metadata.canonicalUrl);
+    setMetaContent("property", "og:title", metadata.title);
+    setMetaContent("property", "og:description", metadata.description);
+    setMetaContent("property", "og:image", metadata.image);
+    setMetaContent("name", "twitter:card", metadata.twitterCard);
+    setMetaContent("name", "twitter:url", metadata.canonicalUrl);
+    setMetaContent("name", "twitter:title", metadata.title);
+    setMetaContent("name", "twitter:description", metadata.description);
+    setMetaContent("name", "twitter:image", metadata.image);
+
+    let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement("link");
+      canonical.rel = "canonical";
+      document.head.appendChild(canonical);
+    }
+    canonical.href = metadata.canonicalUrl;
+  }, [pathname]);
+
+  return null;
+};
 
 const ThemeToggle = ({
   isDark,
@@ -155,7 +198,7 @@ const ScrollToTop = () => {
   return null;
 };
 
-const AppShell = () => {
+export const AppShell = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
 
@@ -185,6 +228,7 @@ const AppShell = () => {
       </div>
 
       <ShareMenuFab />
+      <RouteMetadata />
 
       <main className="flex-1 lg:ml-24 w-full lg:w-[calc(100%-6rem)]">
         <Routes>

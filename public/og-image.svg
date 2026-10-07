@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101310" />
+      <stop offset="1" stop-color="#202820" />
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M36 0H0V36" fill="none" stroke="#ffffff" stroke-opacity=".055" />
+    </pattern>
+  </defs>
+  <rect width="1200" height="630" fill="url(#background)" />
+  <rect width="1200" height="630" fill="url(#grid)" />
+  <rect x="90" y="92" width="9" height="446" rx="4" fill="#b6d7a8" />
+  <text x="136" y="184" fill="#b6d7a8" font-family="Arial, sans-serif" font-size="22" font-weight="700" letter-spacing="3">PORTFOLIO · 2026</text>
+  <text x="130" y="326" fill="#f4f5f1" font-family="Arial, sans-serif" font-size="76" font-weight="700">Joshua Adekunle</text>
+  <text x="136" y="390" fill="#c7cec4" font-family="Arial, sans-serif" font-size="32">Website Developer</text>
+  <text x="136" y="474" fill="#a8afa5" font-family="Arial, sans-serif" font-size="23">Building responsive, user-friendly web experiences</text>
+  <text x="136" y="570" fill="#b6d7a8" font-family="Arial, sans-serif" font-size="20">thejosh.vercel.app</text>
+</svg>

@@ -3,18 +3,23 @@ import { useEffect, useState } from "react";
 type Theme = "light" | "dark";
 
 export function useTheme() {
-    // Read initial theme from the class that was set in <head>
-    const [theme, setTheme] = useState<Theme>(() =>
-        document.documentElement.classList.contains("dark") ? "dark" : "light"
-    );
+    const [theme, setTheme] = useState<Theme>("light");
+    const [initialized, setInitialized] = useState(false);
+
+    useEffect(() => {
+        setTheme(document.documentElement.classList.contains("dark") ? "dark" : "light");
+        setInitialized(true);
+    }, []);
 
     // Keep <html> and theme-color in sync whenever theme changes
     useEffect(() => {
+        if (!initialized) return;
+
         document.documentElement.classList.toggle("dark", theme === "dark");
 
         const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
         if (meta) meta.content = theme === "dark" ? "#0c0a09" : "#eeeeee";
-    }, [theme]);
+    }, [initialized, theme]);
 
     // Persist ONLY when user explicitly toggles
     const toggleTheme = () => {
