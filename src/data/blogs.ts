@@ -15,6 +15,46 @@ export type BlogArticle = {
 
 export const blogs: BlogArticle[] = [
   {
+    slug: "why-everyone-has-to-be-a-content-creator-now",
+    date: "Oct 20, 2026",
+    title: "Why Does Everyone Have to Be a Content Creator Now?",
+    excerpt:
+      "Content creation has become the default path for career growth, even for developers. Here is why a naturally camera-shy front-end engineer is finally stepping out from behind the screen to document the journey.",
+    readTime: "5 MIN READ",
+    intro:
+      "Being online for a while, I’ve noticed a cultural shift that feels almost unavoidable: content creation has become the default path for almost every industry. Even for highly technical work that, on paper, shouldn't require a personal brand, the pressure to 'build an audience' is immense. For someone like me—a naturally camera-shy guy who usually volunteers to take the family photos just to stay safely out of the frame—this shift is a tough pill to swallow.",
+    sections: [
+      {
+        heading: "The Illusion of the Safe Technical Path",
+        paragraphs: [
+          "Like most people, I initially played by the traditional rules. I put my head down and focused purely on building hard, practical technical skills. I dove deep into software development and front-end website architecture, assuming that mastering the right frameworks and writing clean code would be my golden ticket.",
+          "But the harsh reality of the current tech landscape is that these fields are heavily saturated. Opportunities feel increasingly slim, and the competition is intensely fierce. We are living in an era where getting your foot in the door often relies far more on digital visibility and social connections than the actual quality of the products you build.",
+        ],
+      },
+      {
+        heading: "The Content Creation Paradox",
+        paragraphs: [
+          "When the traditional avenues for career progression feel blocked, creating content starts to seem like the only viable way to build visibility and prove your expertise. But here is the paradox that stops many of us in our tracks: content creation itself is just as saturated.",
+          "It often feels like every service, every unique idea, or every problem-solving concept has already been done to death by thousands of other people. Recently, I spent time architecting what I thought was a truly original solution to a complex problem. I felt a rush of pride, only to search online and find that similar—and in some ways, highly optimized—solutions already existed. It can be incredibly exhausting feeling like there is nothing new left to build under the sun.",
+        ],
+      },
+      {
+        heading: "Bridging Logic, Aesthetics, and Motion",
+        paragraphs: [
+          "To properly introduce myself: I am a front-end developer and web designer. I build comprehensive online presences for brands, businesses, and individuals. My journey into web development started out of pure, unadulterated curiosity. I simply wanted to understand how the digital tools and platforms I used every single day actually worked under the hood.",
+          "Web development generally splits into two distinct disciplines: the underlying logic and the visual design. While I started strong on the logical, functional side—wiring up data and state management—I quickly found myself drawn to the aesthetics and creativity of the web. I cared deeply about the elements users actually see, touch, and interact with. That curiosity naturally pulled me into UI/UX design, and eventually, into the dynamic world of video editing and motion graphics.",
+        ],
+      },
+      {
+        heading: "A Different Kind of Creator",
+        paragraphs: [
+          "I initially picked up video editing as a purely practical skill. I was exploring faceless YouTube automation, looking for a self-sufficient path to generate income when traditional front-end freelance opportunities were slow to pay off. It was the perfect loophole for my personality: a way to be a creator without ever having to be the face on the screen.",
+          "Today, combining the rigorous logic of code, the empathetic design of UI/UX, and the storytelling fundamentals of a video editor allows me to approach digital builds with a completely holistic view. Despite my reservations about the creator economy, sitting back and remaining invisible is no longer an option. So, this is me officially starting my content creation journey on my own terms—to document, to build, and to see exactly where this path leads.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "mastering-tailwind-css-configuration",
     date: "Oct 24, 2023",
     title: "Mastering Tailwind CSS Configuration",
@@ -148,4 +188,5 @@ export const blogs: BlogArticle[] = [
   },
 ];
 
-export const getBlogBySlug = (slug?: string) => blogs.find((blog) => blog.slug === slug);
+export const getBlogBySlug = (slug?: string) =>
+  blogs.find((blog) => blog.slug === slug);
