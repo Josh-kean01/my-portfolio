@@ -73,28 +73,6 @@ export const projectsData: Project[] = [
     repoUrl: "https://github.com/Josh-kean01/crumb-and-chop",
   },
   {
-    id: "coming-soon-project-demo",
-    title: "Coming Soon Project",
-    year: "2026",
-    category: "UI Design",
-    status: "Coming Soon",
-    description:
-      "A sample project entry reserved for work that will be revealed at a later date.",
-    tags: ["Coming Soon", "UI Design"],
-    image: "/assets/projects/project-status/coming-soon.svg",
-    role: "Project Owner",
-    timeframe: "Coming Soon",
-    client: "Personal Project",
-    overview:
-      "This is a demo entry for a project that has not been announced yet. Replace this sample content with a project overview when you are ready to reveal it.",
-    problem:
-      "Project details are not available yet. Add the context and goals here when the project is ready to be announced.",
-    solution:
-      "The project approach and outcome will be shared here when the work is ready to be revealed.",
-    stack: ["To be announced"],
-    images: ["/assets/projects/project-status/coming-soon.svg"],
-  },
-  {
     id: "john-abodunrin",
     title: "John Abodunrin",
     year: "2026",
