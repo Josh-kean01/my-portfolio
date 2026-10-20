@@ -38,12 +38,10 @@ const RouteMetadata = () => {
     setMetaContent("property", "og:url", metadata.canonicalUrl);
     setMetaContent("property", "og:title", metadata.title);
     setMetaContent("property", "og:description", metadata.description);
-    setMetaContent("property", "og:image", metadata.image);
     setMetaContent("name", "twitter:card", metadata.twitterCard);
     setMetaContent("name", "twitter:url", metadata.canonicalUrl);
     setMetaContent("name", "twitter:title", metadata.title);
     setMetaContent("name", "twitter:description", metadata.description);
-    setMetaContent("name", "twitter:image", metadata.image);
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
     if (!canonical) {

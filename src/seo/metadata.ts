@@ -7,15 +7,13 @@ export type PageMetadata = {
   title: string;
   description: string;
   canonicalUrl: string;
-  image: string;
   openGraphType: "website" | "article";
-  twitterCard: "summary" | "summary_large_image";
+  twitterCard: "summary";
 };
 
 const DEFAULT_TITLE = "Joshua Adekunle | Website Developer Portfolio";
 const DEFAULT_DESCRIPTION =
   "Website developer Joshua Adekunle builds responsive, user-friendly web experiences. Explore selected projects and get in touch.";
-const DEFAULT_IMAGE = `${SITE_URL}/og-image.png`;
 
 const BLOG_TITLE = "Frontend Development Blog | Joshua Adekunle";
 const BLOG_DESCRIPTION =
@@ -37,25 +35,14 @@ const getSegments = (pathname: string) =>
       }
     });
 
-const getProjectImage = (projectId: string) => {
-  const project = getProjectById(projectId);
-  if (!project) return DEFAULT_IMAGE;
-
-  const image = project.images.find((path) =>
-    /\.(png|jpe?g|webp)$/i.test(path),
-  );
-  return new URL(image ?? project.image, SITE_URL).href;
-};
-
 export const getPageMetadata = (pathname: string): PageMetadata => {
   const segments = getSegments(pathname);
   const metadata: PageMetadata = {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
     canonicalUrl: new URL(pathname, SITE_URL).href,
-    image: DEFAULT_IMAGE,
     openGraphType: "website",
-    twitterCard: "summary_large_image",
+    twitterCard: "summary",
   };
 
   if (segments[0] === "blog") {
@@ -78,9 +65,7 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
     if (project) {
       metadata.title = `${project.title} | Project by Joshua Adekunle`;
       metadata.description = project.description;
-      metadata.image = getProjectImage(project.id);
       metadata.openGraphType = "article";
-      metadata.twitterCard = "summary_large_image";
     }
   }
 

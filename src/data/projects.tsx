@@ -1,11 +1,13 @@
 // src/data/projects.ts
 export type ProjectCategory = "Web" | "Mobile" | "UI Design";
+export type ProjectStatus = "In Development" | "Coming Soon" | "Shipping Updates";
 
 export type Project = {
   id: string;
   title: string;
   year: string;
   category: ProjectCategory;
+  status?: ProjectStatus;
   description: string;
   tags: string[];
   image: string;
@@ -24,6 +26,74 @@ export type Project = {
 };
 
 export const projectsData: Project[] = [
+  {
+    id: "crumb-and-chop",
+    title: "Catering & Bakery Platform",
+    year: "2026",
+    category: "Web",
+    status: "In Development",
+    description:
+      "A modern e-commerce and catering website with a live guest calculator, booking management, and a custom staff dashboard.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "E-Commerce",
+      "UI/UX Design",
+    ],
+    image: "",
+
+    role: "Full-Stack Developer & UI Designer",
+    timeframe: "2026",
+    client: "Bakery & Event Catering Business",
+
+    overview:
+      "A complete food ordering and event catering platform. It lets everyday customers order custom cakes, party finger foods, and fresh family meals online, while also handling large event bookings like weddings and corporate gatherings with a built-in cost estimator and a private staff back-office.",
+
+    problem:
+      "Most food businesses take orders through endless back-and-forth chat messages. Customers ask the same questions about pricing and availability, staff accidentally accept orders on fully booked days without enough prep time, and large event inquiries easily slip through the cracks.",
+
+    solution:
+      "I designed and built an all-in-one system that solves this on both sides. For customers, prices update instantly as they pick cake sizes or meal portions, and the calendar only shows slots the kitchen can actually handle. An interactive event calculator helps party planners budget in seconds and download branded PDF menus. For the business team, I created a clean, role-based dashboard to manage orders, update menus without touching code, track sales analytics, and recover abandoned carts.",
+
+    stack: [
+      "React",
+      "Next.js",
+      "Tailwind CSS",
+      "TypeScript",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "GSAP",
+    ],
+
+    images: [],
+
+    liveUrl: "https://3000-iogorgxctl1thtbwznpxy.e2b.app",
+    repoUrl: "https://github.com/Josh-kean01/crumb-and-chop",
+  },
+  {
+    id: "coming-soon-project-demo",
+    title: "Coming Soon Project",
+    year: "2026",
+    category: "UI Design",
+    status: "Coming Soon",
+    description:
+      "A sample project entry reserved for work that will be revealed at a later date.",
+    tags: ["Coming Soon", "UI Design"],
+    image: "/assets/projects/project-status/coming-soon.svg",
+    role: "Project Owner",
+    timeframe: "Coming Soon",
+    client: "Personal Project",
+    overview:
+      "This is a demo entry for a project that has not been announced yet. Replace this sample content with a project overview when you are ready to reveal it.",
+    problem:
+      "Project details are not available yet. Add the context and goals here when the project is ready to be announced.",
+    solution:
+      "The project approach and outcome will be shared here when the work is ready to be revealed.",
+    stack: ["To be announced"],
+    images: ["/assets/projects/project-status/coming-soon.svg"],
+  },
   {
     id: "john-abodunrin",
     title: "John Abodunrin",
@@ -143,6 +213,7 @@ export const projectsData: Project[] = [
     title: "TubeInspect Suite",
     year: "2026",
     category: "Web",
+    status: "Shipping Updates",
     description:
       "A modern YouTube productivity toolkit for extracting metadata, evaluating SEO, downloading thumbnails, creating timestamped clips, and working with video transcripts from one unified interface.",
     tags: ["React", "TypeScript", "Tailwind CSS", "Vite", "YouTube APIs"],

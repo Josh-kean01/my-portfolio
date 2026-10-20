@@ -34,12 +34,10 @@ export function prerender({ url }: { url: string }) {
                 meta("og:url", metadata.canonicalUrl),
                 meta("og:title", metadata.title),
                 meta("og:description", metadata.description),
-                meta("og:image", metadata.image),
                 namedMeta("twitter:card", metadata.twitterCard),
                 namedMeta("twitter:url", metadata.canonicalUrl),
                 namedMeta("twitter:title", metadata.title),
                 namedMeta("twitter:description", metadata.description),
-                namedMeta("twitter:image", metadata.image),
             ]),
         },
     };

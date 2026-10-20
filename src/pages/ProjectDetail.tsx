@@ -31,6 +31,12 @@ const ProjectDetail = () => {
           {project.title}
         </h1>
 
+        {project.status && (
+          <span className="inline-block text-[10px] 2xl:text-xs font-mono uppercase tracking-wider text-primary dark:text-white border border-border-light dark:border-border-dark px-2 py-1 rounded-sm">
+            {project.status}
+          </span>
+        )}
+
         <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 xl:gap-10 2xl:gap-16 border-t border-border-light dark:border-border-dark pt-6 2xl:pt-8 mt-8 2xl:mt-12">
           <div>
             <span className="block text-[10px] 2xl:text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
@@ -128,18 +134,28 @@ const ProjectDetail = () => {
           <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold text-primary dark:text-white">
             Project Gallery
           </h2>
-          <span className="text-xs 2xl:text-sm text-gray-400 font-mono hidden sm:inline-block">
-            01 — {String(project.images.length).padStart(2, "0")}
-          </span>
+          {project.images.length > 0 && (
+            <span className="text-xs 2xl:text-sm text-gray-400 font-mono hidden sm:inline-block">
+              01 — {String(project.images.length).padStart(2, "0")}
+            </span>
+          )}
         </div>
 
-        <ProjectImageSlider
-          images={project.images}
-          title={project.title}
-          autoScroll={true}
-          autoScrollInterval={4000}
-          mode="contain"
-        />
+        {project.images.length > 0 ? (
+          <ProjectImageSlider
+            images={project.images}
+            title={project.title}
+            autoScroll={true}
+            autoScrollInterval={4000}
+            mode="contain"
+          />
+        ) : (
+          <div className="flex aspect-[16/9] min-h-64 items-center justify-center border border-border-light bg-gray-100 dark:border-border-dark dark:bg-gray-900">
+            <p className="font-display text-6xl font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 md:text-8xl 2xl:text-[9rem]">
+              Coming Soon
+            </p>
+          </div>
+        )}
       </section>
 
       <section className="flex flex-col items-start pt-12 2xl:pt-16 border-t border-border-light dark:border-border-dark">

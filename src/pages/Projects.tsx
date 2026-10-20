@@ -1,5 +1,5 @@
 // src/pages/Projects.tsx
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ExternalLink, Search } from "lucide-react";
 import ActionButton from "../components/ActionButton";
@@ -7,11 +7,53 @@ import { projectsData, Project } from "../data/projects";
 
 const INITIAL_VISIBLE_COUNT = 6;
 const LOAD_MORE_COUNT = 6;
+const LIVE_PREVIEW_VIEWPORT_WIDTH = 1280;
+const LIVE_PREVIEW_VIEWPORT_HEIGHT = 960;
+
+const LiveSitePreview = ({ url, title }: { url: string; title: string }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [scale, setScale] = useState(0.25);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const updateScale = () => {
+      setScale(container.clientWidth / LIVE_PREVIEW_VIEWPORT_WIDTH);
+    };
+
+    updateScale();
+
+    const observer = new ResizeObserver(updateScale);
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="absolute inset-0 overflow-hidden">
+      <iframe
+        src={url}
+        title={`${title} preview`}
+        loading="lazy"
+        scrolling="no"
+        referrerPolicy="no-referrer-when-downgrade"
+        style={{
+          width: LIVE_PREVIEW_VIEWPORT_WIDTH,
+          height: LIVE_PREVIEW_VIEWPORT_HEIGHT,
+          transform: `scale(${scale})`,
+          transformOrigin: "top left",
+        }}
+        className="pointer-events-none absolute left-0 top-0 grayscale transition-[filter,transform] duration-700 group-hover:grayscale-0"
+      />
+    </div>
+  );
+};
 
 const Projects = () => {
   const [filter, setFilter] = useState("All Work");
   const [search, setSearch] = useState("");
   const [visibleCount, setVisibleCount] = useState(INITIAL_VISIBLE_COUNT);
+  const [brokenImages, setBrokenImages] = useState<Record<string, boolean>>({});
 
   const filteredProjects = useMemo(() => {
     return projectsData.filter((project: Project) => {
@@ -95,15 +137,28 @@ const Projects = () => {
 
       {/* Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-7 xl:gap-x-7 2xl:gap-x-8 gap-y-10 xl:gap-y-12 2xl:gap-y-16">
-        {visibleProjects.map((project) => (
+        {visibleProjects.map((project) => {
+          const shouldUseLivePreview = Boolean(project.liveUrl) && (!project.image || brokenImages[project.id]);
+
+          return (
           <article key={project.id} className="group">
             <Link to={`/projects/${project.id}`} className="block">
               <div className="relative overflow-hidden mb-4 2xl:mb-5 bg-gray-200 dark:bg-gray-800 aspect-[4/3] border border-border-light dark:border-border-dark">
-                <img
-                  src={project.image}
-                  alt={project.title}
-                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
-                />
+                {shouldUseLivePreview && project.liveUrl ? (
+                  <LiveSitePreview url={project.liveUrl} title={project.title} />
+                ) : (
+                  <img
+                    src={project.image}
+                    alt={project.title}
+                    onError={() => setBrokenImages((prev) => ({ ...prev, [project.id]: true }))}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 filter grayscale group-hover:grayscale-0"
+                  />
+                )}
+                {project.status && (
+                  <span className="absolute top-4 left-4 text-[10px] 2xl:text-xs font-mono uppercase tracking-wider text-primary dark:text-white bg-white/90 dark:bg-black/80 border border-border-light dark:border-border-dark px-2 py-1 rounded-sm">
+                    {project.status}
+                  </span>
+                )}
                 <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-2 group-hover:translate-y-0">
                   <div className="w-9 h-9 2xl:w-10 2xl:h-10 bg-white dark:bg-black flex items-center justify-center text-primary dark:text-white shadow-lg border border-border-light dark:border-gray-700">
                     <ExternalLink size={16} className="2xl:hidden" />
@@ -140,7 +195,8 @@ const Projects = () => {
               ))}
             </div>
           </article>
-        ))}
+          );
+        })}
       </div>
 
       {/* Empty State */}

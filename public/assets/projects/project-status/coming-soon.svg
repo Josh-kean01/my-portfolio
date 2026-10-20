@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" fill="none">
+  <rect width="1200" height="900" fill="#E7E5E4"/>
+  <path d="M0 240C240 315 307 77 535 168C763 259 870 471 1200 357V0H0V240Z" fill="#D6D3D1"/>
+  <rect x="458" y="252" width="284" height="284" rx="142" stroke="#57534E" stroke-width="2"/>
+  <path d="M552 390H648M600 342V438" stroke="#292524" stroke-width="4" stroke-linecap="round"/>
+  <text x="600" y="630" fill="#292524" font-family="Arial, sans-serif" font-size="38" letter-spacing="8" text-anchor="middle">COMING SOON</text>
+  <text x="600" y="680" fill="#78716C" font-family="Arial, sans-serif" font-size="18" letter-spacing="4" text-anchor="middle">PROJECT PREVIEW</text>
+</svg>

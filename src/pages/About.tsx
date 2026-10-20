@@ -1,7 +1,7 @@
 import React from "react";
 import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from "lucide-react";
 import ActionButton from "../components/ActionButton";
-import ShinyText from "../components/ShinyText";
+import TechText from "../components/TechText";
 import TiltedCard from "../components/TiltedCard";
 
 const About = () => {
@@ -10,24 +10,20 @@ const About = () => {
       {/* Hero Section */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 xl:gap-10 2xl:gap-16 mb-16 xl:mb-16 2xl:mb-24">
         <div className="flex flex-col justify-center space-y-6 xl:space-y-7 2xl:space-y-8">
-          <div className="space-y-2">
+          <div className="space-y-1">
             <h2 className="text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl text-gray-400 font-display font-light">
               ʜᴇʟʟᴏ, I'ᴍ
             </h2>
 
-            {/* Smaller at xl (1366-ish), keep big at 2xl (1920) */}
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl  font-display font-bold text-primary dark:text-white tracking-tight">
-              <ShinyText
+            <h1 className="font-display font-bold text-primary dark:text-white tracking-tight">
+              <TechText
                 text="ᴊᴏꜱʜTʜᴇFʀᴏɴᴛᴇɴᴅGᴜʏ"
-                speed={2}
-                delay={0}
-                color="#b5b5b5"
-                shineColor="#ffffff"
-                spread={120}
-                direction="left"
-                yoyo={false}
-                pauseOnHover={false}
-                disabled={false}
+                align="left"
+                fontWeight={700}
+                fontSize={100}
+                color="currentColor"
+                accentColor="currentColor"
+                className="-mb-1 h-10 md:h-12 lg:h-14 xl:h-14 2xl:h-16"
               />
             </h1>
           </div>
