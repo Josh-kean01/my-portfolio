@@ -27,6 +27,48 @@ export type Project = {
 
 export const projectsData: Project[] = [
   {
+    id: "batcheemashup",
+    title: "BatcheeMashup",
+    year: "2026",
+    category: "Web",
+    status: "In Development",
+    description:
+      "Reaction mashup hub where users watch free teasers, vote on community polls, and unlock premium full-length cuts with a VIP membership.",
+    tags: [
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Bunny Stream",
+      "Flutterwave",
+      "Resend",
+      "React",
+    ],
+    image: "",
+    role: "Full-Stack Developer",
+    timeframe: "2026",
+    client: "Personal Project",
+    overview:
+      "A media hub for reaction mashups and crowd-reacted clips. Watch free teasers of premium mashups, vote on community polls, and unlock premium full-length cuts with a VIP membership. Built as a full-stack Next.js application with secure video streaming and real-time payments.",
+    problem:
+      "Streaming reaction mashups requires reliable video hosting, gated access to premium content, and community input on what to cut next. Users needed a way to sample premium content before subscribing to a subscription, while admins needed a streamlined way to upload and manage video content.",
+    solution:
+      "Built a full-stack media hub with Next.js and PostgreSQL. Implemented direct-to-Bunny video uploads using TUS resumable uploads, signed HLS playback URLs via the video player, and Stripe-style test checkout via Flutterwave for premium memberships. Added an admin dashboard to manage videos, polls, and users, plus community polls where members vote on what mashup gets cut next.",
+    stack: [
+      "Next.js",
+      "Tailwind CSS",
+      "PostgreSQL",
+      "Drizzle ORM",
+      "Bunny Stream",
+      "Flutterwave",
+      "Resend",
+      "React",
+    ],
+    images: [],
+    liveUrl: "https://3000-i8k00qefwbe4xjxlt99mw.e2b.app",
+    repoUrl: "https://github.com/YOUR_USERNAME/batcheemashup",
+  },
+  {
     id: "crumb-and-chop",
     title: "Catering & Bakery Platform",
     year: "2026",
