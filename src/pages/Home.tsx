@@ -2,6 +2,7 @@ import {
   ArrowLeft,
   ArrowRight,
   ArrowUpRight,
+  MapPin,
 } from "lucide-react";
 import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,7 +12,6 @@ import ProjectPreview from "../components/ProjectPreview";
 const Lanyard = lazy(() => import("../components/Lanyard"));
 
 const Home = () => {
-  const cateringProject = projectsData.find((project) => project.id === "crumb-and-chop");
   const selectedWork = projectsData.filter((project) => project.featured).slice(0, 3);
   const manifestoRef = useRef<HTMLElement>(null);
   const selectedWorkTrackRef = useRef<HTMLDivElement>(null);
@@ -156,7 +156,10 @@ const Home = () => {
             JA<span>.</span>
           </Link>
           <div className="home-hero-date">Independent developer<br />Available for select work</div>
-          <Link className="home-contact-link" to="/contact">Contact <span aria-hidden="true">↗</span></Link>
+          <div className="home-hero-location">
+            <MapPin size={13} aria-hidden="true" />
+            <span>Lagos, Nigeria · GMT+1</span>
+          </div>
         </div>
 
         <div className="home-portrait-wrap">
@@ -197,41 +200,30 @@ const Home = () => {
                 Book a call <ArrowUpRight size={13} aria-hidden="true" />
               </Link>
             </div>
-            <div className="home-hero-proof">
-              <div className="home-focus-card">
-                <span>WHAT I DO</span>
-                <strong>Interfaces<br />built with care</strong>
-                <small>React · Next.js · TypeScript</small>
-                <small>Design systems · Product UI</small>
-                <Link to="/about">More about me <ArrowRight size={12} /></Link>
-              </div>
-              <Link className="home-mini-project" to="/projects/john-abodunrin">
-                <img src="/assets/projects/john-abodunrin/home-l.png" alt="" />
-                <span>SELECTED PROJECT</span>
-                <strong>John Abodunrin</strong>
-                <small>Video editor portfolio · 2026</small>
-              </Link>
-            </div>
           </div>
 
-          <aside className="home-hero-aside" aria-label="Featured project">
-            <div className="home-growth-pill"><span>↗</span> Thoughtful by design</div>
-            <Link
-              className="home-current-project"
-              to={`/projects/${cateringProject?.id ?? "crumb-and-chop"}`}
-            >
-              <strong>{cateringProject?.title ?? "Catering & Bakery Platform"}</strong>
-              <span className="home-current-image">
-                {cateringProject?.liveUrl && (
-                  <ProjectPreview url={cateringProject.liveUrl} title={cateringProject.title} />
-                )}
-                <span aria-hidden="true">↗</span>
-              </span>
-              <span className="home-current-caption">{cateringProject?.role}</span>
-            </Link>
+          <aside className="home-hero-aside" aria-label="Areas of focus">
+            <ul className="home-hero-capabilities">
+              <li>Clear product interfaces</li>
+              <li>Responsive websites</li>
+              <li>React and Next.js builds</li>
+            </ul>
           </aside>
         </div>
 
+      </section>
+
+      <section ref={manifestoRef} className="home-manifesto" aria-labelledby="home-manifesto-heading">
+        <h2 id="home-manifesto-heading" className="home-manifesto-copy">
+          {manifesto.map((word, index) => (
+            <span className="home-manifesto-word" key={`${word}-${index}`}>
+              {word}{" "}
+            </span>
+          ))}
+        </h2>
+        <p className="home-manifesto-subline">
+          From first sketch to final interaction, I make the web work beautifully.
+        </p>
       </section>
 
       <section
@@ -241,7 +233,6 @@ const Home = () => {
       >
         <div className="home-selected-work-heading">
           <div>
-            <span>Selected work</span>
             <h2 id="home-selected-work-heading">A few things I&apos;ve built.</h2>
           </div>
           <Link to="/projects">
@@ -326,27 +317,9 @@ const Home = () => {
         </div>
       </section>
 
-      <section ref={manifestoRef} className="home-manifesto" aria-labelledby="home-manifesto-heading">
-        <div className="home-section-label">
-          <span>01 / A little about how I work</span>
-          <span>Thoughtful by design</span>
-        </div>
-        <h2 id="home-manifesto-heading" className="home-manifesto-copy">
-          {manifesto.map((word, index) => (
-            <span className="home-manifesto-word" key={`${word}-${index}`}>
-              {word}{" "}
-            </span>
-          ))}
-        </h2>
-        <p className="home-manifesto-subline">
-          From first sketch to final interaction, I make the web work beautifully.
-        </p>
-      </section>
-
       <section className="home-proof" aria-labelledby="home-proof-heading">
         <div className="home-proof-heading">
           <div>
-            <span className="home-proof-eyebrow">03 / Feedback &amp; outcomes</span>
             <h2 id="home-proof-heading">Good work, built together<span>.</span></h2>
           </div>
           <p>
@@ -379,7 +352,6 @@ const Home = () => {
 
       <section className="home-contact-cta" aria-labelledby="home-contact-heading">
         <div className="home-contact-cta-copy">
-          <span className="home-contact-eyebrow">04 / Have a project in mind?</span>
           <h2 id="home-contact-heading">Let&apos;s talk.</h2>
         </div>
         <Link to="/contact" className="home-contact-button">

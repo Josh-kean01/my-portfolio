@@ -410,16 +410,9 @@
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.home-selected-work-heading > div > span {
-  color: var(--home-copy-subtle);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
 
 .home-selected-work-heading h2 {
-  margin: 0.65rem 0 0;
+  margin: 0;
   font-size: clamp(2rem, 4vw, 3.8rem);
   font-weight: 500;
   letter-spacing: -0.07em;
@@ -562,32 +555,11 @@
     clamp(6rem, 14vw, 12rem);
 }
 
-.home-section-label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  border-bottom: 1px solid rgb(255 255 255 / 15%);
-  padding-bottom: 0.8rem;
-  color: #888;
-  font-family: var(--font-display);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
 
-.home-section-label > a {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: #ddd;
-  text-decoration: none;
-}
 
 .home-manifesto-copy {
   max-width: 58rem;
-  margin: clamp(3rem, 8vw, 7rem) auto 0;
+  margin: 0 auto;
   color: #727272;
   font-family: "Archivo", var(--font-display);
   font-size: clamp(2rem, 5vw, 4.3rem);
@@ -614,7 +586,7 @@
 
 .home-manifesto-subline {
   max-width: 33rem;
-  margin: clamp(3rem, 7vw, 6rem) auto 0;
+  margin: clamp(1.5rem, 3vw, 2.5rem) auto 0;
   color: #bcbcbc;
   font-size: clamp(0.85rem, 1.2vw, 1rem);
   line-height: 1.7;
@@ -634,18 +606,10 @@
   margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
 }
 
-.home-proof-eyebrow,
-.home-contact-eyebrow {
-  color: var(--home-copy-subtle);
-  font-size: 0.62rem;
-  font-weight: 600;
-  letter-spacing: 0.13em;
-  text-transform: uppercase;
-}
 
 .home-proof-heading h2 {
   max-width: 46rem;
-  margin: 0.8rem 0 0;
+  margin: 0;
   font-size: clamp(2rem, 4.5vw, 4.5rem);
   font-weight: 550;
   letter-spacing: -0.07em;
@@ -895,188 +859,6 @@
   }
 }
 
-@media (max-width: 47.999rem) {
-  .home-hero {
-    min-height: calc(100vh - 4.45rem);
-    min-height: calc(100svh - 4.45rem);
-  }
-
-  .home-hero-topline {
-    grid-template-columns: 1fr auto;
-    padding: 1rem 1rem 0;
-  }
-
-  .home-contact-link {
-    display: grid;
-    width: 2.4rem;
-    height: 2.4rem;
-    place-items: center;
-    padding: 0;
-    font-size: 0;
-  }
-
-  .home-contact-link span {
-    margin: 0;
-    font-size: 1rem;
-  }
-
-  .home-hero-grid {
-    display: flex;
-    min-height: 38rem;
-    flex: 1;
-    align-items: flex-start;
-    padding: 5.2rem 1.1rem 1.5rem;
-  }
-
-  .home-hero-intro {
-    width: 100%;
-    padding-top: 0.5rem;
-  }
-
-  .home-hero-kicker {
-    max-width: 18rem;
-    margin-bottom: 1.2rem;
-    font-size: 0.57rem;
-  }
-
-  .home-hero-title {
-    font-size: clamp(4.1rem, 18vw, 7.2rem);
-    line-height: 0.78;
-  }
-
-  .home-hero-description {
-    max-width: 17rem;
-    margin-top: 1.1rem;
-    font-size: 0.84rem;
-  }
-
-  .home-portrait-wrap {
-    inset: auto 0 0 0;
-    height: 62%;
-    align-items: flex-end;
-  }
-
-  .home-portrait-wrap::after {
-    background: linear-gradient(
-      180deg,
-      #d7d7d5 0%,
-      rgb(215 215 213 / 0%) 31%,
-      transparent 70%,
-      #d7d7d5 100%
-    );
-  }
-
-  .home-portrait {
-    width: min(90%, 28rem);
-    height: 110%;
-    object-position: center 40%;
-    -webkit-mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      #000 12%,
-      #000 88%,
-      transparent 100%
-    );
-    mask-image: linear-gradient(
-      to right,
-      transparent 0%,
-      #000 12%,
-      #000 88%,
-      transparent 100%
-    );
-  }
-
-  .home-portrait-plate {
-    top: 48%;
-    width: min(19rem, 77%);
-    padding: 0.7rem 0.8rem;
-    font-size: 0.65rem;
-  }
-
-  .home-portrait-caption {
-    right: 1rem;
-    bottom: 1rem;
-    font-size: 0.5rem;
-  }
-
-  .home-manifesto {
-    padding: 4rem 1.2rem 5rem;
-  }
-
-  .home-selected-work {
-    padding: 3.5rem 1.2rem 4rem;
-  }
-
-  .home-selected-work-heading {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .home-selected-work-heading h2 {
-    font-size: clamp(2rem, 9vw, 3rem);
-  }
-
-  .home-selected-work-track {
-    gap: 0.75rem;
-  }
-
-  .home-selected-project {
-    flex-basis: min(78vw, 20rem);
-  }
-
-  .home-selected-project-info h3 {
-    font-size: 1.15rem;
-  }
-
-  .home-section-label {
-    font-size: 0.52rem;
-  }
-
-  .home-manifesto-copy {
-    margin-top: 3rem;
-    font-size: clamp(1.8rem, 7vw, 2.7rem);
-    text-align: left;
-  }
-
-  .home-manifesto-subline {
-    margin-top: 2.5rem;
-    text-align: left;
-  }
-
-  .home-proof {
-    padding: 3.5rem 1.2rem 4rem;
-  }
-
-  .home-proof-heading {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 1rem;
-  }
-
-  .home-proof-heading h2 {
-    font-size: clamp(2.2rem, 9vw, 3.5rem);
-  }
-
-  .home-proof-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-
-  .home-proof-card {
-    min-height: 15rem;
-  }
-
-  .home-contact-cta {
-    align-items: flex-start;
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 3rem 1.2rem;
-  }
-
-  .home-contact-cta h2 {
-    font-size: clamp(2.2rem, 10vw, 3.2rem);
-  }
-}
 
 @media (max-height: 740px) and (min-width: 48rem) {
   .home-hero-grid {
@@ -1213,6 +995,20 @@
   line-height: 1.4;
   text-align: right;
 }
+.home-hero-location {
+  display: inline-flex;
+  align-items: center;
+  justify-self: end;
+  gap: 0.45rem;
+  margin-right: clamp(3.5rem, 5vw, 5.5rem);
+  color: var(--home-hero-ink);
+  font-family: "Inter Tight", var(--font-body);
+  font-size: clamp(0.58rem, 0.72vw, 0.75rem);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+}
+
 
 .home-contact-link {
   margin-right: clamp(3.5rem, 5vw, 5.5rem);
@@ -1423,6 +1219,22 @@
   padding: clamp(6rem, 17vh, 11rem) 0 0.7rem;
 }
 
+.home-hero-capabilities {
+  display: grid;
+  width: min(100%, 20rem);
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.home-hero-capabilities li {
+  border-top: 1px solid color-mix(in srgb, var(--home-hero-ink) 22%, transparent);
+  padding: 0.85rem 0;
+  color: var(--home-hero-muted);
+  font-size: clamp(0.72rem, 0.85vw, 0.86rem);
+  line-height: 1.35;
+}
+
 .home-hero-name {
   align-self: flex-start;
   margin: 0 0 0.5rem;
@@ -1512,99 +1324,6 @@
   animation: none;
 }
 
-@media (max-width: 47.999rem) {
-  .home-hero {
-    min-height: calc(100vh - 4.45rem);
-    min-height: calc(100svh - 4.45rem);
-    margin: 0;
-  }
-
-  .home-hero-topline {
-    grid-template-columns: 1fr auto;
-    gap: 0.5rem;
-    padding: 0.8rem 0.75rem 0;
-  }
-
-  .home-hero-date {
-    display: none;
-  }
-
-  .home-contact-link {
-    width: 2.3rem;
-    height: 2.3rem;
-    margin: 0;
-    padding: 0;
-    font-size: 0;
-  }
-
-  .home-contact-link span {
-    margin: 0;
-    font-size: 0.9rem;
-  }
-
-  .home-hero-grid {
-    display: block;
-    flex: 1;
-    padding: 0 1rem;
-  }
-
-  .home-hero-intro {
-    position: relative;
-    z-index: auto;
-    width: 100%;
-    max-width: none;
-    height: 100%;
-    padding: clamp(4.5rem, 13vh, 7rem) 0 0;
-  }
-
-  .home-hero-title {
-    font-size: clamp(3.8rem, 17vw, 6.8rem);
-    line-height: 0.78;
-  }
-
-  .home-hero-title > span + span {
-    font-size: 0.77em;
-  }
-
-  .home-hero-about {
-    margin-top: 1.2rem;
-  }
-
-  .home-hero-description {
-    max-width: 15rem;
-    margin-top: 0.5rem;
-    font-size: 0.76rem;
-  }
-
-  .home-hero-action {
-    margin-top: 0.9rem;
-  }
-
-  .home-hero-proof,
-  .home-hero-aside {
-    display: none;
-  }
-
-  .home-portrait-wrap {
-    inset: 0 -1rem 2.65rem;
-    height: auto;
-    justify-content: center;
-  }
-
-  .home-portrait-wrap::after {
-    display: none;
-  }
-
-  .home-portrait-wrap .home-lanyard {
-    inset: 0;
-    width: 100%;
-    height: 100%;
-  }
-
-  .home-manifesto-copy span.home-manifesto-word {
-    font-size: inherit;
-  }
-}
 
 .home-page {
   --home-page-bg: var(--background);
@@ -1716,14 +1435,7 @@
     color 300ms ease;
 }
 
-.home-section-label {
-  border-color: var(--home-section-border);
-  color: var(--home-copy-subtle);
-}
 
-.home-section-label > a {
-  color: var(--home-page-fg);
-}
 
 .home-manifesto-copy {
   color: var(--home-copy-muted);
@@ -1765,17 +1477,6 @@
   color: var(--home-hero-base);
 }
 
-@media (max-width: 47.999rem) {
-  .home-portrait-wrap::after {
-    background: linear-gradient(
-      180deg,
-      var(--home-hero-base) 0%,
-      color-mix(in srgb, var(--home-hero-base) 0%, transparent) 24%,
-      transparent 80%,
-      var(--home-hero-base) 100%
-    );
-  }
-}
 
 .home-page,
 .home-page * {
@@ -2990,5 +2691,188 @@
   .project-detail-empty-gallery {
     aspect-ratio: 1.25 / 1;
     min-height: 13rem;
+  }
+}
+
+/* Use one vertical rhythm for each homepage section at every breakpoint. */
+.home-manifesto,
+.home-selected-work,
+.home-proof,
+.home-contact-cta {
+  padding-block: clamp(2.5rem, 4vw, 4rem);
+}
+
+@media (max-width: 47.999rem) {
+  .home-hero {
+    min-height: calc(100vh - 4.45rem);
+    min-height: calc(100svh - 4.45rem);
+    margin: 0;
+  }
+
+  .home-hero-topline {
+    display: none;
+  }
+
+  .home-hero-grid {
+    display: block;
+    min-height: 38rem;
+    flex: 1;
+    padding: 0 1rem;
+  }
+
+  .home-hero-intro {
+    position: relative;
+    z-index: auto;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    padding: clamp(4.5rem, 13vh, 7rem) 0 0;
+  }
+
+  .home-hero-kicker {
+    max-width: 18rem;
+    margin-bottom: 1.2rem;
+    font-size: 0.57rem;
+  }
+
+  .home-hero-title {
+    font-size: clamp(3.8rem, 17vw, 6.8rem);
+    line-height: 0.78;
+  }
+
+  .home-hero-title > span + span {
+    font-size: 0.77em;
+  }
+
+  .home-hero-about {
+    margin-top: 1.2rem;
+  }
+
+  .home-hero-description {
+    max-width: 15rem;
+    margin-top: 0.5rem;
+    font-size: 0.76rem;
+  }
+
+  .home-hero-action {
+    margin-top: 0.9rem;
+  }
+
+  .home-hero-aside {
+    display: none;
+  }
+
+  .home-portrait-wrap {
+    align-items: flex-end;
+    inset: 0 -1rem 2.65rem;
+    height: auto;
+    justify-content: center;
+  }
+
+  .home-portrait-wrap::after {
+    display: none;
+  }
+
+  .home-portrait-wrap .home-lanyard {
+    inset: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  .home-portrait {
+    width: min(90%, 28rem);
+    height: 110%;
+    object-position: center 40%;
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+
+  .home-portrait-plate {
+    top: 48%;
+    width: min(19rem, 77%);
+    padding: 0.7rem 0.8rem;
+    font-size: 0.65rem;
+  }
+
+  .home-portrait-caption {
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 0.5rem;
+  }
+
+  .home-manifesto,
+  .home-selected-work,
+  .home-proof,
+  .home-contact-cta {
+    padding-inline: 1.2rem;
+  }
+
+  .home-selected-work-heading {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .home-selected-work-heading h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  .home-selected-work-track {
+    gap: 0.75rem;
+  }
+
+  .home-selected-project {
+    flex-basis: min(78vw, 20rem);
+  }
+
+  .home-selected-project-info h3 {
+    font-size: 1.15rem;
+  }
+
+  .home-manifesto-copy {
+    margin-top: 0;
+    font-size: clamp(1.8rem, 7vw, 2.7rem);
+    text-align: left;
+  }
+
+  .home-manifesto-copy span.home-manifesto-word {
+    font-size: inherit;
+  }
+
+  .home-manifesto-subline {
+    margin-top: 1.5rem;
+    text-align: left;
+  }
+
+  .home-proof-heading {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .home-proof-heading h2 {
+    font-size: clamp(2.2rem, 9vw, 3.5rem);
+  }
+
+  .home-proof-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .home-proof-card {
+    min-height: 15rem;
+  }
+
+  .home-contact-cta {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .home-contact-cta h2 {
+    font-size: clamp(2.2rem, 10vw, 3.2rem);
+  }
+
+  .home-portrait-wrap::after {
+    background: linear-gradient(180deg, var(--home-hero-base) 0%, color-mix(in srgb, var(--home-hero-base) 0%, transparent) 24%, transparent 80%, var(--home-hero-base) 100%);
   }
 }
