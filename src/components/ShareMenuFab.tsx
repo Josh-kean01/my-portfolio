@@ -1,22 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
-import { AnimatePresence, motion, type Variants } from "framer-motion";
-import { Share2, Github, Twitter, Mail } from "lucide-react";
-
-const panelVariants: Variants = {
-    hidden: { opacity: 0, y: 12, scale: 0.98 },
-    show: {
-        opacity: 1,
-        y: 0,
-        scale: 1,
-        transition: { duration: 0.22, ease: "easeOut", when: "beforeChildren", staggerChildren: 0.07 },
-    },
-    exit: { opacity: 0, y: 10, scale: 0.98, transition: { duration: 0.16, ease: "easeInOut" } },
-};
-
-const itemVariants: Variants = {
-    hidden: { opacity: 0, y: 6 },
-    show: { opacity: 1, y: 0, transition: { duration: 0.18, ease: "easeOut" } },
-};
+import { Github, Mail, Share2, Twitter, X } from "lucide-react";
+import { Liquid } from "liquid-gooey";
 
 function useOnClickOutside(ref: React.RefObject<HTMLElement>, handler: () => void) {
     useEffect(() => {
@@ -33,6 +17,20 @@ function useOnClickOutside(ref: React.RefObject<HTMLElement>, handler: () => voi
         };
     }, [ref, handler]);
 }
+
+const itemTransition = {
+    duration: 550,
+    ease: "cubic-bezier(0.34, 1.56, 0.64, 1)",
+};
+
+const itemPositions = [
+    { x: 0, y: -64 },
+    { x: -54, y: -34 },
+    { x: 54, y: -34 },
+];
+
+const buttonClassName =
+    "inline-flex h-10 w-10 items-center justify-center rounded-full border border-white/10 bg-[#202020] text-white shadow-lg transition-colors hover:bg-[#303030] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent";
 
 export default function ShareMenuFab() {
     const [open, setOpen] = useState(false);
@@ -56,62 +54,64 @@ export default function ShareMenuFab() {
 
     return (
         <div ref={wrapRef} className="fixed bottom-6 right-6 z-50">
-            {/* Panel */}
-            <AnimatePresence>
-                {open && (
-                    <motion.div
-                        key="share-panel"
-                        role="menu"
-                        aria-label="Social links"
-                        initial="hidden"
-                        animate="show"
-                        exit="exit"
-                        variants={panelVariants}
-                        className="mb-3 rounded-xlshadow-xl overflow-hidden"
-                    >
-                        <div className="grid grid-rows-3 gap-2">
-                            {links.map(({ label, href, Icon }) => (
-                                <motion.a
-                                    key={label}
-                                    role="menuitem"
-                                    variants={itemVariants}
-                                    href={href}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    onClick={() => setOpen(false)}
-                                    aria-label={label}
-                                    className="h-12 w-12 rounded-xl border border-border-light dark:border-border-dark
-                 bg-white dark:bg-surface-dark shadow-sm
-                 inline-flex items-center justify-center
-                 hover:bg-gray-100 dark:hover:bg-gray-800
-                 focus:outline-none focus:ring-2 focus:ring-accent
-                 transition-transform duration-200 ease-out hover:-translate-y-0.5 active:translate-y-0"
-                                >
-                                    <Icon size={18} aria-hidden="true" />
-                                    <span className="sr-only">{label}</span>
-                                </motion.a>
-                            ))}
-                        </div>
-
-                    </motion.div>
-                )}
-            </AnimatePresence>
-
-            {/* Share button */}
-            <button
-                type="button"
-                aria-haspopup="menu"
-                aria-expanded={open}
-                onClick={() => setOpen((v) => !v)}
-                title="Share on social media"
-                className="h-12 w-12 rounded-full border border-border-light dark:border-border-dark
-                   bg-white dark:bg-surface-dark shadow-lg
-                   inline-flex items-center justify-center
-                   transition-transform duration-200 ease-out
-                   hover:-translate-y-1 active:translate-y-0"
+            <Liquid
+                blur={0}
+                contrast={20}
+                fill="#202020"
+                shadow="0 8px 24px rgb(0 0 0 / 18%)"
+                filterPadding={200}
+                className="relative h-[104px] w-[148px]"
+                aria-label="Social links"
             >
-                <Share2 size={18} />
-            </button>
+                {links.map(({ label, href, Icon }, index) => (
+                    <Liquid.Item
+                        key={label}
+                        x={open ? itemPositions[index].x : 0}
+                        y={open ? itemPositions[index].y : 0}
+                        transition={itemTransition}
+                        delay={open ? index * 40 : 0}
+                        className={`absolute bottom-0 left-[54px] ${
+                            open
+                                ? "pointer-events-auto opacity-100"
+                                : "pointer-events-none opacity-0"
+                        } transition-opacity duration-200`}
+                        style={{ zIndex: 5 + index }}
+                        aria-hidden={!open}
+                    >
+                        <a
+                            href={href}
+                            target={href.startsWith("mailto:") ? undefined : "_blank"}
+                            rel={href.startsWith("mailto:") ? undefined : "noreferrer"}
+                            onClick={() => setOpen(false)}
+                            aria-label={label}
+                            tabIndex={open ? 0 : -1}
+                            className={buttonClassName}
+                        >
+                            <Icon size={18} aria-hidden="true" />
+                        </a>
+                    </Liquid.Item>
+                ))}
+
+                <Liquid.Item
+                    x={0}
+                    y={0}
+                    transition={itemTransition}
+                    className="absolute bottom-0 left-[54px]"
+                    style={{ zIndex: 10 }}
+                >
+                    <button
+                        type="button"
+                        aria-haspopup="true"
+                        aria-expanded={open}
+                        aria-label={open ? "Close social links" : "Share on social media"}
+                        title={open ? "Close social links" : "Share on social media"}
+                        onClick={() => setOpen((value) => !value)}
+                        className={buttonClassName}
+                    >
+                        {open ? <X size={18} aria-hidden="true" /> : <Share2 size={18} aria-hidden="true" />}
+                    </button>
+                </Liquid.Item>
+            </Liquid>
         </div>
     );
 }

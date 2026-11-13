@@ -8,22 +8,25 @@ const Contact = () => {
 
   return (
     <div className="px-6 py-14 md:px-12 lg:px-16 xl:py-14 2xl:py-24 min-h-full flex flex-col justify-center">
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 2xl:gap-16 items-start max-w-7xl mx-auto w-full">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 2xl:gap-16 items-start w-full">
         <div className="lg:col-span-5 space-y-7 2xl:space-y-8 h-full flex flex-col justify-center">
           <div className="space-y-3 2xl:space-y-4">
-            {/* tighter for 1366-ish */}
-            <h2 className="text-2xl md:text-3xl lg:text-4xl xl:text-3xl 2xl:text-5xl font-bold text-gray-400">
-              Let's start a
-            </h2>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-display font-bold text-primary dark:text-white leading-tight">
-              Conversation.
+            <h1 className="flex flex-col gap-3 2xl:gap-4 leading-tight">
+              <span className="text-2xl md:text-3xl lg:text-4xl xl:text-3xl 2xl:text-5xl font-bold text-gray-400">
+                Let's start a
+              </span>
+              <span className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-6xl font-display font-bold text-primary dark:text-white">
+                Conversation.
+              </span>
             </h1>
           </div>
 
           <div className="space-y-5 2xl:space-y-6 text-gray-600 dark:text-gray-300 text-sm md:text-base lg:text-base xl:text-sm 2xl:text-xl leading-relaxed max-w-md font-light">
             <p>
-              I'm currently available for freelance work or full-time opportunities. If you have
-              a project that needs some creative touch, I'd love to hear about it.
+              I'm open to freelance projects and full-time frontend roles. I build web
+              applications and responsive interfaces, and I bring a strong UI/UX focus to
+              the work. If you're planning a new product or improving an existing one, I'd
+              love to hear what you have in mind.
             </p>
 
             <div className="pt-3 2xl:pt-4">
@@ -146,7 +149,7 @@ const Contact = () => {
                   type="text"
                   id="subject"
                   name="subject"
-                  placeholder="Tell me what you would like to build..."
+                  placeholder="e.g. New website for my business"
                   required
                   className="w-full bg-transparent border-0 border-b-2 border-gray-200 dark:border-gray-700 px-0 py-3 text-sm md:text-base xl:text-sm 2xl:text-lg focus:ring-0 focus:!border-b-2 focus:!border-primary dark:focus:!border-white focus:outline-none transition-colors placeholder-gray-300 dark:placeholder-gray-600 text-primary dark:text-white"
                 />
@@ -162,7 +165,7 @@ const Contact = () => {
                     (projectType) => (
                       <label
                         key={projectType}
-                        className="group cursor-pointer rounded-sm border border-gray-200 dark:border-gray-700 px-3 py-2 2xl:px-4 2xl:py-2.5 text-xs 2xl:text-sm text-gray-600 dark:text-gray-300 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white dark:has-[:checked]:border-white dark:has-[:checked]:bg-white dark:has-[:checked]:text-black"
+                        className="group cursor-pointer rounded-sm border border-gray-200 dark:border-gray-700 px-3 py-2 2xl:px-4 2xl:py-2.5 text-xs 2xl:text-sm text-gray-600 dark:text-gray-300 transition-colors has-[:checked]:border-primary has-[:checked]:bg-primary has-[:checked]:text-white dark:has-[:checked]:border-white dark:has-[:checked]:bg-white dark:has-[:checked]:text-black has-[:focus-visible]:outline has-[:focus-visible]:outline-2 has-[:focus-visible]:outline-offset-2 has-[:focus-visible]:outline-accent"
                       >
                         <input
                           type="radio"
@@ -190,7 +193,7 @@ const Contact = () => {
                   id="message"
                   name="message"
                   rows={4}
-                  placeholder="Tell me about your project..."
+                  placeholder="Share your goals, audience, key features, timeline, or anything else I should know."
                   required
                   className="w-full bg-transparent border-0 border-b-2 border-gray-200 dark:border-gray-700 px-0 py-3 text-sm md:text-base xl:text-sm 2xl:text-lg focus:ring-0 focus:!border-b-2 focus:!border-primary dark:focus:!border-white focus:outline-none transition-colors placeholder-gray-300 dark:placeholder-gray-600 text-primary dark:text-white resize-none"
                 ></textarea>
@@ -199,7 +202,15 @@ const Contact = () => {
 
               {state.errors && (
                 <p className="text-sm text-red-600 dark:text-red-400" role="alert">
-                  Something went wrong while sending your message. Please try again.
+                  Your message couldn't be sent. Review any field errors above and try
+                  again. If it still doesn't go through, email{" "}
+                  <a
+                    href="mailto:adekunlej960@gmail.com"
+                    className="font-medium underline underline-offset-2"
+                  >
+                    adekunlej960@gmail.com
+                  </a>
+                  .
                 </p>
               )}
 

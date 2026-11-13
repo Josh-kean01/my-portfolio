@@ -18,7 +18,11 @@ export function useTheme() {
         document.documentElement.classList.toggle("dark", theme === "dark");
 
         const meta = document.querySelector<HTMLMetaElement>('meta[name="theme-color"]');
-        if (meta) meta.content = theme === "dark" ? "#0c0a09" : "#eeeeee";
+        if (meta) {
+            meta.content = getComputedStyle(document.documentElement)
+                .getPropertyValue("--site-page-bg")
+                .trim();
+        }
     }, [initialized, theme]);
 
     // Persist ONLY when user explicitly toggles

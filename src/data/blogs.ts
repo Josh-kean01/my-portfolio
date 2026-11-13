@@ -6,21 +6,135 @@ export type BlogSection = {
 export type BlogArticle = {
   slug: string;
   date: string;
+  publishedAt: string;
+  author: string;
   title: string;
   excerpt: string;
   readTime: string;
+  relatedProjectIds: string[];
   intro: string;
   sections: BlogSection[];
 };
 
 export const blogs: BlogArticle[] = [
   {
+    slug: "build-online-ordering-system-nextjs",
+    date: "Nov 13, 2026",
+    publishedAt: "2026-11-13",
+    author: "Joshua Adekunle",
+    title: "How to Build an Online Ordering System with Next.js",
+    excerpt:
+      "A practical guide to planning an online ordering system with product options, event enquiries, availability rules, and staff tools—based on building a catering and bakery platform.",
+    readTime: "7 MIN READ",
+    relatedProjectIds: ["crumb-and-chop"],
+    intro:
+      "A useful online ordering system does more than move a paper menu onto a screen. It helps customers make confident choices while giving the business a reliable way to receive, schedule, and fulfill each request.",
+    sections: [
+      {
+        heading: "Start with the real ordering journeys",
+        paragraphs: [
+          "Before choosing components or database tables, map the different ways people place orders. A customer buying a cake, someone arranging food for a party, and a staff member coordinating preparation all have different questions and constraints.",
+          "For a catering platform, that means treating everyday products and larger event enquiries as related but distinct journeys. Capture the information each path actually needs, then keep the interface focused on the next useful decision.",
+        ],
+      },
+      {
+        heading: "Make price and availability understandable",
+        paragraphs: [
+          "Product options should update the displayed price as customers make selections. Event estimates should explain what affects the total, rather than presenting a number with no context. Clear calculations reduce uncertainty before a customer submits an enquiry.",
+          "Availability is just as important as price. Connect booking choices to the business's capacity and preparation schedule, and show unavailable dates before a customer invests time in a request.",
+        ],
+      },
+      {
+        heading: "Give staff a workflow, not just an inbox",
+        paragraphs: [
+          "Orders need a clear status, an owner, and enough detail to act on. A staff dashboard can bring bookings, menu updates, and sales information together so the team is not reconstructing the day from scattered messages.",
+          "In my catering and bakery platform project, I brought online ordering, event estimates, and staff operations into one product. The core lesson was to design both sides of the transaction together: a simpler customer checkout only helps if the team can fulfill what it accepts.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "accessible-react-animations-framer-motion",
+    date: "Nov 13, 2026",
+    publishedAt: "2026-11-13",
+    author: "Joshua Adekunle",
+    title: "Accessible React Animations with Framer Motion",
+    excerpt:
+      "Learn how to make React and Framer Motion animations more accessible by respecting reduced-motion preferences, preserving meaning, and testing real interactions.",
+    readTime: "6 MIN READ",
+    relatedProjectIds: ["john-abodunrin"],
+    intro:
+      "Motion can make an interface feel responsive and give users helpful feedback, but animation should never be a prerequisite for understanding or using a page. An accessible motion system treats movement as an enhancement and gives visitors control over how much of it they experience.",
+    sections: [
+      {
+        heading: "Respect the reduced-motion preference",
+        paragraphs: [
+          "Some visitors experience discomfort from large or repeated movement. Check the operating-system preference for reduced motion and provide a calmer alternative for non-essential animation. In Framer Motion, its reduced-motion support can help components adapt without duplicating an entire page.",
+          "Prefer removing travel, parallax, and looping effects over simply making every animation faster. A short fade or an immediate state change is often a clearer alternative than a smaller version of the same movement.",
+        ],
+      },
+      {
+        heading: "Keep interaction and meaning independent of motion",
+        paragraphs: [
+          "A panel should remain discoverable if it does not slide into view. A button should communicate its state with text, semantics, or a clear visual change—not only with an animated transition.",
+          "Use motion to reinforce an action, not to carry information that is otherwise unavailable. This keeps the interface understandable when animations are reduced, interrupted, or not perceived.",
+        ],
+      },
+      {
+        heading: "Test animation as part of the interface",
+        paragraphs: [
+          "Test keyboard focus, touch input, reduced-motion settings, and slower devices. Pay attention to whether movement blocks an action, shifts content unexpectedly, or makes focus difficult to track.",
+          "I used Framer Motion while building a portfolio for a video editor, where motion supports an expressive visual identity. That kind of interface still needs restraint: every transition should help establish hierarchy or feedback rather than compete with the work itself.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "nextjs-secure-video-streaming-membership",
+    date: "Nov 13, 2026",
+    publishedAt: "2026-11-13",
+    author: "Joshua Adekunle",
+    title: "Building a Video Membership Platform with Next.js",
+    excerpt:
+      "Explore the product and engineering decisions behind a video membership platform, from free previews and signed HLS playback to resumable uploads and gated access.",
+    readTime: "7 MIN READ",
+    relatedProjectIds: ["batcheemashup"],
+    intro:
+      "A video membership product has to balance discovery, playback, and access control. Visitors need enough of a preview to decide whether the content is for them, while members need reliable playback and the team needs a manageable publishing workflow.",
+    sections: [
+      {
+        heading: "Separate previews from protected playback",
+        paragraphs: [
+          "A free teaser is a product feature, not just a shorter video. It should make the value of the full content clear and give visitors a natural path to membership without exposing the protected asset.",
+          "For paid playback, keep authorization on the server and issue time-limited playback access only after checking the viewer's entitlement. Signed HLS URLs help avoid treating a hidden frontend link as a security boundary.",
+        ],
+      },
+      {
+        heading: "Make video delivery resilient",
+        paragraphs: [
+          "Large uploads are vulnerable to interrupted connections. A resumable upload flow lets an administrator continue rather than restart a transfer, while a dedicated streaming provider can handle encoding and adaptive playback.",
+          "Playback should be tested across realistic network conditions and devices. A successful upload is only one part of the workflow; the viewer's path from opening a teaser to watching a full stream must remain understandable and dependable.",
+        ],
+      },
+      {
+        heading: "Connect membership to the whole experience",
+        paragraphs: [
+          "Membership logic affects more than checkout. It determines which content a person can watch, what the interface says when access is unavailable, and how administrators review users and published videos.",
+          "In BatcheeMashup, I brought free teasers, community polls, VIP access, resumable video uploads, and an admin dashboard into one Next.js product. Planning these parts together helped keep the public viewing experience connected to the operational tools behind it.",
+        ],
+      },
+    ],
+  },
+  {
     slug: "why-everyone-has-to-be-a-content-creator-now",
     date: "Oct 20, 2026",
+    publishedAt: "2026-10-20",
+    author: "Joshua Adekunle",
     title: "Why Does Everyone Have to Be a Content Creator Now?",
     excerpt:
       "Being highly skilled used to be enough. Now, if you aren't documenting your process online, you practically don't exist. Here is why the tech industry is forcing quiet builders into the spotlight.",
     readTime: "6 MIN READ",
+    relatedProjectIds: ["john-abodunrin"],
     intro:
       "Being online for a while, I’ve noticed a cultural shift that feels almost unavoidable: content creation has become the default path for career survival, regardless of your industry. Even for highly technical, behind-the-scenes work that shouldn't require a personal brand, the pressure to 'build an audience' is immense. For someone like me—a naturally camera-shy guy who usually volunteers to take the family photos just to stay safely out of the frame—this shift is a tough, exhausting pill to swallow. It begs the question: why isn't simply being good at your job enough anymore?",
     sections: [
@@ -57,10 +171,13 @@ export const blogs: BlogArticle[] = [
   {
     slug: "mastering-tailwind-css-configuration",
     date: "Oct 24, 2023",
+    publishedAt: "2023-10-24",
+    author: "Joshua Adekunle",
     title: "Mastering Tailwind CSS Configuration",
     excerpt:
       "Tailwind CSS is more than just utility classes. Learn how to leverage the configuration file to build a robust, scalable design system for your projects.",
     readTime: "5 MIN READ",
+    relatedProjectIds: ["crumb-and-chop"],
     intro:
       "Tailwind becomes much more useful when it reflects the way a team actually designs and builds. The configuration file is not just a place for one-off color tweaks; it is where the visual rules of a product become repeatable decisions.",
     sections: [
@@ -90,10 +207,13 @@ export const blogs: BlogArticle[] = [
   {
     slug: "the-art-of-minimalist-web-design",
     date: "Sep 12, 2023",
+    publishedAt: "2023-09-12",
+    author: "Joshua Adekunle",
     title: "The Art of Minimalist Web Design",
     excerpt:
       "Minimalism isn't just about removing elements; it's about prioritizing content. Explore the principles that make simple interfaces powerful.",
     readTime: "8 MIN READ",
+    relatedProjectIds: ["mono-ecommerce"],
     intro:
       "Minimal interfaces are not empty interfaces. They are carefully edited experiences where every visible choice helps a person understand what matters and what they can do next.",
     sections: [
@@ -123,10 +243,13 @@ export const blogs: BlogArticle[] = [
   {
     slug: "accessibility-first-development",
     date: "Aug 05, 2023",
+    publishedAt: "2023-08-05",
+    author: "Joshua Adekunle",
     title: "Accessibility First Development",
     excerpt:
       "Why accessibility should never be an afterthought. Practical tips for ensuring your frontend code is inclusive for all users.",
     readTime: "6 MIN READ",
+    relatedProjectIds: ["john-abodunrin", "airtime-tracker-ui"],
     intro:
       "Accessibility is part of frontend quality, not a separate polish pass. Building with it from the first component usually produces clearer structure, better feedback, and a more resilient experience for everyone.",
     sections: [
@@ -156,10 +279,13 @@ export const blogs: BlogArticle[] = [
   {
     slug: "optimizing-react-performance",
     date: "Jul 19, 2023",
+    publishedAt: "2023-07-19",
+    author: "Joshua Adekunle",
     title: "Optimizing React Performance",
     excerpt:
       "A deep dive into memoization, lazy loading, and other techniques to keep your React applications running smoothly at scale.",
     readTime: "12 MIN READ",
+    relatedProjectIds: ["batcheemashup"],
     intro:
       "React performance work is most effective when it starts with evidence. Before reaching for memoization or splitting code, find the interaction or render that users can actually feel and measure what is causing it.",
     sections: [

@@ -1,205 +1,189 @@
-import React from "react";
-import { ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from "lucide-react";
-import ActionButton from "../components/ActionButton";
-import TechText from "../components/TechText";
-import TiltedCard from "../components/TiltedCard";
+import { ArrowDownRight, ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const About = () => {
-  return (
-    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto">
-      {/* Hero Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 lg:gap-12 xl:gap-10 2xl:gap-16 mb-16 xl:mb-16 2xl:mb-24">
-        <div className="flex flex-col justify-center space-y-6 xl:space-y-7 2xl:space-y-8">
-          <div className="space-y-1">
-            <h2 className="text-xl md:text-xl lg:text-2xl xl:text-2xl 2xl:text-3xl text-gray-400 font-display font-light">
-              ʜᴇʟʟᴏ, I'ᴍ
-            </h2>
+const process = [
+  ["01", "Understand", "Start with the people, the problem, and what success should look like."],
+  ["02", "Shape", "Map the key flows and make the interface feel clear before adding complexity."],
+  ["03", "Build", "Develop responsive, accessible experiences and test the details that matter."],
+  ["04", "Hand off", "Keep the work organized, explain decisions, and make the next step easy."],
+];
 
-            <h1 className="font-display font-bold text-primary dark:text-white tracking-tight">
-              <TechText
-                text="ᴊᴏꜱʜTʜᴇFʀᴏɴᴛᴇɴᴅGᴜʏ"
-                align="left"
-                fontWeight={700}
-                fontSize={100}
-                color="currentColor"
-                accentColor="currentColor"
-                className="-mb-1 h-10 md:h-12 lg:h-14 xl:h-14 2xl:h-16"
-              />
-            </h1>
-          </div>
+const experience = [
+  "Mentored aspiring frontend developers through bootcamps and practical workshops.",
+  "Reviewed community projects and shared useful frontend and UI/UX feedback.",
+  "Joined hackathons and collaborative teams to shape and build product ideas.",
+  "Led hands-on sessions in React, Git, responsive design, and frontend fundamentals.",
+  "Built e-commerce, dashboard, and creator-focused web experiences.",
+  "Worked across the product journey, from interface planning to implementation and handoff.",
+];
 
-          {/* Keep body text calm at xl; let 2xl breathe */}
-          <div className="max-w-xl text-sm md:text-base lg:text-base xl:text-base 2xl:text-xl leading-relaxed text-gray-600 dark:text-gray-300 font-light">
-            <p>
-              I am a{" "}
-              <strong className="font-semibold text-primary dark:text-white">
-                frontend developer
-              </strong>{" "}
-              with a strong background in creating visually appealing and{" "}
-              <strong className="font-semibold text-primary dark:text-white">
-                user-friendly web experiences.
-              </strong>
-            </p>
+const certifications = [
+  { org: "ValueMaxCoder'sHub", title: "Frontend Developer", date: "December 2025" },
+  { org: "ValueMaxCoder'sHub", title: "UX/UI Design", date: "June 2025" },
+  { org: "Google", title: "UX Design Professional", date: "October 2022" },
+  { org: "Meta", title: "Front-End Developer", date: "January 2023" },
+  { org: "HackerRank", title: "React (Basic)", date: "March 2023" },
+  { org: "freeCodeCamp", title: "JavaScript Algorithms", date: "June 2022" },
+];
 
-            <p className="mt-4">
-              I am motivated to find a role where I can challenge myself{" "}
-              <strong className="font-semibold text-primary dark:text-white">
-                and provide value to website users.
-              </strong>{" "}
-              I am excited to bring my knowledge and experience to a team.
-            </p>
-          </div>
+const capabilities = [
+  { icon: Code, label: "Frontend development" },
+  { icon: Layout, label: "UI implementation" },
+  { icon: Smartphone, label: "Responsive design" },
+  { icon: Zap, label: "Performance & polish" },
+  { icon: CheckCircle, label: "Accessible interfaces" },
+  { icon: Layout, label: "Reusable components" },
+  { icon: Code, label: "API integration" },
+  { icon: Smartphone, label: "Cross-browser testing" },
+];
 
-          <div className="pt-3">
-            <ActionButton as="a" href="/assets/adekunle-joshua-resume.pdf" download>
-              View Resumé
-            </ActionButton>
-          </div>
+const tools = [
+  "React",
+  "Next.js",
+  "TypeScript",
+  "Tailwind CSS",
+  "Vue.js",
+  "HTML & CSS",
+  "Figma",
+  "Git & GitHub",
+  "VS Code",
+  "Vite",
+  "Node.js",
+  "Firebase",
+];
+
+const About = () => (
+  <div className="about-page">
+    <header className="about-hero">
+      <div className="about-hero-copy">
+        <h1>
+          I&apos;m Joshua.
+          <span>I build for the web.</span>
+        </h1>
+        <p className="about-intro">
+          I&apos;m a web developer with a strong frontend focus. I design and build polished,
+          responsive experiences, and use Next.js to take ideas from interface to full web
+          applications.
+        </p>
+        <div className="about-hero-actions">
+          <a className="about-primary-link" href="/assets/adekunle-joshua-resume.pdf" download>
+            Download résumé <ArrowDownRight size={16} aria-hidden="true" />
+          </a>
+          <Link className="about-secondary-link" to="/contact">
+            Let&apos;s talk <ArrowRight size={15} aria-hidden="true" />
+          </Link>
         </div>
-
-        {/* Visual */}
-        <div className="hidden md:flex items-center justify-center relative">
-          <div className="w-full h-full max-h-[520px] min-h-[520px] 2xl:max-h-[600px] bg-gray-100 dark:bg-gray-900 rounded-xl overflow-hidden relative">
-            <TiltedCard
-              imageSrc="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?q=80&w=2555&auto=format&fit=crop"
-              altText="Website design and development"
-              captionText="Website design and development"
-              containerHeight="100%"
-              containerWidth="100%"
-              imageHeight="100%"
-              imageWidth="100%"
-              rotateAmplitude={12}
-              scaleOnHover={1.05}
-              showMobileWarning={false}
-              className="w-full h-full object-cover opacity-80 grayscale hover:grayscale-0 transition-all duration-700"
-              showTooltip
-              displayOverlayContent
-              overlayContent={
-                <p className="tilted-card-demo-text">
-
-                </p>
-              }
-            />
-          </div>
+        <div className="about-availability">
+          <span><i aria-hidden="true" /> Open to team roles &amp; freelance work</span>
+          <span>Lagos, Nigeria · GMT+1</span>
         </div>
       </div>
 
-      {/* Details Section */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-10 2xl:gap-12 pt-12 2xl:pt-16 border-t border-border-light dark:border-border-dark">
-        <div className="lg:col-span-7 space-y-5 2xl:space-y-6">
-          <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-3 2xl:mb-4">
-            My Story
-          </h3>
+      <figure className="about-portrait">
+        <img src="/joshua.jpeg" alt="Portrait of Joshua Adekunle" />
+        <figcaption>
+          <span>Joshua Adekunle</span>
+          <span>Web developer · Lagos, Nigeria</span>
+        </figcaption>
+      </figure>
+    </header>
 
-          {/* BIG FIX: was text-lg fixed; now calm on xl */}
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-light text-base xl:text-base 2xl:text-lg">
-            My journey began with a curiosity for how things work on the internet. Starting from
-            basic HTML & CSS, I quickly fell in love with the art of crafting interfaces. Over
-            the years, I've honed my skills in modern Javascript frameworks and responsive design
-            principles.
-          </p>
-
-          <p className="text-gray-600 dark:text-gray-300 leading-relaxed font-light text-base xl:text-base 2xl:text-lg">
-            I believe that good design is invisible—it just works. My goal is to build
-            applications that not only solve problems but also delight users through seamless
-            interactions and thoughtful micro-animations.
-          </p>
-        </div>
-
-        <div className="lg:col-span-5 space-y-8 2xl:space-y-10">
-          <div>
-            <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-5 2xl:mb-6">
-              What I Do
-            </h3>
-
-            <ul className="space-y-3 2xl:space-y-4">
-              {[
-                { icon: Code, text: "Frontend Development" },
-                { icon: Layout, text: "UI/UX Implementation" },
-                { icon: Smartphone, text: "Responsive Web Design" },
-                { icon: Zap, text: "Performance Optimization" },
-              ].map((item, idx) => (
-                <li key={idx} className="flex items-center gap-4 text-gray-800 dark:text-gray-200">
-                  <span className="p-2 bg-gray-100 dark:bg-gray-800 rounded-full">
-                    <item.icon size={18} className="text-primary dark:text-white" />
-                  </span>
-                  <span className="text-sm xl:text-sm 2xl:text-base font-medium">{item.text}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          <div>
-            <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold mb-3 2xl:mb-4">
-              Tools I Use
-            </h3>
-
-            <div className="flex flex-wrap gap-2">
-              {["React", "Vue.js", "Tailwind CSS", "Figma", "Git", "Next.js", "VS Code", "TypeScript"].map(
-                (tool) => (
-                  <span
-                    key={tool}
-                    className="px-3 py-1.5 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 text-gray-700 dark:text-gray-300 text-[10px] xl:text-[10px] 2xl:text-xs font-medium uppercase tracking-wide"
-                  >
-                    {tool}
-                  </span>
-                )
-              )}
+    <section className="about-section about-process" aria-labelledby="about-process-title">
+      <div className="about-section-heading">
+        <h2 id="about-process-title">Good work starts with <em>good questions.</em></h2>
+        <p>
+          I like to understand the goal and the people behind it first. Then I shape the
+          experience, build carefully, and leave things clearer than I found them.
+        </p>
+      </div>
+      <ol className="about-process-list">
+        {process.map(([number, title, description]) => (
+          <li key={number}>
+            <span className="about-list-number">{number}</span>
+            <div>
+              <h3>{title}</h3>
+              <p>{description}</p>
             </div>
-          </div>
+            <ArrowDownRight size={17} aria-hidden="true" />
+          </li>
+        ))}
+      </ol>
+    </section>
+
+    <section className="about-section about-community" aria-labelledby="about-community-title">
+      <div className="about-section-heading">
+        <h2 id="about-community-title">Learning, building, <em>sharing.</em></h2>
+        <p>
+          I enjoy growing alongside other developers, making useful things, and helping
+          people feel more confident with the tools they use.
+        </p>
+      </div>
+      <ul className="about-experience-list">
+        {experience.map((item, index) => (
+          <li key={item}>
+            <span>{String(index + 1).padStart(2, "0")}</span>
+            <p>{item}</p>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section className="about-section about-practice" aria-labelledby="about-practice-title">
+      <div className="about-story">
+        <h2 id="about-practice-title">Thoughtful by nature.<br /><em>Practical by design.</em></h2>
+        <p>
+          I started with a curiosity about how the internet works and found my place in
+          building interfaces. I care about the details, but also about keeping the
+          experience useful, accessible, and easy to maintain.
+        </p>
+        <p>
+          I&apos;m naturally camera-shy, so I prefer clear notes, working prototypes, and
+          thoughtful details in the finished experience.
+        </p>
+      </div>
+      <div className="about-capabilities">
+        <div>
+          <h3 className="about-subheading">What I bring</h3>
+          <ul className="about-capability-list">
+            {capabilities.map(({ icon: Icon, label }) => (
+              <li key={label}><Icon size={17} aria-hidden="true" /><span>{label}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div className="about-tools">
+          <h3 className="about-subheading">Tools I use</h3>
+          <ul>
+            {tools.map((tool) => (
+              <li key={tool}>{tool}</li>
+            ))}
+          </ul>
         </div>
       </div>
+    </section>
 
-      {/* Certifications */}
-      <div className="mt-16 2xl:mt-24 border-t border-border-light dark:border-border-dark pt-10 2xl:pt-12">
-        <div className="flex items-center justify-between mb-6 2xl:mb-8">
-          <h3 className="text-xs uppercase tracking-widest text-gray-400 font-bold">Certifications</h3>
-
-          <div className="flex gap-2">
-            <button
-              title="Previous certification"
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-gray-500"
-            >
-              <ArrowRight className="rotate-180" size={20} />
-            </button>
-            <button
-              title="Next certification"
-              className="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-full transition-colors text-primary dark:text-white"
-            >
-              <ArrowRight size={20} />
-            </button>
-          </div>
+    <section className="about-section about-certifications" aria-labelledby="about-certifications-title">
+      <div className="about-section-heading about-certifications-heading">
+        <div>
+          <h2 id="about-certifications-title">A few milestones.</h2>
         </div>
-
-        <div className="flex overflow-x-auto gap-5 2xl:gap-6 pb-8 no-scrollbar snap-x">
-          {[
-            { org: "Google", title: "UX Design Professional", date: "Issued Oct 2022", color: "text-yellow-500" },
-            { org: "Meta", title: "Front-End Developer", date: "Issued Jan 2023", color: "text-blue-500" },
-            { org: "HackerRank", title: "React (Basic)", date: "Issued Mar 2023", color: "text-green-500" },
-            { org: "FreeCodeCamp", title: "JavaScript Algorithms", date: "Issued Jun 2022", color: "text-purple-500" },
-          ].map((cert, i) => (
-            <div
-              key={i}
-              className="min-w-[260px] 2xl:min-w-[280px] p-5 2xl:p-6 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 hover:border-primary dark:hover:border-white transition-colors snap-center group cursor-default"
-            >
-              <div className="flex items-center gap-3 mb-4">
-                <CheckCircle className={cert.color} size={22} />
-                <span className="text-[10px] 2xl:text-xs font-bold uppercase tracking-wide text-gray-400">
-                  {cert.org}
-                </span>
-              </div>
-
-              <h4 className="text-base 2xl:text-lg font-bold text-primary dark:text-white mb-1 transition-colors">
-                {cert.title}
-              </h4>
-
-              <p className="text-[10px] 2xl:text-xs text-gray-500 dark:text-gray-400">{cert.date}</p>
-            </div>
-          ))}
-        </div>
+        <p>Credentials I&apos;ve completed, alongside the practical work I continue to build.</p>
       </div>
-    </div>
-  );
-};
+      <ul className="about-certification-list">
+        {certifications.map(({ org, title, date }) => (
+          <li key={title}>
+            <CheckCircle size={18} aria-hidden="true" />
+            <div><h3>{title}</h3><p>{org}</p></div>
+            <time>{date}</time>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <section className="about-contact" aria-label="Contact">
+      <h2>Let&apos;s make something useful.</h2>
+      <Link to="/contact">Get in touch <ArrowRight size={16} aria-hidden="true" /></Link>
+    </section>
+  </div>
+);
 
 export default About;

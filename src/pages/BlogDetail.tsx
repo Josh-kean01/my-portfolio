@@ -1,18 +1,64 @@
 import React from "react";
-import { ArrowLeft, Clock } from "lucide-react";
-import { Link, Navigate, useParams } from "react-router-dom";
-import { getBlogBySlug } from "../data/blogs";
+import { ArrowLeft, ArrowRight, Clock } from "lucide-react";
+import { Link, Navigate, useParams, useSearchParams } from "react-router-dom";
+import { blogs, getBlogBySlug } from "../data/blogs";
+import { getProjectById } from "../data/projects";
+import { SITE_URL } from "../seo/metadata";
 
 const BlogDetail = () => {
     const { slug } = useParams();
+    const [searchParams] = useSearchParams();
     const article = getBlogBySlug(slug);
 
     if (!article) return <Navigate to="/blog" replace />;
 
+    const sortedBlogs = [...blogs].sort((a, b) =>
+        b.publishedAt.localeCompare(a.publishedAt),
+    );
+    const articleIndex = sortedBlogs.findIndex(
+        (blogArticle) => blogArticle.slug === article.slug,
+    );
+    const previousArticle = sortedBlogs[articleIndex - 1];
+    const nextArticle = sortedBlogs[articleIndex + 1];
+    const requestedBlogPage = Number(searchParams.get("page"));
+    const blogPage =
+        Number.isInteger(requestedBlogPage) && requestedBlogPage > 1
+            ? requestedBlogPage
+            : 1;
+    const blogIndexHref =
+        blogPage === 1 ? "/blog" : `/blog?page=${blogPage}`;
+    const articleHref = (slug: string) =>
+        blogPage === 1 ? `/blog/${slug}` : `/blog/${slug}?page=${blogPage}`;
+
+    const articleUrl = new URL(`/blog/${article.slug}`, SITE_URL).href;
+    const structuredData = JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        headline: article.title,
+        description: article.excerpt,
+        datePublished: article.publishedAt,
+        author: {
+            "@type": "Person",
+            name: article.author,
+            url: SITE_URL,
+        },
+        mainEntityOfPage: articleUrl,
+        publisher: {
+            "@type": "Person",
+            name: "Joshua Adekunle",
+            alternateName: "JoshTheFrontendGuy",
+            url: SITE_URL,
+        },
+    }).replace(/</g, "\\u003c");
+
     return (
-        <article className="px-6 py-14 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-5xl mx-auto">
+        <article className="px-6 py-14 md:px-12 lg:px-16 xl:py-16 2xl:py-24">
+            <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{ __html: structuredData }}
+            />
             <Link
-                to="/blog"
+                to={blogIndexHref}
                 className="inline-flex items-center gap-2 text-gray-500 hover:text-primary dark:hover:text-white mb-10 2xl:mb-16 transition-colors"
             >
                 <ArrowLeft size={18} />
@@ -23,7 +69,10 @@ const BlogDetail = () => {
 
             <header className="max-w-4xl mb-12 2xl:mb-20">
                 <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-[10px] 2xl:text-xs font-mono uppercase tracking-wider text-gray-400 mb-5 2xl:mb-7">
-                    <time>{article.date}</time>
+                    <time dateTime={article.publishedAt}>{article.date}</time>
+                    <span className="font-sans normal-case tracking-normal">
+                        By {article.author}
+                    </span>
                     <span className="inline-flex items-center gap-2">
                         <Clock size={13} />
                         {article.readTime}
@@ -65,15 +114,84 @@ const BlogDetail = () => {
                         ))}
                     </div>
 
-                    <div className="mt-14 2xl:mt-20 pt-8 2xl:pt-10 border-t border-border-light dark:border-border-dark">
-                        <Link
-                            to="/blog"
-                            className="inline-flex items-center gap-2 text-xs 2xl:text-sm font-bold uppercase tracking-wide text-primary dark:text-white hover:text-accent transition-colors"
+                    {article.relatedProjectIds.length > 0 && (
+                        <section
+                            aria-labelledby="related-work-heading"
+                            className="mt-14 border-t border-border-light pt-8 dark:border-border-dark 2xl:mt-20 2xl:pt-10"
                         >
-                            <ArrowLeft size={16} />
-                            More articles
-                        </Link>
-                    </div>
+                            <h2
+                                id="related-work-heading"
+                                className="mb-4 font-display text-lg font-bold text-primary dark:text-white"
+                            >
+                                Related work
+                            </h2>
+                            <ul className="flex flex-wrap gap-3">
+                                {article.relatedProjectIds.map((projectId) => {
+                                    const project = getProjectById(projectId);
+                                    if (!project) return null;
+
+                                    return (
+                                        <li key={project.id}>
+                                            <Link
+                                                to={`/projects/${project.id}`}
+                                                className="inline-flex items-center gap-2 border border-border-light px-3 py-2 text-sm text-primary transition-colors hover:border-primary dark:border-border-dark dark:text-gray-200 dark:hover:border-white"
+                                            >
+                                                {project.title}
+                                                <ArrowLeft
+                                                    size={14}
+                                                    aria-hidden="true"
+                                                    className="rotate-180"
+                                                />
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        </section>
+                    )}
+
+                    {(previousArticle || nextArticle) && (
+                        <nav
+                            aria-label="Article navigation"
+                            className="blog-article-navigation mt-14 border-t border-border-light pt-8 dark:border-border-dark 2xl:mt-20 2xl:pt-10"
+                        >
+                            {previousArticle ? (
+                                <Link
+                                    to={articleHref(previousArticle.slug)}
+                                    className="blog-article-nav-link blog-article-nav-previous"
+                                >
+                                    <ArrowLeft size={16} aria-hidden="true" />
+                                    <span>
+                                        <span className="blog-article-nav-label">
+                                            Previous article
+                                        </span>
+                                        <span className="blog-article-nav-title">
+                                            {previousArticle.title}
+                                        </span>
+                                    </span>
+                                </Link>
+                            ) : (
+                                <span aria-hidden="true" />
+                            )}
+                            {nextArticle && (
+                                <Link
+                                    to={articleHref(nextArticle.slug)}
+                                    className="blog-article-nav-link blog-article-nav-next"
+                                >
+                                    <span>
+                                        <span className="blog-article-nav-label">
+                                            Next article
+                                        </span>
+                                        <span className="blog-article-nav-title">
+                                            {nextArticle.title}
+                                        </span>
+                                    </span>
+                                    <ArrowRight size={16} aria-hidden="true" />
+                                </Link>
+                            )}
+                        </nav>
+                    )}
+
                 </div>
             </div>
         </article>

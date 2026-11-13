@@ -14,10 +14,10 @@ const ProjectDetail = () => {
   if (!project) return <Navigate to="/projects" replace />;
 
   return (
-    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24 max-w-7xl mx-auto">
+    <div className="project-detail-page px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24">
       <Link
         to="/projects"
-        className="inline-flex items-center gap-2 text-gray-500 hover:text-primary dark:hover:text-white mb-8 2xl:mb-12 transition-colors"
+        className="project-detail-back inline-flex items-center gap-2 text-gray-500 hover:text-primary dark:hover:text-white mb-8 2xl:mb-12 transition-colors"
       >
         <ArrowLeft size={18} className="2xl:hidden" />
         <ArrowLeft size={20} className="hidden 2xl:block" />
@@ -26,18 +26,12 @@ const ProjectDetail = () => {
         </span>
       </Link>
 
-      <header className="mb-12 xl:mb-14 2xl:mb-20">
-        <h1 className="font-display text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-bold mb-6 2xl:mb-8 leading-tight text-primary dark:text-white">
+      <header className="project-detail-header mb-12 xl:mb-14 2xl:mb-20">
+        <h1 className="project-detail-title font-display text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-bold mb-6 2xl:mb-8 leading-tight text-primary dark:text-white">
           {project.title}
         </h1>
 
-        {project.status && (
-          <span className="inline-block text-[10px] 2xl:text-xs font-mono uppercase tracking-wider text-primary dark:text-white border border-border-light dark:border-border-dark px-2 py-1 rounded-sm">
-            {project.status}
-          </span>
-        )}
-
-        <div className="flex flex-col md:flex-row md:items-center gap-6 md:gap-10 xl:gap-10 2xl:gap-16 border-t border-border-light dark:border-border-dark pt-6 2xl:pt-8 mt-8 2xl:mt-12">
+        <div className="project-detail-meta grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-10 xl:gap-10 2xl:gap-16 mt-6 2xl:mt-8">
           <div>
             <span className="block text-[10px] 2xl:text-xs uppercase tracking-wider text-gray-400 dark:text-gray-500 mb-1">
               Role
@@ -67,29 +61,29 @@ const ProjectDetail = () => {
         </div>
       </header>
 
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 2xl:gap-16">
-        <div className="lg:col-span-8 space-y-12 xl:space-y-14 2xl:space-y-20">
-          <section>
-            <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold mb-4 2xl:mb-6 text-primary dark:text-white flex items-center gap-3">
-              <span className="w-7 2xl:w-8 h-px bg-primary dark:bg-white"></span> Overview
+      <div className="project-detail-content grid grid-cols-1 lg:grid-cols-12 gap-10 xl:gap-12 2xl:gap-16">
+        <div className="project-detail-story lg:col-span-8 space-y-12 xl:space-y-14 2xl:space-y-20">
+          <section className="project-detail-section">
+            <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold mb-4 2xl:mb-6 text-primary dark:text-white">
+              Overview
             </h2>
             <p className="text-sm md:text-base xl:text-base 2xl:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               {project.overview}
             </p>
           </section>
 
-          <section>
-            <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold mb-4 2xl:mb-6 text-primary dark:text-white flex items-center gap-3">
-              <span className="w-7 2xl:w-8 h-px bg-primary dark:bg-white"></span> The Problem
+          <section className="project-detail-section">
+            <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold mb-4 2xl:mb-6 text-primary dark:text-white">
+              The Problem
             </h2>
             <p className="text-sm md:text-base xl:text-base 2xl:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               {project.problem}
             </p>
           </section>
 
-          <section>
-            <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold mb-4 2xl:mb-6 text-primary dark:text-white flex items-center gap-3">
-              <span className="w-7 2xl:w-8 h-px bg-primary dark:bg-white"></span> The Solution
+          <section className="project-detail-section">
+            <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold mb-4 2xl:mb-6 text-primary dark:text-white">
+              The Solution
             </h2>
             <p className="text-sm md:text-base xl:text-base 2xl:text-lg text-gray-600 dark:text-gray-300 leading-relaxed max-w-2xl">
               {project.solution}
@@ -97,8 +91,8 @@ const ProjectDetail = () => {
           </section>
         </div>
 
-        <div className="lg:col-span-4 lg:border-l lg:border-border-light lg:dark:border-border-dark lg:pl-10 2xl:lg:pl-12">
-          <div className="sticky top-24">
+        <div className="project-detail-aside lg:col-span-4 lg:pl-10 2xl:lg:pl-12">
+          <div className="project-detail-stack sticky top-24">
             <h3 className="font-display text-xs font-bold uppercase tracking-widest mb-6 2xl:mb-8 text-primary dark:text-white">
               Tech Stack
             </h3>
@@ -129,7 +123,7 @@ const ProjectDetail = () => {
         </div>
       </div>
 
-      <section className="mt-16 2xl:mt-24 mb-16 2xl:mb-24">
+      <section className="project-detail-gallery mt-16 2xl:mt-24 mb-16 2xl:mb-24">
         <div className="flex items-end justify-between mb-6 2xl:mb-8">
           <h2 className="font-display text-lg xl:text-xl 2xl:text-2xl font-bold text-primary dark:text-white">
             Project Gallery
@@ -150,15 +144,15 @@ const ProjectDetail = () => {
             mode="contain"
           />
         ) : (
-          <div className="flex aspect-[16/9] min-h-64 items-center justify-center border border-border-light bg-gray-100 dark:border-border-dark dark:bg-gray-900">
-            <p className="font-display text-6xl font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 md:text-8xl 2xl:text-[9rem]">
+          <div className="project-detail-empty-gallery flex aspect-[16/9] min-h-64 items-center justify-center bg-gray-100 dark:bg-gray-900">
+            <p className="font-display font-medium text-gray-400 dark:text-gray-500">
               Coming Soon
             </p>
           </div>
         )}
       </section>
 
-      <section className="flex flex-col items-start pt-12 2xl:pt-16 border-t border-border-light dark:border-border-dark">
+      <section className="project-detail-cta flex flex-col items-start pt-12 2xl:pt-16">
         <h3 className="font-display text-2xl xl:text-2xl 2xl:text-3xl font-bold mb-6 2xl:mb-8 text-primary dark:text-white">
           Interested in something similar?
         </h3>

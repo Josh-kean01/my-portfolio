@@ -7,21 +7,44 @@ export type PageMetadata = {
   title: string;
   description: string;
   canonicalUrl: string;
+  robots: "index,follow" | "noindex,follow";
   openGraphType: "website" | "article";
-  twitterCard: "summary";
+  twitterCard: "summary_large_image";
 };
 
-const DEFAULT_TITLE = "Joshua Adekunle | Website Developer Portfolio";
+const BRAND = "JoshTheFrontendGuy";
+const DEFAULT_TITLE = `Joshua Adekunle | Frontend Developer | ${BRAND}`;
 const DEFAULT_DESCRIPTION =
-  "Website developer Joshua Adekunle builds responsive, user-friendly web experiences. Explore selected projects and get in touch.";
+  "Joshua Adekunle (JoshTheFrontendGuy) is a frontend developer in Lagos, Nigeria, building React and Next.js websites and web apps.";
 
-const BLOG_TITLE = "Frontend Development Blog | Joshua Adekunle";
+const ABOUT_TITLE = `About Joshua Adekunle | ${BRAND}`;
+const ABOUT_DESCRIPTION =
+  "Meet Joshua Adekunle, a frontend developer in Lagos, Nigeria. Explore his React and Next.js projects, development process, and availability for roles and freelance work.";
+
+const BLOG_TITLE = `Web Development Blog | ${BRAND}`;
 const BLOG_DESCRIPTION =
-  "Insights from Joshua Adekunle on frontend development, design systems, accessibility, and creating user-friendly web experiences.";
+  "Practical web development articles by Joshua Adekunle on React, Next.js, frontend engineering, accessibility, performance, and interface design.";
 
-const PROJECTS_TITLE = "Web Development & UI Design Projects | Joshua Adekunle";
+const PROJECTS_TITLE = `Web Development Projects | ${BRAND}`;
 const PROJECTS_DESCRIPTION =
-  "Explore selected web development and UI design projects by Joshua Adekunle, including responsive digital products and user-focused interfaces.";
+  "Explore websites and web applications built by Joshua Adekunle, including React portfolios, Next.js products, e-commerce, and booking platforms.";
+
+const SKILLS_TITLE = `Frontend Development Skills | ${BRAND}`;
+const SKILLS_DESCRIPTION =
+  "Explore Joshua Adekunle's frontend development skills in React, Next.js, TypeScript, responsive web design, accessibility, and UI implementation.";
+
+const CONTACT_TITLE = `Contact Joshua Adekunle | ${BRAND}`;
+const CONTACT_DESCRIPTION =
+  "Contact Joshua Adekunle in Lagos, Nigeria about frontend developer roles, React or Next.js projects, and freelance web development.";
+
+const truncateDescription = (description: string, limit = 160) => {
+  const normalized = description.replace(/\s+/g, " ").trim();
+  if (normalized.length <= limit) return normalized;
+
+  const shortened = normalized.slice(0, limit - 1);
+  const lastSpace = shortened.lastIndexOf(" ");
+  return `${shortened.slice(0, lastSpace > 0 ? lastSpace : limit - 1).replace(/[,.!?;:]$/, "")}…`;
+};
 
 const getSegments = (pathname: string) =>
   pathname
@@ -36,14 +59,30 @@ const getSegments = (pathname: string) =>
     });
 
 export const getPageMetadata = (pathname: string): PageMetadata => {
+  const canonicalPath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+  const isKnownRoute = getPrerenderedRoutes().includes(canonicalPath);
   const segments = getSegments(pathname);
   const metadata: PageMetadata = {
     title: DEFAULT_TITLE,
     description: DEFAULT_DESCRIPTION,
-    canonicalUrl: new URL(pathname, SITE_URL).href,
+    canonicalUrl: new URL(canonicalPath, SITE_URL).href,
+    robots: isKnownRoute ? "index,follow" : "noindex,follow",
     openGraphType: "website",
-    twitterCard: "summary",
+    twitterCard: "summary_large_image",
   };
+
+  if (!isKnownRoute) {
+    metadata.title = `Page not found | ${BRAND}`;
+    metadata.description = "This page could not be found. Return to JoshTheFrontendGuy to explore Joshua Adekunle's work.";
+  } else if (segments.length === 0) {
+    metadata.title = DEFAULT_TITLE;
+    metadata.description = DEFAULT_DESCRIPTION;
+  }
+
+  if (segments[0] === "about") {
+    metadata.title = ABOUT_TITLE;
+    metadata.description = ABOUT_DESCRIPTION;
+  }
 
   if (segments[0] === "blog") {
     metadata.title = BLOG_TITLE;
@@ -51,8 +90,8 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
 
     const article = segments[1] ? getBlogBySlug(segments[1]) : undefined;
     if (article) {
-      metadata.title = `${article.title} | Joshua Adekunle`;
-      metadata.description = article.excerpt;
+      metadata.title = article.title;
+      metadata.description = truncateDescription(article.excerpt);
       metadata.openGraphType = "article";
     }
   }
@@ -63,17 +102,31 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
 
     const project = segments[1] ? getProjectById(segments[1]) : undefined;
     if (project) {
-      metadata.title = `${project.title} | Project by Joshua Adekunle`;
-      metadata.description = project.description;
+      metadata.title = `${project.title} | ${BRAND}`;
+      metadata.description = truncateDescription(project.featuredSummary ?? project.description);
       metadata.openGraphType = "article";
     }
   }
 
+  if (segments[0] === "skills") {
+    metadata.title = SKILLS_TITLE;
+    metadata.description = SKILLS_DESCRIPTION;
+  }
+
+  if (segments[0] === "contact") {
+    metadata.title = CONTACT_TITLE;
+    metadata.description = CONTACT_DESCRIPTION;
+  }
+
+  metadata.description = truncateDescription(metadata.description);
   return metadata;
 };
 
 export const getPrerenderedRoutes = () => [
   "/",
+  "/about",
+  "/skills",
+  "/contact",
   "/blog",
   ...blogs.map((article) => `/blog/${article.slug}`),
   "/projects",
