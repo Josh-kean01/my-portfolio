@@ -14,7 +14,7 @@ import ShareMenuFab from "@/components/ShareMenuFab";
 import Blog from "@/pages/Blog";
 import BlogDetail from "@/pages/BlogDetail";
 import Noise from "@/components/Noise";
-import { getPageMetadata, SITE_URL } from "@/seo/metadata";
+import { getPageMetadata } from "@/seo/metadata";
 
 const setMetaContent = (attribute: "name" | "property", key: string, content: string) => {
   let meta = document.head.querySelector<HTMLMetaElement>(`meta[${attribute}="${key}"]`);
@@ -41,21 +41,21 @@ const RouteMetadata = () => {
     setMetaContent("property", "og:title", metadata.title);
     setMetaContent("property", "og:description", metadata.description);
     setMetaContent("property", "og:site_name", "JoshTheFrontendGuy");
-    setMetaContent("property", "og:image", `${SITE_URL}/og-image.png`);
+    setMetaContent("property", "og:image", metadata.image);
     setMetaContent(
       "property",
       "og:image:alt",
-      "JoshTheFrontendGuy — Joshua Adekunle, frontend developer",
+      metadata.imageAlt,
     );
     setMetaContent("name", "twitter:card", metadata.twitterCard);
     setMetaContent("name", "twitter:url", metadata.canonicalUrl);
     setMetaContent("name", "twitter:title", metadata.title);
     setMetaContent("name", "twitter:description", metadata.description);
-    setMetaContent("name", "twitter:image", `${SITE_URL}/og-image.png`);
+    setMetaContent("name", "twitter:image", metadata.image);
     setMetaContent(
       "name",
       "twitter:image:alt",
-      "JoshTheFrontendGuy — Joshua Adekunle, frontend developer",
+      metadata.imageAlt,
     );
 
     let canonical = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');

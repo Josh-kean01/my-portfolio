@@ -2,7 +2,7 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { MemoryRouter } from "react-router-dom";
 import { AppShell } from "../src/App";
-import { getPageMetadata, getPrerenderedRoutes, SITE_URL } from "../src/seo/metadata";
+import { getPageMetadata, getPrerenderedRoutes } from "../src/seo/metadata";
 
 const meta = (property: string, content: string) => ({
     type: "meta",
@@ -36,19 +36,19 @@ export function prerender({ url }: { url: string }) {
                 meta("og:title", metadata.title),
                 meta("og:description", metadata.description),
                 meta("og:site_name", "JoshTheFrontendGuy"),
-                meta("og:image", `${SITE_URL}/og-image.png`),
+                meta("og:image", metadata.image),
                 meta(
                     "og:image:alt",
-                    "JoshTheFrontendGuy — Joshua Adekunle, frontend developer",
+                    metadata.imageAlt,
                 ),
                 namedMeta("twitter:card", metadata.twitterCard),
                 namedMeta("twitter:url", metadata.canonicalUrl),
                 namedMeta("twitter:title", metadata.title),
                 namedMeta("twitter:description", metadata.description),
-                namedMeta("twitter:image", `${SITE_URL}/og-image.png`),
+                namedMeta("twitter:image", metadata.image),
                 namedMeta(
                     "twitter:image:alt",
-                    "JoshTheFrontendGuy — Joshua Adekunle, frontend developer",
+                    metadata.imageAlt,
                 ),
             ]),
         },

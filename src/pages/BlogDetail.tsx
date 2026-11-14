@@ -36,6 +36,12 @@ const BlogDetail = () => {
         "@type": "BlogPosting",
         headline: article.title,
         description: article.excerpt,
+        image: (() => {
+            const relatedProject = article.relatedProjectIds
+                .map((projectId) => getProjectById(projectId))
+                .find((project) => project?.image);
+            return relatedProject ? new URL(relatedProject.image, SITE_URL).href : `${SITE_URL}/og-image.png`;
+        })(),
         datePublished: article.publishedAt,
         author: {
             "@type": "Person",

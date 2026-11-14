@@ -5,6 +5,7 @@ import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getProjectById } from "../data/projects";
 import ActionButton from "../components/ActionButton";
 import ProjectImageSlider from "@/components/ProjectImageSlider";
+import { SITE_URL } from "../seo/metadata";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -13,7 +14,26 @@ const ProjectDetail = () => {
   // If someone hits a bad URL, send them back to Projects (or render a 404).
   if (!project) return <Navigate to="/projects" replace />;
 
+  const projectUrl = new URL(`/projects/${project.id}`, SITE_URL).href;
+  const structuredData = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "CreativeWork",
+    name: project.title,
+    description: project.featuredSummary ?? project.description,
+    image: new URL(project.image, SITE_URL).href,
+    url: projectUrl,
+    dateCreated: project.year,
+    creator: {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#joshua`,
+      name: "Joshua Adekunle",
+    },
+    keywords: project.stack.join(", "),
+  }).replace(/</g, "\\u003c");
+
   return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
     <div className="project-detail-page px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24">
       <Link
         to="/projects"
@@ -162,6 +182,7 @@ const ProjectDetail = () => {
         </ActionButton>
       </section>
     </div>
+    </>
   );
 };
 

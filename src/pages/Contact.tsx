@@ -71,6 +71,35 @@ const Contact = () => {
             </a>
 
             <a
+              href="https://www.threads.com/@joshthefrontendguy?__pwa=1"
+              target="_blank"
+              rel="me noreferrer"
+              className="group flex items-center gap-2 px-4 2xl:px-5 py-2.5 2xl:py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-sm hover:border-primary dark:hover:border-white transition-all shadow-sm"
+            >
+              <span aria-hidden="true" className="text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white">@</span>
+              <span className="text-xs 2xl:text-sm font-medium text-gray-700 dark:text-gray-300">Threads</span>
+            </a>
+
+            <a
+              href="https://web.facebook.com/joshthefrontendguy/"
+              target="_blank"
+              rel="me noreferrer"
+              className="group flex items-center gap-2 px-4 2xl:px-5 py-2.5 2xl:py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-sm hover:border-primary dark:hover:border-white transition-all shadow-sm"
+            >
+              <span aria-hidden="true" className="text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white">f</span>
+              <span className="text-xs 2xl:text-sm font-medium text-gray-700 dark:text-gray-300">Facebook</span>
+            </a>
+
+            <a
+              href="https://www.instagram.com/joshthefrontendguy/?__pwa=1"
+              target="_blank"
+              rel="me noreferrer"
+              className="group flex items-center gap-2 px-4 2xl:px-5 py-2.5 2xl:py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-sm hover:border-primary dark:hover:border-white transition-all shadow-sm"
+            >
+              <span aria-hidden="true" className="text-sm font-bold text-gray-700 dark:text-gray-300 group-hover:text-black dark:group-hover:text-white">◎</span>
+              <span className="text-xs 2xl:text-sm font-medium text-gray-700 dark:text-gray-300">Instagram</span>
+            </a>
+            <a
               href="mailto:adekunlej960@gmail.com"
               className="group flex items-center gap-2 px-4 2xl:px-5 py-2.5 2xl:py-3 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-sm hover:border-primary dark:hover:border-white transition-all shadow-sm"
             >

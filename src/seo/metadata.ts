@@ -10,6 +10,8 @@ export type PageMetadata = {
   robots: "index,follow" | "noindex,follow";
   openGraphType: "website" | "article";
   twitterCard: "summary_large_image";
+  image: string;
+  imageAlt: string;
 };
 
 const BRAND = "JoshTheFrontendGuy";
@@ -69,6 +71,8 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
     robots: isKnownRoute ? "index,follow" : "noindex,follow",
     openGraphType: "website",
     twitterCard: "summary_large_image",
+    image: `${SITE_URL}/og-image.png`,
+    imageAlt: "JoshTheFrontendGuy — Joshua Adekunle, frontend developer",
   };
 
   if (!isKnownRoute) {
@@ -90,6 +94,13 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
 
     const article = segments[1] ? getBlogBySlug(segments[1]) : undefined;
     if (article) {
+      const relatedProject = article.relatedProjectIds
+        .map((projectId) => getProjectById(projectId))
+        .find((project) => project?.image);
+      if (relatedProject) {
+        metadata.image = new URL(relatedProject.image, SITE_URL).href;
+        metadata.imageAlt = `${relatedProject.title} project preview`;
+      }
       metadata.title = article.title;
       metadata.description = truncateDescription(article.excerpt);
       metadata.openGraphType = "article";
@@ -102,6 +113,8 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
 
     const project = segments[1] ? getProjectById(segments[1]) : undefined;
     if (project) {
+      metadata.image = new URL(project.image, SITE_URL).href;
+      metadata.imageAlt = `${project.title} project preview`;
       metadata.title = `${project.title} | ${BRAND}`;
       metadata.description = truncateDescription(project.featuredSummary ?? project.description);
       metadata.openGraphType = "article";
