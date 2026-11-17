@@ -2,7 +2,7 @@ import { ArrowUpRight, Code2, Palette, Smartphone, Terminal } from "lucide-react
 import type { LucideIcon } from "lucide-react";
 import { useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import ActionButton from "../components/ActionButton";
+import PageClosingCta from "../components/PageClosingCta";
 
 type Skill = {
   name: string;
@@ -132,7 +132,7 @@ const Skills = () => {
   };
 
   return (
-  <div className="px-6 py-24 md:px-12 lg:px-16">
+  <div className="page-cta-gutter px-6 pt-24 pb-0 md:px-12 lg:px-16">
     <header className="mb-20">
       <h1 className="mb-6 font-display text-4xl font-light text-gray-400 md:text-6xl">
         Expertise &amp; <br />
@@ -266,12 +266,14 @@ const Skills = () => {
       </div>
     </section>
 
-    <div className="skills-resume">
-      <p>Want the full overview?</p>
-      <ActionButton as="a" href="/assets/adekunle-joshua-resume.pdf" download>
-        Download Full Resumé
-      </ActionButton>
-    </div>
+    <PageClosingCta
+      heading="Want the full overview?"
+      description="Download my résumé for a concise look at my experience and skills."
+      label="Download résumé"
+      href="/assets/adekunle-joshua-resume.pdf"
+      download
+    />
+
   </div>
   );
 };

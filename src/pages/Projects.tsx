@@ -5,6 +5,7 @@ import { ExternalLink, Search } from "lucide-react";
 import ActionButton from "../components/ActionButton";
 import ProjectPreview from "../components/ProjectPreview";
 import { projectsData, Project } from "../data/projects";
+import PageClosingCta from "../components/PageClosingCta";
 
 const INITIAL_VISIBLE_COUNT = 6;
 const LOAD_MORE_COUNT = 6;
@@ -125,7 +126,7 @@ const Projects = () => {
   };
 
   return (
-    <div className="px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24">
+    <div className="page-cta-gutter px-6 pt-16 pb-0 md:px-12 lg:px-16 xl:pt-16 2xl:pt-24">
       <header className="mb-10 xl:mb-12 2xl:mb-16">
         <h1 className="text-3xl md:text-4xl lg:text-5xl xl:text-5xl 2xl:text-7xl font-display font-bold mb-4 2xl:mb-6 tracking-tight text-primary dark:text-white">
           Selected Projects
@@ -253,6 +254,13 @@ const Projects = () => {
           </ActionButton>
         </div>
       )}
+
+      <PageClosingCta
+        heading="Have a project in mind?"
+        description="Tell me what you need, and we can work out whether I’m the right person to help."
+        label="Start a conversation"
+        href="/contact"
+      />
     </div>
   );
 };

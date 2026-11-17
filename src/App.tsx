@@ -10,6 +10,8 @@ import Skills from "@/pages/Skills";
 import Projects from "@/pages/Projects";
 import ProjectDetail from "@/pages/ProjectDetail";
 import Contact from "@/pages/Contact";
+import Guide from "@/pages/Guide";
+import SiteFooter from "@/components/SiteFooter";
 import ShareMenuFab from "@/components/ShareMenuFab";
 import Blog from "@/pages/Blog";
 import BlogDetail from "@/pages/BlogDetail";
@@ -268,19 +270,23 @@ export const AppShell = () => {
       <a className="skip-to-content" href="#main-content">
         Skip to content
       </a>
-      <main id="main-content" tabIndex={-1} className="app-main flex-1 w-full">
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/skills" element={<Skills />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/projects/:id" element={<ProjectDetail />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogDetail />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </main>
+      <div className="app-content flex min-w-0 flex-1 flex-col">
+        <main id="main-content" tabIndex={-1} className="app-main flex-1 w-full">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/skills" element={<Skills />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/projects/:id" element={<ProjectDetail />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogDetail />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/guide" element={<Guide />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </main>
+        <SiteFooter />
+      </div>
     </div>
   );
 };

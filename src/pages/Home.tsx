@@ -8,6 +8,7 @@ import { Suspense, lazy, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { projectsData } from "../data/projects";
 import ProjectPreview from "../components/ProjectPreview";
+import PageClosingCta from "../components/PageClosingCta";
 
 const Lanyard = lazy(() => import("../components/Lanyard"));
 
@@ -350,14 +351,25 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="home-contact-cta" aria-labelledby="home-contact-heading">
-        <div className="home-contact-cta-copy">
-          <h2 id="home-contact-heading">Let&apos;s talk.</h2>
+      <section className="home-guide" aria-labelledby="home-guide-heading">
+        <div className="home-guide-copy">
+          <p className="home-guide-eyebrow">A guide for business owners</p>
+          <h2 id="home-guide-heading">Planning a website? Start here.</h2>
+          <p>Plain-language answers about costs, the process, and what to expect before you get started.</p>
         </div>
-        <Link to="/contact" className="home-contact-button">
-          Get in touch <ArrowUpRight size={16} aria-hidden="true" />
+        <Link to="/guide" className="home-guide-link">
+          <span className="home-guide-count"><strong>09</strong><span>topics · 45 answers</span></span>
+          <span className="home-guide-action">Explore the guide <ArrowUpRight size={16} aria-hidden="true" /></span>
         </Link>
       </section>
+
+      <PageClosingCta
+        heading="Have a project in mind?"
+        description="Tell me what you’re building, and we can figure out the right next step."
+        label="Start a conversation"
+        href="/contact"
+      />
+
     </div>
   );
 };

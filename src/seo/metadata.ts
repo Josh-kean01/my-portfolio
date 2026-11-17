@@ -38,6 +38,9 @@ const SKILLS_DESCRIPTION =
 const CONTACT_TITLE = `Contact Joshua Adekunle | ${BRAND}`;
 const CONTACT_DESCRIPTION =
   "Contact Joshua Adekunle in Lagos, Nigeria about frontend developer roles, React or Next.js projects, and freelance web development.";
+const GUIDE_TITLE = `Website Planning Guide | ${BRAND}`;
+const GUIDE_DESCRIPTION =
+  "Straightforward answers to common website planning questions, from choosing the right scope and process to launch, ownership, and ongoing care.";
 
 const truncateDescription = (description: string, limit = 160) => {
   const normalized = description.replace(/\s+/g, " ").trim();
@@ -131,6 +134,11 @@ export const getPageMetadata = (pathname: string): PageMetadata => {
     metadata.description = CONTACT_DESCRIPTION;
   }
 
+  if (segments[0] === "guide") {
+    metadata.title = GUIDE_TITLE;
+    metadata.description = GUIDE_DESCRIPTION;
+  }
+
   metadata.description = truncateDescription(metadata.description);
   return metadata;
 };
@@ -140,6 +148,7 @@ export const getPrerenderedRoutes = () => [
   "/about",
   "/skills",
   "/contact",
+  "/guide",
   "/blog",
   ...blogs.map((article) => `/blog/${article.slug}`),
   "/projects",

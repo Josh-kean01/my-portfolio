@@ -1,5 +1,6 @@
 import { ArrowDownRight, ArrowRight, CheckCircle, Code, Layout, Smartphone, Zap } from "lucide-react";
 import { Link } from "react-router-dom";
+import PageClosingCta from "../components/PageClosingCta";
 
 const process = [
   ["01", "Understand", "Start with the people, the problem, and what success should look like."],
@@ -66,9 +67,6 @@ const About = () => (
           applications.
         </p>
         <div className="about-hero-actions">
-          <a className="about-primary-link" href="/assets/adekunle-joshua-resume.pdf" download>
-            Download résumé <ArrowDownRight size={16} aria-hidden="true" />
-          </a>
           <Link className="about-secondary-link" to="/contact">
             Let&apos;s talk <ArrowRight size={15} aria-hidden="true" />
           </Link>
@@ -179,10 +177,14 @@ const About = () => (
       </ul>
     </section>
 
-    <section className="about-contact" aria-label="Contact">
-      <h2>Let&apos;s make something useful.</h2>
-      <Link to="/contact">Get in touch <ArrowRight size={16} aria-hidden="true" /></Link>
-    </section>
+    <PageClosingCta
+      heading="Want the full overview?"
+      description="Download my résumé for a concise look at my experience and skills."
+      label="Download résumé"
+      href="/assets/adekunle-joshua-resume.pdf"
+      download
+    />
+
   </div>
 );
 

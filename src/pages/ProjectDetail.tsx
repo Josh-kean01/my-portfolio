@@ -3,9 +3,9 @@ import React from "react";
 import { useParams, Link, Navigate } from "react-router-dom";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { getProjectById } from "../data/projects";
-import ActionButton from "../components/ActionButton";
 import ProjectImageSlider from "@/components/ProjectImageSlider";
 import { SITE_URL } from "../seo/metadata";
+import PageClosingCta from "../components/PageClosingCta";
 
 const ProjectDetail = () => {
   const { id } = useParams();
@@ -34,7 +34,7 @@ const ProjectDetail = () => {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: structuredData }} />
-    <div className="project-detail-page px-6 py-16 md:px-12 lg:px-16 xl:py-16 2xl:py-24">
+    <div className="project-detail-page page-cta-gutter px-6 pt-16 pb-0 md:px-12 lg:px-16 xl:pt-16 2xl:pt-24">
       <Link
         to="/projects"
         className="project-detail-back inline-flex items-center gap-2 text-gray-500 hover:text-primary dark:hover:text-white mb-8 2xl:mb-12 transition-colors"
@@ -172,15 +172,13 @@ const ProjectDetail = () => {
         )}
       </section>
 
-      <section className="project-detail-cta flex flex-col items-start pt-12 2xl:pt-16">
-        <h3 className="font-display text-2xl xl:text-2xl 2xl:text-3xl font-bold mb-6 2xl:mb-8 text-primary dark:text-white">
-          Interested in something similar?
-        </h3>
+      <PageClosingCta
+        heading="Interested in something similar?"
+        description="Tell me about the problem you’re solving, and we can explore what would fit."
+        label="Start a conversation"
+        href="/contact"
+      />
 
-        <ActionButton as={Link} to="/contact">
-          Start a Conversation
-        </ActionButton>
-      </section>
     </div>
     </>
   );
