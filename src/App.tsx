@@ -13,6 +13,7 @@ import Contact from "@/pages/Contact";
 import Guide from "@/pages/Guide";
 import SiteFooter from "@/components/SiteFooter";
 import ShareMenuFab from "@/components/ShareMenuFab";
+import { useInteractionSounds } from "@/hooks/useInteractionSounds";
 import Blog from "@/pages/Blog";
 import BlogDetail from "@/pages/BlogDetail";
 import Noise from "@/components/Noise";
@@ -238,6 +239,7 @@ const ScrollToTop = () => {
 export const AppShell = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { isDark, toggleTheme } = useTheme();
+  useInteractionSounds();
 
   return (
     <div className="app-shell min-h-screen flex flex-col md:flex-row">
